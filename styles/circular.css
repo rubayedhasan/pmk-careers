@@ -1,0 +1,279 @@
+/* HERO */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 0;
+  gap: 30px;
+}
+
+.tag {
+  color: var(--pmk-green);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text h1 {
+  color: var(--pmk-blue-dark);
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.hero-text p {
+  color: #6b7280;
+}
+
+.hero-circle {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.circle-outer {
+  width: 300px;
+  height: 300px;
+  background: #d1fae5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-inner {
+  width: 200px;
+  height: 200px;
+  background: var(--pmk-white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.circle-inner h2 {
+  color: var(--pmk-green);
+  font-size: 2.6rem;
+}
+
+#pmk-circular-body {
+  margin-top: 80px;
+}
+
+.circular-body-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.circular-body-heading .hiring-heading {
+  flex: 1;
+}
+
+.circular-body-heading .hiring-heading h3 {
+  color: var(--pmk-blue-dark);
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+.circular-body-heading .hiring-heading p {
+  color: #6b7280;
+  width: 75%;
+  margin-top: 8px;
+}
+
+.circular-body-heading figure {
+  width: 300px;
+  display: flex;
+  align-self: center;
+  justify-content: flex-end;
+}
+
+.circular-body-heading figure img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.jobs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 16px 0;
+}
+
+.job-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: var(--pmk-white);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  transition: all 0.35s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+  border-color: #dcdcdc;
+}
+
+.job-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.job-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.job-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #666;
+}
+
+.job-meta .job-meta-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.job-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.stack-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+  cursor: pointer;
+
+  color: var(--pmk-white);
+  font-size: 14px;
+
+  transition: 0.2s ease;
+}
+
+.stack-icon:hover {
+  transform: translateY(-2px);
+}
+
+.view {
+  background: #2ecc71;
+}
+.print {
+  background: #27ae60;
+}
+.download {
+  background: #1e8449;
+}
+
+/* responsive styles:: small devices  */
+@media (max-width: 767.98px) {
+  .hero {
+    padding: 30px 0;
+  }
+
+  .hero-text h1 {
+    font-size: 2.125rem;
+  }
+
+  .circle-outer {
+    width: 220px;
+    height: 220px;
+  }
+
+  .circle-inner {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+  }
+
+  .circle-inner h2 {
+    font-size: 2rem;
+  }
+
+  .circle-inner p {
+    font-size: 0.95rem;
+  }
+
+  .circular-body-heading {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .circular-body-heading .hiring-heading h3 {
+    color: var(--pmk-blue-dark);
+    font-size: 2.125rem;
+  }
+  .circular-body-heading .hiring-heading p {
+    width: 100%;
+  }
+
+  .circular-body-heading figure {
+    width: 100%;
+  }
+
+  .circular-body-heading figure img {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+/* responsive styles:: medium devices  */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .circular-body-heading .hiring-heading h3 {
+    color: var(--pmk-blue-dark);
+    font-size: 2.35rem;
+  }
+
+  .circular-body-heading .hiring-heading p {
+    width: 85%;
+  }
+
+  .circular-body-heading figure {
+    width: 200px;
+  }
+}
+
+/* responsive styles:: large devices  */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* responsive styles:: extra large devices  */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+}
+
+/* responsive styles:: extra extra large devices  */
+@media (min-width: 1400px) {
+}
