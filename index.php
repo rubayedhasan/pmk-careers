@@ -14,14 +14,26 @@
 
 <body>
 
+    <!-- Linked section :: Navbar -->
     <?php
-    // Linked section :: Navbar
-    include_once("./includes/navbar.php");
+    include_once("./includes/navbar.php"); ?>
 
-    // Linked section :: PMK Circular 
-    include_once("./includes/circular.php");
+    <main>
+        <?php
+        // Linked section:: circular-head 
+        include_once("./includes/circular-head.php");
 
-    // Linked section:: Footer
+        // Linked section:: circular-body 
+        include_once("./includes/circular-body.php");
+
+        // Linked section:: circular-foot 
+        include_once("./includes/circular-foot.php");
+        ?>
+    </main>
+
+
+    <!-- Linked section:: Footer -->
+    <?php
     include_once("./includes/footer.php");
     ?>
 </body>

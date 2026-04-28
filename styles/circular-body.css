@@ -1,73 +1,6 @@
-/* HERO */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 60px 0;
-  gap: 30px;
-}
-
-.tag {
-  color: var(--pmk-green);
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  letter-spacing: 2px;
-}
-
-.hero-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.hero-text h1 {
-  color: var(--pmk-blue-dark);
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin: 12px 0;
-}
-
-.hero-text p {
-  color: #6b7280;
-}
-
-.hero-circle {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  justify-content: center;
-}
-
-.circle-outer {
-  width: 300px;
-  height: 300px;
-  background: #d1fae5;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circle-inner {
-  width: 200px;
-  height: 200px;
-  background: var(--pmk-white);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.circle-inner h2 {
-  color: var(--pmk-green);
-  font-size: 2.6rem;
-}
-
+/* circular body  */
 #pmk-circular-body {
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 .circular-body-heading {
@@ -75,42 +8,74 @@
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  overflow: hidden;
 }
 
 .circular-body-heading .hiring-heading {
   flex: 1;
 }
 
-.circular-body-heading .hiring-heading h3 {
+/* smooth scrolling  */
+.hiring-title,
+.hiring-text,
+.hiring-feature-image {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1.5s ease;
+}
+.section-visible .hiring-title,
+.section-visible .hiring-text,
+.section-visible .hiring-feature-image {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0);
+}
+
+.hiring-title {
   color: var(--pmk-blue-dark);
   font-size: 2.8rem;
   font-weight: 700;
+  transform: translateY(-20px);
 }
-.circular-body-heading .hiring-heading p {
+.hiring-text {
   color: #6b7280;
   width: 75%;
   margin-top: 8px;
+  transform: translateY(20px);
 }
 
-.circular-body-heading figure {
+.hiring-feature-image {
   width: 300px;
   display: flex;
   align-self: center;
   justify-content: flex-end;
+  transform: translateX(150px);
 }
 
-.circular-body-heading figure img {
+.hiring-feature-image img {
   width: 100%;
   object-fit: contain;
   object-position: center;
 }
 
+/* job list  */
 .jobs {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
   margin-top: 20px;
   padding: 16px 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(50px);
+  transition: all 1.2s ease;
+}
+
+.section-visible.jobs {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
 }
 
 .job-card {
@@ -124,14 +89,12 @@
   background: var(--pmk-white);
 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-
   transition: all 0.35s ease;
 }
 
 .job-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-
   border-color: #dcdcdc;
 }
 
@@ -225,25 +188,29 @@
     font-size: 0.95rem;
   }
 
+  #pmk-circular-body {
+    margin-top: 80px;
+  }
+
   .circular-body-heading {
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
   }
 
-  .circular-body-heading .hiring-heading h3 {
+  .hiring-title {
     color: var(--pmk-blue-dark);
     font-size: 2.125rem;
   }
-  .circular-body-heading .hiring-heading p {
+  .hiring-text {
     width: 100%;
   }
 
-  .circular-body-heading figure {
+  .hiring-feature-image {
     width: 100%;
   }
 
-  .circular-body-heading figure img {
+  .hiring-feature-image img {
     width: 100%;
     object-fit: contain;
     object-position: center;
@@ -252,16 +219,16 @@
 
 /* responsive styles:: medium devices  */
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .circular-body-heading .hiring-heading h3 {
+  .hiring-title {
     color: var(--pmk-blue-dark);
     font-size: 2.35rem;
   }
 
-  .circular-body-heading .hiring-heading p {
+  .hiring-text {
     width: 85%;
   }
 
-  .circular-body-heading figure {
+  .hiring-feature-image {
     width: 200px;
   }
 }
