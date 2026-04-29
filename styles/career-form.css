@@ -113,6 +113,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .terms label {
@@ -196,6 +197,15 @@
   .feature-text p {
     font-size: 1.25rem;
   }
+
+  .form-container {
+    width: 100%;
+    max-width: unset;
+  }
+
+  #terms-and-condition {
+    text-align: left;
+  }
 }
 
 /* responsive styles:: medium devices  */
@@ -207,6 +217,15 @@
   .feature-text p {
     font-size: 1.25rem;
     list-style: 1.2;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: unset;
+  }
+
+  #terms-and-condition {
+    text-align: left;
   }
 }
 
