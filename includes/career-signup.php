@@ -39,7 +39,7 @@
         <div class="action-form">
             <div class="form-container">
                 <h3 class="form-title">Create New Account</h3>
-                <form class="user-form" action="">
+                <form class="user-form" action="../server/requests.php" method="post">
                     <div class="user-field">
                         <label for="user-full-name">
                             <span><i class="fa-solid fa-user"></i></span>
@@ -55,13 +55,12 @@
                         </label>
                         <input type="text" name="userAddress" id="user-address" placeholder="Enter Your Address">
                     </div>
-
                     <div class="user-field">
-                        <label for="user-phone-number">
+                        <label for="user-contact-number">
                             <span><i class="fa-solid fa-square-phone"></i></span>
                             <span>Phone Number</span>
                         </label>
-                        <input type="text" name="userFullName" id="user-phone-number" placeholder="+8801XXXXXXXXX" required>
+                        <input type="text" name="userContactNumber" id="user-contact-number" placeholder="phone: +8801XXXXXXXXX" required>
                     </div>
                     <div class="user-field">
                         <label for="user-email-address">
@@ -83,7 +82,7 @@
 
                     <div class="group-user-field">
                         <div class="terms">
-                            <input type="checkbox" name="termsCheck" id="terms-check">
+                            <input type="checkbox" name="termsCheck" id="terms-check" required>
                             <label for="terms-check">By signing up I agree to the
                                 <button type="button" id="terms-and-condition">PMK Terms & Conditions</button></label>
                         </div>

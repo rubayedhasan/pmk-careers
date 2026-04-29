@@ -36,19 +36,45 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./includes/career-signup.php">
-                            <span class="nav-icon"><img src="./assets/icons/user-plus-solid-full.svg" alt="icon"></span>
-                            <span>Signup</span>
-                        </a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="./includes/career-login.php">
-                            <span class="nav-icon"><img src="./assets/icons/right-to-bracket-solid-full.svg" alt="icon"></span>
-                            <span>Login</span>
-                        </a>
-                    </li>
+                    <?php
+                    $userEmailValid = $_SESSION["user"]["userEmail"] ?? null;
+
+                    if ($userEmailValid) {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./includes/">
+                                <span class="nav-icon"><img src="./assets/icons/circle-user-solid-full.svg" alt="icon"></span>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./includes/">
+                                <span class="nav-icon"><img src="./assets/icons/arrow-right-from-bracket-solid-full.svg" alt="icon"></span>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+
+                    <?php
+                    } else {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./includes/career-signup.php?signup=true">
+                                <span class="nav-icon"><img src="./assets/icons/user-plus-solid-full.svg" alt="icon"></span>
+                                <span>Signup</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./includes/career-login.php?login=true">
+                                <span class="nav-icon"><img src="./assets/icons/right-to-bracket-solid-full.svg" alt="icon"></span>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

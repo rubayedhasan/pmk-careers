@@ -16,18 +16,27 @@
 
     <!-- Linked section :: Navbar -->
     <?php
+    session_start();
+
     include_once("./includes/navbar.php"); ?>
 
     <main>
         <?php
-        // Linked section:: circular-head 
-        include_once("./includes/circular-head.php");
+        //  $userEmailValid = $_SESSION["user"]["userEmail"] ?? null; //declare in navbar
 
-        // Linked section:: circular-body 
-        include_once("./includes/circular-body.php");
 
-        // Linked section:: circular-foot 
-        include_once("./includes/circular-foot.php");
+        if ($userEmailValid) {
+            include_once("./includes/career-dashboard.php");
+        } else {
+            // Linked section:: circular-head 
+            include_once("./includes/circular-head.php");
+
+            // Linked section:: circular-body 
+            include_once("./includes/circular-body.php");
+
+            // Linked section:: circular-foot 
+            include_once("./includes/circular-foot.php");
+        }
         ?>
     </main>
 
