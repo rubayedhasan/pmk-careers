@@ -32,6 +32,49 @@ if (isset($_POST["userEmailAddress"])) {
         </script>
         ";
     } else {
-        echo "Failed to insert";
+        echo "
+        <script>
+            alert('You have Failed to Signup');
+            window.location.href='../includes/career-signup.php';
+        </script>
+        ";
     }
+} elseif (isset($_POST["login-button"])) {
+
+    $userEmail = $_POST["userEmail"];
+    $userPassword = $_POST["userPassword"];
+
+    // database query 
+    $userQuery = "SELECT *FROM user_list WHERE email='$userEmail' and password='$userPassword'";
+
+    // query result
+    $userData = $dbConnection->query($userQuery);
+
+    if ($userData->num_rows === 1) {
+        $_SESSION["user"] = ["userEmail" => $userEmail, "userPassword" => $userPassword];
+
+        echo "
+        <script>
+            alert('You have Login Successfully');
+            window.location.href='../index.php';
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+            alert('You have Failed to Login');
+            window.location.href='../includes/career-login.php';
+        </script>
+        ";
+    }
+} elseif ($_GET["logout"]) {
+    session_unset();
+    echo "
+        <script>
+            alert('You have Logout Successfully');
+            window.location.href='../index.php';
+        </script>
+        ";
+} else {
+    // nothing 
 }
