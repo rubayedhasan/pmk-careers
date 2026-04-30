@@ -47,10 +47,12 @@ if ($userEmailValid) {
                 <form class="user-form" action="../server/requests.php" method="post">
                     <div class="user-field">
                         <label for="user-mobile-number">
-                            <span><i class="fa-solid fa-square-phone"></i></span>
+                            <span>
+                                <i class="fa-solid fa-square-phone"></i>
+                            </span>
                             <span>Phone Number</span>
                         </label>
-                        <input type="text" name="userMobileNumber" id="user-mobile-number" placeholder="phone: +8801XXXXXXXXX" required>
+                        <input type="text" name="userMobileNumber" id="user-mobile-number" placeholder="phone:01XXXXXXXXX" required>
                     </div>
 
                     <div class="group-user-field">

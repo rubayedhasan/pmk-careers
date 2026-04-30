@@ -51,7 +51,9 @@ if ($userEmailValid) {
                 <form class="user-form" action="../server/requests.php" method="post">
                     <div class="user-field">
                         <label for="user-full-name">
-                            <span><i class="fa-solid fa-user"></i></span>
+                            <span>
+                                <i class="fa-solid fa-user"></i>
+                            </span>
                             <span>Name</span>
                         </label>
                         <input type="text" name="userFullName" id="user-full-name" placeholder="Enter Your Name" required>
@@ -59,21 +61,27 @@ if ($userEmailValid) {
 
                     <div class="user-field">
                         <label for="user-address">
-                            <span><i class="fa-solid fa-address-book"></i></span>
+                            <span>
+                                <i class="fa-solid fa-address-book"></i>
+                            </span>
                             <span>Address</span>
                         </label>
                         <input type="text" name="userAddress" id="user-address" placeholder="Enter Your Address">
                     </div>
                     <div class="user-field">
                         <label for="user-contact-number">
-                            <span><i class="fa-solid fa-square-phone"></i></span>
+                            <span>
+                                <i class="fa-solid fa-square-phone"></i>
+                            </span>
                             <span>Phone Number</span>
                         </label>
-                        <input type="text" name="userContactNumber" id="user-contact-number" placeholder="phone: +8801XXXXXXXXX" required>
+                        <input type="text" name="userContactNumber" id="user-contact-number" placeholder="phone:01XXXXXXXXX" required>
                     </div>
                     <div class="user-field">
                         <label for="user-email-address">
-                            <span><i class="fa-solid fa-envelope"></i></span>
+                            <span>
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
                             <span>Email Address</span>
                         </label>
                         <input type="email" name="userEmailAddress" id="user-email-address" placeholder="you@email.com" required>

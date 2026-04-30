@@ -14,6 +14,57 @@ if (isset($_POST["userEmailAddress"])) {
     $setUserEmailAddress = $_POST["userEmailAddress"];
     $userAgreeTerms = $_POST["termsCheck"];
 
+
+    // validation:: phone number right pattern
+    if (!preg_match('/^01[0-9]{9}$/', $setPhoneNumber)) {
+        echo "
+        <script>
+            alert('Invalid Phone Number');
+            window.location.href = '../includes/career-signup.php';
+        </script>
+    ";
+        exit();
+    }
+
+    // validation:: email right syntax
+    if (!filter_var($setUserEmailAddress, FILTER_VALIDATE_EMAIL)) {
+        echo "
+            <script>
+                alert('Invalid Email Address');
+                window.location.href = '../includes/career-signup.php';
+            </script>
+        ";
+        exit();
+    }
+
+    // validation:: unique phone number check
+    $checkContactQuery = "SELECT * FROM signup_user WHERE phone_number = '$setPhoneNumber'";
+    $checkContact = $dbConnection->query($checkContactQuery);
+
+    if ($checkContact->num_rows > 0) {
+        echo "
+            <script>
+                alert('This Phone Number Has Registered Before');
+                window.location.href = '../includes/career-signup.php';
+            </script>
+        ";
+        exit();
+    }
+
+    // validation:: unique email address check 
+    $checkEmailQuery = "SELECT * FROM signup_user WHERE email = '$setUserEmailAddress'";
+    $checkEmail = $dbConnection->query($checkEmailQuery);
+    if ($checkEmail->num_rows > 0) {
+        echo "
+            <script>
+                alert('This Email Has Registered Before');
+                window.location.href = '../includes/career-signup.php';
+            </script>
+        ";
+        exit();
+    }
+
+
     $userDetails = $dbConnection->prepare("INSERT INTO signup_user
     (name,address,phone_number,email,agree_terms)
 
@@ -42,6 +93,16 @@ if (isset($_POST["userEmailAddress"])) {
 
     $userPhoneNumber = $_POST["userMobileNumber"];
     $userEmail = null;
+
+    // validation:: check the phone number is valid 
+    if (!preg_match('/^01[0-9]{9}$/', $userPhoneNumber)) {
+        echo "
+        <script>
+            alert('Invalid Phone Number');
+            window.location.href = '../includes/career-login.php';
+        </script>
+    ";
+    }
 
     // database query 
     $userQuery = "SELECT *FROM signup_user WHERE phone_number ='$userPhoneNumber'";
