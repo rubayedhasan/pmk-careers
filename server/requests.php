@@ -12,19 +12,18 @@ if (isset($_POST["userEmailAddress"])) {
     $setUserAddress = $_POST["userAddress"];
     $setPhoneNumber = $_POST["userContactNumber"];
     $setUserEmailAddress = $_POST["userEmailAddress"];
-    $setUserPassword = $_POST["userPasswordKey"];
     $userAgreeTerms = $_POST["termsCheck"];
 
-    $userDetails = $dbConnection->prepare("INSERT INTO user_list
-    (name,address,phone_number,email,password,aggree_terms)
+    $userDetails = $dbConnection->prepare("INSERT INTO signup_user
+    (name,address,phone_number,email,agree_terms)
 
-    VALUES(?,?,?,?,?,?)
+    VALUES(?,?,?,?,?)
     ");
 
-    $connectionOutcome = $userDetails->execute([$setUserFullName, $setUserAddress, $setPhoneNumber, $setUserEmailAddress, $setUserPassword, $userAgreeTerms]);
+    $connectionOutcome = $userDetails->execute([$setUserFullName, $setUserAddress, $setPhoneNumber, $setUserEmailAddress,  $userAgreeTerms]);
 
     if ($connectionOutcome) {
-        $_SESSION["user"] = ["userEmail" => $setUserEmailAddress, "userPassword" => $setUserPassword];
+        $_SESSION["user"] = ["userEmail" => $setUserEmailAddress, "userPhoneNumber" => $setPhoneNumber];
         echo "
         <script>
             alert('You have Signup Successfully');
@@ -41,17 +40,20 @@ if (isset($_POST["userEmailAddress"])) {
     }
 } elseif (isset($_POST["login-button"])) {
 
-    $userEmail = $_POST["userEmail"];
-    $userPassword = $_POST["userPassword"];
+    $userPhoneNumber = $_POST["userMobileNumber"];
+    $userEmail = null;
 
     // database query 
-    $userQuery = "SELECT *FROM user_list WHERE email='$userEmail' and password='$userPassword'";
+    $userQuery = "SELECT *FROM signup_user WHERE phone_number ='$userPhoneNumber'";
 
     // query result
     $userData = $dbConnection->query($userQuery);
 
     if ($userData->num_rows === 1) {
-        $_SESSION["user"] = ["userEmail" => $userEmail, "userPassword" => $userPassword];
+        foreach ($userData as $data) {
+            $userEmail = $data["email"];
+        }
+        $_SESSION["user"] = ["userEmail" => $userEmail, "userPhoneNumber" => $userPhoneNumber];
 
         echo "
         <script>
@@ -62,7 +64,7 @@ if (isset($_POST["userEmailAddress"])) {
     } else {
         echo "
         <script>
-            alert('You have Failed to Login');
+            alert('You Are not Registered. Please Signup first');
             window.location.href='../includes/career-login.php';
         </script>
         ";

@@ -1,10 +1,18 @@
+<?php
+session_start();
+$userEmailValid = $_SESSION["user"]["userEmail"] ?? null;
+if ($userEmailValid) {
+    header("location:../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup | PMK</title>
+    <title>Login | PMK</title>
     <!-- Linked favicon  -->
     <link rel="shortcut icon" href="../assets/logo/main-logo.png" type="image/x-icon">
 
@@ -37,23 +45,12 @@
             <div class="form-container">
                 <h3 class="form-title">Login to your account</h3>
                 <form class="user-form" action="../server/requests.php" method="post">
-
                     <div class="user-field">
-                        <label for="user-email">
-                            <span><i class="fa-solid fa-envelope"></i></span>
-                            <span>Email Address</span>
+                        <label for="user-mobile-number">
+                            <span><i class="fa-solid fa-square-phone"></i></span>
+                            <span>Phone Number</span>
                         </label>
-                        <input type="email" name="userEmail" id="user-email" placeholder="you@email.com" required>
-                    </div>
-                    <div class="user-field">
-                        <label for="user-password">
-                            <span><i class="fa-solid fa-key"></i></span>
-                            <span>Password</span>
-                        </label>
-                        <div class="password-field">
-                            <input type="password" name="userPassword" id="user-password" placeholder="password">
-                            <span id="peak-password"><i class="fa-solid fa-eye"></i></span>
-                        </div>
+                        <input type="text" name="userMobileNumber" id="user-mobile-number" placeholder="phone: +8801XXXXXXXXX" required>
                     </div>
 
                     <div class="group-user-field">
@@ -77,8 +74,6 @@
 
     <!-- Linked font awesome script  -->
     <script src="https://kit.fontawesome.com/ff87b718c4.js" crossorigin="anonymous"></script>
-    <!-- Linked custom scripts  -->
-    <script src="../js/career-form.js"></script>
 </body>
 
 </html>

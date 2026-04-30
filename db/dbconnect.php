@@ -2,7 +2,7 @@
 $hostName = "localhost";
 $userName = "root";
 $password = null;
-$database = "career_registration";
+$database = "pmk_career_reg";
 
 // database connection 
 $conn = new mysqli($hostName, $userName, $password, $database);

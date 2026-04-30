@@ -1,3 +1,12 @@
+<?php
+session_start();
+$userEmailValid = $_SESSION["user"]["userEmail"] ?? null;
+if ($userEmailValid) {
+    header("location:../index.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,16 +78,6 @@
                         </label>
                         <input type="email" name="userEmailAddress" id="user-email-address" placeholder="you@email.com" required>
                     </div>
-                    <div class="user-field">
-                        <label for="user-password-key">
-                            <span><i class="fa-solid fa-key"></i></span>
-                            <span>Password</span>
-                        </label>
-                        <div class="password-field">
-                            <input type="password" name="userPasswordKey" id="user-password-key" placeholder="password">
-                            <span id="peak-password"><i class="fa-solid fa-eye"></i></span>
-                        </div>
-                    </div>
 
                     <div class="group-user-field">
                         <div class="terms">
@@ -102,8 +101,6 @@
 
     <!-- Linked font awesome script  -->
     <script src="https://kit.fontawesome.com/ff87b718c4.js" crossorigin="anonymous"></script>
-    <!-- Linked custom scripts  -->
-    <script src="../js/career-form.js"></script>
 </body>
 
 </html>
