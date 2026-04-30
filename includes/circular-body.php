@@ -21,7 +21,7 @@
                 </hgroup>
 
                 <figure class="hiring-feature-image">
-                    <img src="./assets/images/vacancy.png" alt="">
+                    <img src="./assets/images/Resume-bro.png" alt="">
                 </figure>
             </div>
 
