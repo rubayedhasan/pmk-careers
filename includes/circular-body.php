@@ -54,15 +54,7 @@
 
                         <div class="job-actions">
                             <span class="stack-icon view">
-                                <i class="fa-solid fa-eye"></i>
-                            </span>
-
-                            <span class="stack-icon print">
-                                <i class="fa-solid fa-print"></i>
-                            </span>
-
-                            <span class="stack-icon download">
-                                <i class="fa-solid fa-download"></i>
+                                View More
                             </span>
                         </div>
 
@@ -92,16 +84,8 @@
                         </div>
 
                         <div class="job-actions">
-                            <span title="view the vacancy details" class="stack-icon view">
-                                <i class="fa-solid fa-eye"></i>
-                            </span>
-
-                            <span class="stack-icon print">
-                                <i class="fa-solid fa-print"></i>
-                            </span>
-
-                            <span class="stack-icon download">
-                                <i class="fa-solid fa-download"></i>
+                            <span class="stack-icon view">
+                                View More
                             </span>
                         </div>
 
@@ -131,16 +115,8 @@
                         </div>
 
                         <div class="job-actions">
-                            <span title="view the vacancy details" class="stack-icon view">
-                                <i class="fa-solid fa-eye"></i>
-                            </span>
-
-                            <span class="stack-icon print">
-                                <i class="fa-solid fa-print"></i>
-                            </span>
-
-                            <span class="stack-icon download">
-                                <i class="fa-solid fa-download"></i>
+                            <span class="stack-icon view">
+                                View More
                             </span>
                         </div>
 
@@ -170,16 +146,8 @@
                         </div>
 
                         <div class="job-actions">
-                            <span title="view the vacancy details" class="stack-icon view">
-                                <i class="fa-solid fa-eye"></i>
-                            </span>
-
-                            <span class="stack-icon print">
-                                <i class="fa-solid fa-print"></i>
-                            </span>
-
-                            <span class="stack-icon download">
-                                <i class="fa-solid fa-download"></i>
+                            <span class="stack-icon view">
+                                View More
                             </span>
                         </div>
 
@@ -209,16 +177,8 @@
                         </div>
 
                         <div class="job-actions">
-                            <span title="view the vacancy details" class="stack-icon view">
-                                <i class="fa-solid fa-eye"></i>
-                            </span>
-
-                            <span class="stack-icon print">
-                                <i class="fa-solid fa-print"></i>
-                            </span>
-
-                            <span class="stack-icon download">
-                                <i class="fa-solid fa-download"></i>
+                            <span class="stack-icon view">
+                                View More
                             </span>
                         </div>
 
