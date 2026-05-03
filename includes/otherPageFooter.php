@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PMK ! Footer</title>
-    <!-- Linked Fav Icon  -->
     <link
         rel="shortcut icon"
-        href="./assets/logo/logo.png"
+        href="../assets/logo/logo.png"
         type="image/x-icon" />
-    <link rel="stylesheet" href="./styles/footer-alter.css" />
+
+    <link rel="stylesheet" href="../styles/footer-alter.css" />
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                             <figure>
                                 <a href="https://pmk.org.bd/">
                                     <img
-                                        src="./assets/logo/main-logo.png"
+                                        src="../assets/logo/main-logo.png"
                                         alt="pmk-logo"
                                         loading="lazy"
                                         class="pmk-mini-logo" />
@@ -195,9 +195,6 @@
             </section>
         </footer>
     </main>
-
-    <!-- Linked custom script  -->
-    <script src="./js/newsletter.js"></script>
 </body>
 
 </html>

@@ -85,6 +85,91 @@
   );
 }
 
+/* vacancy-body section's styles  */
+#vacancy-body {
+  background-color: var(--pmk-green-light);
+  padding: 50px;
+}
+
+.vacancy-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.vacancy-description p {
+  color: #606069;
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-top: 0px;
+  text-transform: capitalize;
+}
+
+.org-overview {
+  margin-top: 3rem;
+}
+
+.org-overview p,
+.vacancy-info-description,
+.vacancy-info-list li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-size: 400;
+  text-align: justify;
+  margin-top: 16px;
+}
+
+.vacancy-info {
+  margin-top: 40px;
+}
+
+.vacancy-info-title {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+.vacancy-info-list li {
+  margin-bottom: 6px;
+  list-style: disc;
+  list-style-position: inside;
+  margin-left: 25px;
+}
+
+.apply-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.apply-btn {
+  background-color: #2e7d32; /* green tone for NGO feel */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.apply-btn:hover {
+  background-color: #256428;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.apply-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.apply-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
+}
+
 /* responsive styles:: small devices  */
 @media (max-width: 767.98px) {
   #circular-details-header {
