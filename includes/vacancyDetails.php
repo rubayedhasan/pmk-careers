@@ -66,12 +66,13 @@
                         </span>
 
                         <!-- download  -->
-                        <span class="download-btn">
+                        <span class="download-btn" onclick="generatePDF()">
                             <i class="fa-solid fa-download"></i>
                         </span>
                     </div>
                 </div>
                 <p class="vacancy-location">Location:</p>
+                <p class="vacancy-count">Total Vacancy:</p>
                 <p class="vacancy-post-date">Post Date:</p>
                 <p class="vacancy-last-date">Last Date of Application:</p>
             </hgroup>
@@ -221,38 +222,47 @@
     <?php include_once("./otherPageFooter.php") ?>
 
 
-    <!-- Linked html2pdf script  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Linked html2canvas and jsPdf script  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <!-- custom script    -->
     <script>
-        document.querySelector('.download-btn').addEventListener('click', () => {
-            const element = document.querySelector("#pdf-content");
-
-            html2pdf()
-                .set({
-                    margin: 0,
-                    filename: 'vacancy-details.pdf',
-                    image: {
-                        type: 'jpeg',
-                        quality: 0.98
-                    },
-                    html2canvas: {
-                        scale: 1,
-                        useCORS: true
-                    },
-                    jsPDF: {
-                        unit: 'mm',
-                        format: 'a4'
-                    },
-                    pagebreak: {
-                        mode: ['avoid-all', 'css']
-                    }
-                })
-                .from(element)
-                .toPdf()
-                .save();
-        });
+        async function generatePDF() {
+            const {
+                jsPDF
+            } = window.jspdf;
+            const element = document.getElementById("pdf-content");
+            const canvas = await html2canvas(element, {
+                scale: 2
+            });
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF("p", "mm", "a4");
+            const margin = 15 * 0.2646;
+            const pageWidth = 210;
+            const pageHeight = 297;
+            const imgWidth = pageWidth - margin * 2;
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            const pageHeightPx = (pageHeight - margin * 2);
+            let renderedHeight = 0;
+            let page = 0;
+            while (renderedHeight < imgHeight) {
+                const sourceY = (renderedHeight * canvas.width) / imgWidth;
+                const remainingHeight = imgHeight - renderedHeight;
+                const currentPageHeight = Math.min(pageHeightPx, remainingHeight);
+                const pageCanvas = document.createElement("canvas");
+                const pageCtx = pageCanvas.getContext("2d");
+                pageCanvas.width = canvas.width;
+                pageCanvas.height = (currentPageHeight * canvas.width) / imgWidth;
+                pageCtx.drawImage(canvas, 0, sourceY, canvas.width, pageCanvas.height, 0, 0, canvas.width, pageCanvas.height);
+                const pageImg = pageCanvas.toDataURL("image/png");
+                if (page > 0) pdf.addPage();
+                pdf.addImage(pageImg, "PNG", margin, margin, imgWidth, currentPageHeight);
+                renderedHeight += currentPageHeight;
+                page++;
+            }
+            pdf.save("pmk_vacancy_overview.pdf");
+        }
     </script>
 </body>
 
