@@ -97,8 +97,6 @@
             </div>
         </div>
     </section>
-    <!-- Linked custom script  -->
-    <script src="./js/circular.js"></script>
 </body>
 
 </html>

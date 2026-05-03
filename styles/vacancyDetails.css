@@ -88,13 +88,58 @@
 /* vacancy-body section's styles  */
 #vacancy-body {
   background-color: var(--pmk-green-light);
-  padding: 50px;
+  padding: 30px 40px 50px;
+}
+
+.vacancy-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
 }
 
 .vacancy-title {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 8px;
+}
+
+.user-action-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-action-container span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 42px;
+  background-color: var(--pmk-white);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.user-action-container span i {
+  color: var(--pmk-dark);
+  font-size: 1rem;
+}
+
+.user-action-container span:hover {
+  background-color: #2e7d32;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.user-action-container span:hover i {
+  color: #ffffff;
+}
+
+.user-action-container span:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .vacancy-description p {
@@ -138,13 +183,13 @@
 .apply-btn-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .apply-btn {
-  background-color: #2e7d32; /* green tone for NGO feel */
-  color: #ffffff;
-  font-size: 16px;
+  background-color: #2e7d32;
+  color: var(--pmk-white);
+  font-size: 1rem;
   font-weight: 600;
   padding: 12px 28px;
   border: none;
@@ -195,6 +240,48 @@
   .art-image {
     width: 230px;
   }
+
+  /* vacancy-body section's styles  */
+  #vacancy-body {
+    background-color: var(--pmk-green-light);
+    padding: 30px;
+  }
+
+  .vacancy-title {
+    font-size: 1.8rem;
+  }
+
+  .user-action-container span {
+    width: 35px;
+    height: 32px;
+  }
+
+  .user-action-container span i {
+    font-size: 0.875rem;
+  }
+
+  .org-overview p,
+  .vacancy-info-description,
+  .vacancy-info-list li {
+    font-size: 0.975rem;
+  }
+
+  .vacancy-info {
+    margin-top: 25px;
+  }
+
+  .vacancy-info-title {
+    margin-bottom: 12px;
+  }
+
+  .vacancy-info-list li {
+    margin-left: 18px;
+  }
+
+  .apply-btn {
+    font-size: 0.9rem;
+    padding: 10px 22px;
+  }
 }
 
 @media (max-width: 576.98px) {
@@ -237,6 +324,39 @@
 
   .art-image {
     width: 280px;
+  }
+
+  /* vacancy-body section's styles  */
+  .vacancy-title {
+    font-size: 2.45rem;
+  }
+
+  .user-action-container span {
+    width: 40px;
+    height: 38px;
+  }
+
+  .org-overview p,
+  .vacancy-info-description,
+  .vacancy-info-list li {
+    font-size: 1rem;
+  }
+
+  .vacancy-info {
+    margin-top: 25px;
+  }
+
+  .vacancy-info-title {
+    margin-bottom: 12px;
+  }
+
+  .vacancy-info-list li {
+    margin-left: 18px;
+  }
+
+  .apply-btn {
+    font-size: 0.9rem;
+    padding: 10px 22px;
   }
 }
 

@@ -92,7 +92,7 @@
                         </div>
 
                         <div class="job-actions">
-                            <span class="stack-icon view">
+                            <span title="view the vacancy details" class="stack-icon view">
                                 <i class="fa-solid fa-eye"></i>
                             </span>
 
@@ -131,7 +131,7 @@
                         </div>
 
                         <div class="job-actions">
-                            <span class="stack-icon view">
+                            <span title="view the vacancy details" class="stack-icon view">
                                 <i class="fa-solid fa-eye"></i>
                             </span>
 
@@ -170,7 +170,7 @@
                         </div>
 
                         <div class="job-actions">
-                            <span class="stack-icon view">
+                            <span title="view the vacancy details" class="stack-icon view">
                                 <i class="fa-solid fa-eye"></i>
                             </span>
 
@@ -209,7 +209,7 @@
                         </div>
 
                         <div class="job-actions">
-                            <span class="stack-icon view">
+                            <span title="view the vacancy details" class="stack-icon view">
                                 <i class="fa-solid fa-eye"></i>
                             </span>
 

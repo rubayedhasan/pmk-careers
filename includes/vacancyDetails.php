@@ -7,7 +7,6 @@
     <title>Circular Details</title>
     <!-- Linked Favicon  -->
     <link rel="shortcut icon" href="../assets/logo/main-logo.png" type="image/x-icon">
-
     <!-- Linked custom stylesheet  -->
     <?php include_once("./otherPageSharedLinks.php") ?>
     <link rel="stylesheet" href="../styles/vacancyDetails.css">
@@ -49,19 +48,35 @@
     </header>
 
     <!-- section:: Main  -->
-    <main class="container-width">
+    <main class="container-width" id="pdf-content">
         <section id="vacancy-body">
             <!-- vacancy description  -->
-            <div class="vacancy-description">
-                <h3 class="vacancy-title">
-                    Job Title
-                </h3>
+            <hgroup class="vacancy-description">
+                <div class="vacancy-title-container">
+                    <!-- title  -->
+                    <h3 class="vacancy-title">
+                        Job Title
+                    </h3>
+
+                    <!-- user action button  -->
+                    <div class="user-action-container">
+                        <!-- print  -->
+                        <span class="print-btn" onclick="window.print()">
+                            <i class="fa-solid fa-print"></i>
+                        </span>
+
+                        <!-- download  -->
+                        <span class="download-btn">
+                            <i class="fa-solid fa-download"></i>
+                        </span>
+                    </div>
+                </div>
                 <p class="vacancy-location">Location:</p>
                 <p class="vacancy-post-date">Post Date:</p>
                 <p class="vacancy-last-date">Last Date of Application:</p>
-            </div>
+            </hgroup>
 
-
+            <!-- organization overview  -->
             <div class="org-overview">
                 <p>PMK is a purpose-driven organisation committed to creating positive change in communities facing inequality and hardship. We work closely with individuals and families to build sustainable opportunities that empower people to improve their lives and reach their full potential.</p>
 
@@ -204,6 +219,41 @@
 
     <!-- footer  -->
     <?php include_once("./otherPageFooter.php") ?>
+
+
+    <!-- Linked html2pdf script  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- custom script    -->
+    <script>
+        document.querySelector('.download-btn').addEventListener('click', () => {
+            const element = document.querySelector("#pdf-content");
+
+            html2pdf()
+                .set({
+                    margin: 0,
+                    filename: 'vacancy-details.pdf',
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    html2canvas: {
+                        scale: 1,
+                        useCORS: true
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4'
+                    },
+                    pagebreak: {
+                        mode: ['avoid-all', 'css']
+                    }
+                })
+                .from(element)
+                .toPdf()
+                .save();
+        });
+    </script>
 </body>
 
 </html>

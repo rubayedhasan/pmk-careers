@@ -45,6 +45,9 @@
     <?php
     include_once("./includes/footer.php");
     ?>
+
+    <!-- Linked custom script  -->
+    <script src="./js/circular.js"></script>
 </body>
 
 </html>
