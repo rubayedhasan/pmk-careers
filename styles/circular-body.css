@@ -148,14 +148,11 @@
   color: var(--pmk-white);
   font-size: 0.8rem;
   transition: 0.3s ease;
+  background: #2ecc71;
 }
 
 .stack-icon:hover {
   font-weight: 500;
-}
-
-.view {
-  background: #2ecc71;
 }
 
 /* responsive styles:: small devices  */

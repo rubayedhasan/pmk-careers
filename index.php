@@ -22,20 +22,15 @@
 
     <main>
         <?php
-        //  $userEmailValid = $_SESSION["user"]["userEmail"] ?? null; //declare in navbar
 
-
-        if ($userEmailValid) {
-            include_once("./includes/career-dashboard.php");
+        if (isset($_GET["result"])) {
+            // Linked section:: result-board 
+            include_once("./includes/result-board.php");
         } else {
             // Linked section:: circular-head 
             include_once("./includes/circular-head.php");
-
             // Linked section:: circular-body 
             include_once("./includes/circular-body.php");
-
-            // Linked section:: circular-foot 
-            include_once("./includes/circular-foot.php");
         }
         ?>
     </main>
