@@ -75,5 +75,6 @@ observedSections.observe(benefitCards);
 const circularBodyHeading = document.querySelector(".circular-body-heading");
 observedSections.observe(circularBodyHeading);
 
+// jobs list  section's observe api
 const jobListContainer = document.querySelector(".jobs");
 observedSections.observe(jobListContainer);

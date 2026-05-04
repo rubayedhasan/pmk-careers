@@ -138,6 +138,12 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href='../index.php';
         </script>
         ";
+} else if (isset($_POST["applyBtn"])) {
+    if ($_SESSION["user"]["userPhoneNumber"]) {
+        header("location:../includes/apply.php");
+    } else {
+        header("location:../includes/career-login.php");
+    }
 } else {
     // nothing 
 }

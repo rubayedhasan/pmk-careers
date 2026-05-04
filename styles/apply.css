@@ -1,0 +1,117 @@
+#job-application {
+  width: 100%;
+  max-width: 75%;
+  margin: 50px auto;
+  /* padding: 30px; */
+
+  background: var(--pmk-white);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#job-application:hover {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+.application-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  border-bottom: 1px solid #e6e6e6;
+  background: linear-gradient(135deg, #f8fbff 0%, #f1f6ff 100%);
+}
+
+.org-logo {
+  width: 100px;
+  height: 120px;
+
+  background: linear-gradient(135deg, #0f3f4f, #0b6b57);
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.org-logo img {
+  width: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.apply-header-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 10px;
+}
+
+.apply-header-title {
+  color: var(--pmk-green-dark);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.apply-header-description {
+  color: #5f6b7a;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* application from styles  */
+#application-form {
+  padding: 40px 30px;
+}
+
+/* responsive styles:: small devices  */
+@media (max-width: 767.98px) {
+  #job-application {
+    max-width: 95%;
+    margin: 30px auto;
+  }
+
+  .application-header {
+    gap: 15px;
+  }
+
+  .apply-header-content {
+    padding: 12px 8px;
+  }
+
+  .apply-header-title {
+    font-size: 1.25rem;
+  }
+
+  .apply-header-description {
+    color: #5f6b7a;
+    font-size: 0.9rem;
+  }
+
+  /* application from styles  */
+  #application-form {
+    padding: 30px 25px;
+  }
+}
+
+/* responsive styles:: medium devices  */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+/* responsive styles:: large devices  */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* responsive styles:: extra large devices  */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+}
+
+/* responsive styles:: extra extra large devices  */
+@media (min-width: 1400px) {
+}
