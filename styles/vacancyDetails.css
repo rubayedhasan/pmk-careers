@@ -180,41 +180,6 @@
   margin-left: 25px;
 }
 
-.apply-btn-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.apply-btn {
-  background-color: #2e7d32;
-  color: var(--pmk-white);
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.apply-btn:hover {
-  background-color: #256428;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-
-.apply-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-.apply-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
-}
-
 /* responsive styles:: small devices  */
 @media (max-width: 767.98px) {
   #circular-details-header {
@@ -276,11 +241,6 @@
 
   .vacancy-info-list li {
     margin-left: 18px;
-  }
-
-  .apply-btn {
-    font-size: 0.9rem;
-    padding: 10px 22px;
   }
 }
 
@@ -352,11 +312,6 @@
 
   .vacancy-info-list li {
     margin-left: 18px;
-  }
-
-  .apply-btn {
-    font-size: 0.9rem;
-    padding: 10px 22px;
   }
 }
 

@@ -1,3 +1,4 @@
+/* 1st button styles  */
 .button-container {
   margin-top: 40px;
   text-align: center;
@@ -67,4 +68,69 @@
 
 .visit-btn:hover .btn-indicator {
   transform: rotate(0deg);
+}
+
+/* 2nd button styles  */
+
+.apply-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.apply-btn {
+  background-color: #2e7d32;
+  color: var(--pmk-white);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.apply-btn:hover {
+  background-color: #256428;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.apply-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.apply-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
+}
+
+/* responsive styles:: small devices  */
+@media (max-width: 767.98px) {
+  .apply-btn {
+    font-size: 0.9rem;
+    padding: 10px 22px;
+  }
+}
+
+/* responsive styles:: medium devices  */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .apply-btn {
+    font-size: 0.9rem;
+    padding: 10px 22px;
+  }
+}
+
+/* responsive styles:: large devices  */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* responsive styles:: extra large devices  */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+}
+
+/* responsive styles:: extra extra large devices  */
+@media (min-width: 1400px) {
 }

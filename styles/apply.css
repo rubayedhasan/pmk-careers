@@ -1,21 +1,24 @@
+body {
+  background-color: rgb(128 128 128 / 8%);
+}
+
 #job-application {
   width: 100%;
   max-width: 75%;
   margin: 50px auto;
-  /* padding: 30px; */
 
-  background: var(--pmk-white);
+  /* 
   border-radius: 12px;
   border: 1px solid var(--pmk-green-light);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease; */
 
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
-#job-application:hover {
+/* #job-application:hover {
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
-}
+} */
 
 .application-header {
   display: flex;
@@ -24,6 +27,10 @@
   gap: 30px;
   border-bottom: 2px solid #e6e6e6;
   background: linear-gradient(135deg, #f8fbff 0%, #f1f6ff 100%);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: all 0.35s ease;
+  overflow: hidden;
 }
 
 .org-logo {
@@ -67,30 +74,6 @@
 }
 
 /* application from styles  */
-#application-form {
-  background: var(--pmk-white);
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
-}
-
-.form-info-title {
-  color: var(--pmk-green-dark);
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  padding-left: 8px;
-  border-left: 4px solid var(--pmk-green);
-}
-
-.form-info-group {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  gap: 50px;
-  margin-top: 50px;
-}
-
 .hidden-field {
   display: none;
 }
@@ -104,44 +87,7 @@
 }
 
 .field-label-required {
-  /* color: #d00000; */
   color: var(--pmk-green-dark);
-}
-
-.user-profile-image {
-  width: 70px;
-  height: 70px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: hsla(145, 40%, 92%, 0.6);
-  border: 1px solid hsla(145, 35%, 80%, 0.6);
-  border-radius: 50%;
-
-  position: relative;
-}
-
-.user-profile-image-icon {
-  width: 35px;
-  height: 35px;
-}
-
-.user-profile-add-icon {
-  position: absolute;
-  right: 3px;
-  bottom: 0;
-
-  height: 16px;
-  width: 16px;
-}
-
-.field-suggest {
-  color: #707074;
-  font-size: 0.8rem;
-  display: block;
-  margin-top: 6px;
 }
 
 .input-field {
@@ -208,6 +154,88 @@
   color: #9ca3af;
 }
 
+/* separated field containers  */
+.personal-information,
+.address-container,
+.resume-container {
+  background: var(--pmk-white);
+  padding: 40px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+.personal-information {
+  margin-top: 0;
+  border: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+}
+
+.address-container {
+  padding: 30px;
+}
+
+/* every field container section title  */
+.form-info-title {
+  color: var(--pmk-green-dark);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-left: 8px;
+  border-left: 4px solid var(--pmk-green);
+}
+
+/* every input field parent container  styles*/
+.form-info-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+/* profile image container  */
+.user-profile-image {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: hsla(145, 40%, 92%, 0.6);
+  border: 1px solid hsla(145, 35%, 80%, 0.6);
+  border-radius: 50%;
+
+  position: relative;
+}
+
+.user-profile-image-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.user-profile-add-icon {
+  position: absolute;
+  right: 3px;
+  bottom: 0;
+
+  height: 16px;
+  width: 16px;
+}
+
+.field-suggest {
+  color: #707074;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 6px;
+}
+
+.resume-container .form-info-group {
+  margin-top: 30px;
+}
+
 .radio-input-container {
   display: flex;
   gap: 16px;
@@ -266,14 +294,77 @@
 
 .present-address,
 .permanent-address {
-  margin-top: 50px;
   background-color: #e6f4ef70;
-  padding: 30px;
+  padding: 20px;
   border-radius: 6px;
+}
+
+.present-address {
+  margin-top: 50px;
 }
 
 .textarea-field {
   grid-column: span 2;
+}
+
+.field-resume input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px dashed #cbd5f5;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.field-resume input[type="file"]:hover {
+  border-color: #6366f1;
+  background-color: #f3f4f6;
+}
+
+.field-resume input[type="file"]:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.apply-btn-container {
+  justify-content: flex-end;
+}
+
+#application-personal-form {
+  display: none;
+}
+
+/* educational information form styles  */
+.education-container {
+  background: var(--pmk-white);
+  padding: 40px;
+  margin-top: 0;
+  border: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+}
+
+.education-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-education-button-container,
+.add-education-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-education-button {
+  gap: 4px;
+  font-size: 1rem;
+  color: var(--pmk-green-dark);
+  background: transparent;
 }
 
 /* responsive styles:: small devices  */
