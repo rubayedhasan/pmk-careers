@@ -28,7 +28,7 @@
             </div>
 
             <!-- application form personal information  -->
-            <div id="personal-information-container" class="hidden-field">
+            <div id="personal-information-container" class="">
                 <form action="" method="" enctype="multipart/form-data" id="application-personal-form">
                     <!-- personal information container  -->
                     <div class="personal-information">
@@ -371,7 +371,7 @@
             </div>
 
             <!-- application form educational information  -->
-            <div id="educational-information-container" class="">
+            <div id="educational-information-container" class="hidden-field">
                 <!-- education container  -->
                 <div class="education-container">
                     <div class="education-header-container">
@@ -387,80 +387,7 @@
                     <!-- education summary container  -->
                     <div id="education-summery-container">
                         <p class="summery-notice">Add your educational qualifications</p>
-                        <div id="education-summery-lists">
-                            <div class="education-summery">
-                                <div class="institute-container">
-                                    <h3 class="edu-col-name">Institute Name</h3>
-                                    <p class="edu-con">
-                                        <span idate="edu-level">level</span>
-                                        /
-                                        <span id="edu-degree">degree</span>
-                                    </p>
-                                </div>
-                                <div class="result-container">
-                                    <h3 class="edu-col-name">Result</h3>
-                                    <p class="edu-con">
-                                        <span class="edu-icon">
-                                            <i class="fa-solid fa-square-poll-horizontal"></i>
-                                        </span>
-                                        <span id="edu-result">Grade</span>
-                                    </p>
-                                </div>
-                                <div class="passing-year-container">
-                                    <h3 class="edu-col-name">Passing Year</h3>
-                                    <p class="edu-con">
-                                        <span class="edu-icon">
-                                            <i class="fa-regular fa-calendar"></i>
-                                        </span>
-                                        <span id="edu-passing-year">Year</span>
-                                    </p>
-                                </div>
-                                <div class="edit-container">
-                                    <button type="button" class="edit">
-                                        <i class="fa-regular fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="delete">
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="education-summery">
-                                <div class="institute-container">
-                                    <h3 class="edu-col-name">Institute Name</h3>
-                                    <p class="edu-con">
-                                        <span idate="edu-level">level</span>
-                                        /
-                                        <span id="edu-degree">degree</span>
-                                    </p>
-                                </div>
-                                <div class="result-container">
-                                    <h3 class="edu-col-name">Result</h3>
-                                    <p class="edu-con">
-                                        <span class="edu-icon">
-                                            <i class="fa-solid fa-square-poll-horizontal"></i>
-                                        </span>
-                                        <span id="edu-result">Grade</span>
-                                    </p>
-                                </div>
-                                <div class="passing-year-container">
-                                    <h3 class="edu-col-name">Passing Year</h3>
-                                    <p class="edu-con">
-                                        <span class="edu-icon">
-                                            <i class="fa-regular fa-calendar"></i>
-                                        </span>
-                                        <span id="edu-passing-year">Year</span>
-                                    </p>
-                                </div>
-                                <div class="edit-container">
-                                    <button type="button" class="edit">
-                                        <i class="fa-regular fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="delete">
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="education-summery-lists"></div>
                     </div>
 
                     <!-- form modal  -->
