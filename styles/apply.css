@@ -353,11 +353,131 @@ body {
   background: transparent;
 }
 
+.education-form-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(650px, 92vw);
+  max-height: 90vh;
+  overflow-y: auto;
+
+  background: linear-gradient(135deg, #ffffff, #f0fdf4);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+
+  padding: 40px;
+  transition: all 0.3s ease;
+
+  z-index: 1000;
+}
+
+.edu-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 14px;
+}
+
+.edu-modal-title {
+  color: var(--pmk-green-dark);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.edu-modal-text {
+  color: darkgray;
+  font-size: 0.95rem;
+}
+
+#education-summery-container {
+  margin-top: 30px;
+}
+
+.summery-notice {
+  color: gray;
+  text-align: center;
+  font-size: 0.95rem;
+  font-family: 700;
+}
+
+#education-summery-lists {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.education-summery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--pmk-green);
+}
+.education-summery:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.result-container,
+.passing-year-container {
+  justify-self: flex-end;
+}
+
+.edu-col-name {
+  color: var(--pmk-blue-dark);
+  font-size: 1.05rem;
+}
+
+.edu-con {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.edu-con span {
+  color: var(--pmk-green-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.edit-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.edit-container button {
+  padding: 10px;
+  border-radius: 50%;
+  color: var(--pmk-dark);
+  background-color: var(--pmk-green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.edit-container button:hover {
+  color: var(--pmk-white);
+  background-color: #0b6b57;
+}
+
 /* responsive styles:: small devices  */
 @media (max-width: 767.98px) {
   #job-application {
     max-width: 95%;
     margin: 0px auto 30px;
+    overflow-y: scroll;
   }
 
   .application-header {
@@ -389,6 +509,11 @@ body {
     grid-template-columns: 1fr;
     gap: 30px;
     margin-top: 30px;
+  }
+  .education-form-modal {
+    width: 94vw;
+    padding: 18px;
+    border-radius: 14px;
   }
 }
 

@@ -28,7 +28,7 @@
             </div>
 
             <!-- application form personal information  -->
-            <div id="personal-information-container">
+            <div id="personal-information-container" class="hidden-field">
                 <form action="" method="" enctype="multipart/form-data" id="application-personal-form">
                     <!-- personal information container  -->
                     <div class="personal-information">
@@ -371,7 +371,7 @@
             </div>
 
             <!-- application form educational information  -->
-            <div id="educational-information-container" class="" style="margin-top: 50px;">
+            <div id="educational-information-container" class="">
                 <!-- education container  -->
                 <div class="education-container">
                     <div class="education-header-container">
@@ -384,156 +384,265 @@
                         </div>
                     </div>
 
-                    <!-- form modal  -->
-                    <div class="education-form-modal">
-                        <form action="" method="post" id="application-education-form">
-                            <!--  form input group  -->
-                            <div class="form-info-group">
-                                <!--education level field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-education-level" class="field-label">
-                                        Education Level
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <select name="candidate_education_level" id="candidate-education-level" class="input-select" required>
-                                        <option value="">Select Your Education Level</option>
-                                        <option value="ssc">SSC</option>
-                                        <option value="hsc">HSC</option>
-                                        <option value="diploma">Diploma</option>
-                                        <option value="bsc">Bachelor / Honours</option>
-                                        <option value="msc">Master's</option>
-                                        <option value="mphil">MPhil</option>
-                                        <option value="phd">PhD</option>
-                                        <option value="jsc">JSC / Below JSC</option>
-                                        <option value="psc">PSC / Below PSC</option>
-                                    </select>
+                    <!-- education summary container  -->
+                    <div id="education-summery-container">
+                        <p class="summery-notice">Add your educational qualifications</p>
+                        <div id="education-summery-lists">
+                            <div class="education-summery">
+                                <div class="institute-container">
+                                    <h3 class="edu-col-name">Institute Name</h3>
+                                    <p class="edu-con">
+                                        <span idate="edu-level">level</span>
+                                        /
+                                        <span id="edu-degree">degree</span>
+                                    </p>
                                 </div>
-
-                                <!-- degree field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-education-degree" class="field-label">
-                                        Degree
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <select name="candidate_education_degree" id="candidate-education-degree" class="input-select" required>
-                                        <option value="">Select Your Education Degree</option>
-                                        <!-- School Level -->
-                                        <option value="psc">PSC</option>
-                                        <option value="jsc">JSC</option>
-                                        <option value="ssc">SSC</option>
-                                        <option value="hsc">HSC</option>
-
-                                        <!-- Diploma -->
-                                        <option value="diploma_engineering">Diploma in Engineering</option>
-                                        <option value="diploma_medical">Diploma in Medical Technology</option>
-
-                                        <!-- Bachelor / Honours -->
-                                        <option value="ba">BA</option>
-                                        <option value="bsc">BSc</option>
-                                        <option value="beng">BSc(Eng.)</option>
-                                        <option value="bba">BBA</option>
-                                        <option value="bcom">BCom</option>
-                                        <option value="llb">LLB</option>
-                                        <option value="mbbs">MBBS</option>
-                                        <option value="bpharm">BPharm</option>
-
-                                        <!-- Master's -->
-                                        <option value="ma">MA</option>
-                                        <option value="msc">MSc</option>
-                                        <option value="meng">MSC(Eng.)</option>
-                                        <option value="mba">MBA</option>
-                                        <option value="mcom">MCom</option>
-                                        <option value="llm">LLM</option>
-                                        <option value="mpharm">MPharm</option>
-
-                                        <!-- Higher -->
-                                        <option value="mphil">MPhil</option>
-                                        <option value="phd">PhD</option>
-                                    </select>
+                                <div class="result-container">
+                                    <h3 class="edu-col-name">Result</h3>
+                                    <p class="edu-con">
+                                        <span class="edu-icon">
+                                            <i class="fa-solid fa-square-poll-horizontal"></i>
+                                        </span>
+                                        <span id="edu-result">Grade</span>
+                                    </p>
+                                </div>
+                                <div class="passing-year-container">
+                                    <h3 class="edu-col-name">Passing Year</h3>
+                                    <p class="edu-con">
+                                        <span class="edu-icon">
+                                            <i class="fa-regular fa-calendar"></i>
+                                        </span>
+                                        <span id="edu-passing-year">Year</span>
+                                    </p>
+                                </div>
+                                <div class="edit-container">
+                                    <button type="button" class="edit">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button type="button" class="delete">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
                                 </div>
                             </div>
-
-                            <!--  form input group  -->
-                            <div class="form-info-group">
-                                <!--result type field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-result-type" class="field-label">
-                                        Division/Grade
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <select name="candidate_result_type" id="candidate-result-type" class="input-select" required>
-                                        <option value="">Select Your Result Type</option>
-                                        <option value="grade">Grade</option>
-                                        <option value="division">Division / Class</option>
-                                    </select>
+                            <div class="education-summery">
+                                <div class="institute-container">
+                                    <h3 class="edu-col-name">Institute Name</h3>
+                                    <p class="edu-con">
+                                        <span idate="edu-level">level</span>
+                                        /
+                                        <span id="edu-degree">degree</span>
+                                    </p>
                                 </div>
-
-                                <!-- result field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-result-division" class="field-label">
-                                        Result
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <select name="candidate_result_division" id="candidate-result-division" class="input-select" required>
-                                        <option value="">Select Your Result</option>
-                                        <option value="one">1st</option>
-                                        <option value="two">2nd</option>
-                                        <option value="three">3rd</option>
-                                    </select>
+                                <div class="result-container">
+                                    <h3 class="edu-col-name">Result</h3>
+                                    <p class="edu-con">
+                                        <span class="edu-icon">
+                                            <i class="fa-solid fa-square-poll-horizontal"></i>
+                                        </span>
+                                        <span id="edu-result">Grade</span>
+                                    </p>
                                 </div>
-
-                                <!-- result grade  -->
-                                <div class="input-field-group hidden-field">
-                                    <label for="candidate-result-grade" class="field-label">
-                                        GPA/CGPA
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <input type="text" name="candidate_result_grade" id="candidate-result-grade" class="input-field" placeholder="Enter Result Grade">
+                                <div class="passing-year-container">
+                                    <h3 class="edu-col-name">Passing Year</h3>
+                                    <p class="edu-con">
+                                        <span class="edu-icon">
+                                            <i class="fa-regular fa-calendar"></i>
+                                        </span>
+                                        <span id="edu-passing-year">Year</span>
+                                    </p>
                                 </div>
-
-                                <!-- result grade scale  -->
-                                <div class="input-field-group hidden-field">
-                                    <label for="candidate-result-grade-scale" class="field-label">
-                                        GPA/CGPA Scale
-                                        <span class="field-label-required">*</span>
-                                    </label>
-
-                                    <input type="text" name="candidate_result_grade_scale" id="candidate-result-grade-scale" class="input-field" placeholder="Enter Result Grade Scale">
+                                <div class="edit-container">
+                                    <button type="button" class="edit">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button type="button" class="delete">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
                                 </div>
                             </div>
-
-                            <!--  form input group  -->
-                            <div class="form-info-group">
-                                <!--passing year field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-passing-year" class="field-label">
-                                        Passing Year
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <input type="text" name="candidate_passing_year" id="candidate-passing-year" class="input-field" placeholder="Enter Passing Year">
-                                </div>
-
-                                <!-- candidate-institute -->
-                                <div class="input-field-group">
-                                    <label for="candidate-institute" class="field-label">
-                                        Institute
-                                        <span class="field-label-required">*</span>
-                                    </label>
-
-                                    <input type="text" name="candidate_institute" id="candidate-institute" class="input-field" placeholder="Enter Institute">
-                                </div>
-                            </div>
-
-                            <!-- submit button  -->
-                            <div class="apply-btn-container">
-                                <button type="submit" name="submit-apply-btn" class="apply-btn">Send</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
+
+                    <!-- form modal  -->
+                    <form action="" method="post" id="application-education-form">
+                        <div class="education-form-modal hidden-field">
+                            <!-- modal header  -->
+                            <div class="edu-modal-header">
+                                <hgroup class="edu-modal-head-container">
+                                    <h4 class="edu-modal-title">Add education</h4>
+                                    <p class="edu-modal-text">Enter your academic qualifications</p>
+                                </hgroup>
+
+                                <div class="edu-modal-close">
+                                    <button type="button" class="edu-modal-close-btn">
+                                        <i class="fa-regular fa-circle-xmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- modal content  -->
+                            <div class="edu-modal-content">
+                                <!--  form input group  -->
+                                <div class="form-info-group">
+                                    <!--education level field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-education-level" class="field-label">
+                                            Education Level
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <select name="candidate_education_level" id="candidate-education-level" class="input-select" required>
+                                            <option value="">Select Your Education Level</option>
+                                            <option value="ssc">SSC</option>
+                                            <option value="hsc">HSC</option>
+                                            <option value="diploma">Diploma</option>
+                                            <option value="bsc">Bachelor / Honours</option>
+                                            <option value="msc">Master's</option>
+                                            <option value="mphil">MPhil</option>
+                                            <option value="phd">PhD</option>
+                                            <option value="jsc">JSC / Below JSC</option>
+                                            <option value="psc">PSC / Below PSC</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- degree field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-education-degree" class="field-label">
+                                            Degree
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <select name="candidate_education_degree" id="candidate-education-degree" class="input-select" required>
+                                            <option value="">Select Your Education Degree</option>
+                                            <!-- School Level -->
+                                            <option value="psc">PSC</option>
+                                            <option value="jsc">JSC</option>
+                                            <option value="ssc">SSC</option>
+                                            <option value="hsc">HSC</option>
+
+                                            <!-- Diploma -->
+                                            <option value="diploma_engineering">Diploma in Engineering</option>
+                                            <option value="diploma_medical">Diploma in Medical Technology</option>
+
+                                            <!-- Bachelor / Honours -->
+                                            <option value="ba">BA</option>
+                                            <option value="bsc">BSc</option>
+                                            <option value="beng">BSc(Eng.)</option>
+                                            <option value="bba">BBA</option>
+                                            <option value="bcom">BCom</option>
+                                            <option value="llb">LLB</option>
+                                            <option value="mbbs">MBBS</option>
+                                            <option value="bpharm">BPharm</option>
+
+                                            <!-- Master's -->
+                                            <option value="ma">MA</option>
+                                            <option value="msc">MSc</option>
+                                            <option value="meng">MSC(Eng.)</option>
+                                            <option value="mba">MBA</option>
+                                            <option value="mcom">MCom</option>
+                                            <option value="llm">LLM</option>
+                                            <option value="mpharm">MPharm</option>
+
+                                            <!-- Higher -->
+                                            <option value="mphil">MPhil</option>
+                                            <option value="phd">PhD</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!--  form input group  -->
+                                <div class="form-info-group">
+                                    <!--result type field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-result-type" class="field-label">
+                                            Division/Grade
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <select name="candidate_result_type" id="candidate-result-type" class="input-select" required>
+                                            <option value="">Select Your Result Type</option>
+                                            <option value="grade">Grade</option>
+                                            <option value="division">Division / Class</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- result field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-result-division" class="field-label">
+                                            Result
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <select name="candidate_result_division" id="candidate-result-division" class="input-select" required>
+                                            <option value="">Select Your Result</option>
+                                            <option value="one">1st</option>
+                                            <option value="two">2nd</option>
+                                            <option value="three">3rd</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- result grade  -->
+                                    <div class="input-field-group hidden-field">
+                                        <label for="candidate-result-grade" class="field-label">
+                                            GPA/CGPA
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <input type="text" name="candidate_result_grade" id="candidate-result-grade" class="input-field" placeholder="Enter Result Grade">
+                                    </div>
+
+                                    <!-- result grade scale  -->
+                                    <div class="input-field-group hidden-field">
+                                        <label for="candidate-result-grade-scale" class="field-label">
+                                            GPA/CGPA Scale
+                                            <span class="field-label-required">*</span>
+                                        </label>
+
+                                        <input type="text" name="candidate_result_grade_scale" id="candidate-result-grade-scale" class="input-field" placeholder="Enter Result Grade Scale">
+                                    </div>
+                                </div>
+
+                                <!--  form input group  -->
+                                <div class="form-info-group">
+                                    <!--passing year field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-passing-year" class="field-label">
+                                            Passing Year
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <input type="text" name="candidate_passing_year" id="candidate-passing-year" class="input-field" placeholder="Enter Passing Year">
+                                    </div>
+
+                                    <!-- candidate-institute -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-institute" class="field-label">
+                                            Institute
+                                            <span class="field-label-required">*</span>
+                                        </label>
+
+                                        <input type="text" name="candidate_institute" id="candidate-institute" class="input-field" placeholder="Enter Institute">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- modal button  -->
+                            <div class="modal-upload-button-container apply-btn-container">
+                                <button type="button" class="modal-upload-button apply-btn">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- submit button  -->
+                        <div class="apply-btn-container">
+                            <button type="submit" name="submit-apply-btn" class="apply-btn">Send</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
+
+
+    <!-- Linked font awesome script  -->
+    <script src="https://kit.fontawesome.com/ff87b718c4.js" crossorigin="anonymous"></script>
+    <!-- Linked custom script  -->
+    <script src="../js/apply-form.js"></script>
 </body>
 
 </html>
