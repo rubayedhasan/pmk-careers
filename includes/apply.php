@@ -371,7 +371,7 @@
             </div>
 
             <!-- application form educational information  -->
-            <div id="educational-information-container">
+            <div id="educational-information-container" class="" style="margin-top: 50px;">
                 <!-- education container  -->
                 <div class="education-container">
                     <div class="education-header-container">

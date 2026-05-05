@@ -7,18 +7,8 @@ body {
   max-width: 75%;
   margin: 50px auto;
 
-  /* 
-  border-radius: 12px;
-  border: 1px solid var(--pmk-green-light);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease; */
-
   overflow: hidden;
 }
-
-/* #job-application:hover {
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
-} */
 
 .application-header {
   display: flex;
@@ -333,10 +323,6 @@ body {
   justify-content: flex-end;
 }
 
-#application-personal-form {
-  display: none;
-}
-
 /* educational information form styles  */
 .education-container {
   background: var(--pmk-white);
@@ -371,7 +357,7 @@ body {
 @media (max-width: 767.98px) {
   #job-application {
     max-width: 95%;
-    margin: 30px auto;
+    margin: 0px auto 30px;
   }
 
   .application-header {
@@ -392,13 +378,31 @@ body {
   }
 
   /* application from styles  */
-  #application-form {
+  .personal-information,
+  .address-container,
+  .resume-container,
+  .education-container {
     padding: 30px 25px;
+  }
+
+  .form-info-group {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 30px;
   }
 }
 
 /* responsive styles:: medium devices  */
 @media (min-width: 768px) and (max-width: 991.98px) {
+  #job-application {
+    max-width: 85%;
+    margin: 30px auto;
+  }
+
+  .form-info-group {
+    gap: 30px;
+    margin-top: 30px;
+  }
 }
 
 /* responsive styles:: large devices  */
