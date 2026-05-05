@@ -515,6 +515,19 @@ body {
     padding: 18px;
     border-radius: 14px;
   }
+
+  .education-summery {
+    gap: 40px;
+    overflow-x: auto;
+  }
+
+  .edu-col-name {
+    font-size: 0.95rem;
+  }
+
+  .edu-con span {
+    font-size: 0.9rem;
+  }
 }
 
 /* responsive styles:: medium devices  */
