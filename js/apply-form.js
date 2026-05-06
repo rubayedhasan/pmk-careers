@@ -246,14 +246,21 @@ candidateResultType.addEventListener("change", () => {
   if (
     candidateResultType.querySelector("option[value='grade']").selected === true
   ) {
-    showElement(candidateResultGrade);
-    showElement(candidateResultGradeScale);
-    hideElement(candidateResultDivision);
+    console.log("a");
+    console.log(
+      candidateResultGrade,
+      candidateResultGradeScale,
+      candidateResultDivision,
+    );
+
+    showElement(candidateResultGrade.parentElement);
+    showElement(candidateResultGradeScale.parentElement);
+    hideElement(candidateResultDivision.parentElement);
     candidateResultDivision.value = "";
   } else {
-    hideElement(candidateResultGrade);
-    hideElement(candidateResultGradeScale);
-    showElement(candidateResultDivision);
+    hideElement(candidateResultGrade.parentElement);
+    hideElement(candidateResultGradeScale.parentElement);
+    showElement(candidateResultDivision.parentElement);
   }
 });
 
@@ -262,7 +269,8 @@ modalUploadButton.addEventListener("click", function () {
   const educationLevel = candidateEducationLevel.value;
   const educationDegree = candidateEducationDegree.value;
   const resultType = candidateResultType.value;
-  const resultDivision = candidateResultDivision.value;
+  const resultDivision =
+    candidateResultDivision.options[candidateResultDivision.selectedIndex].text;
   const resultGrade = candidateResultGrade.value;
   const resultGradeScale = candidateResultGradeScale.value;
   const passingYear = candidatePassingYear.value;
@@ -311,7 +319,7 @@ modalUploadButton.addEventListener("click", function () {
                                             <i class="fa-solid fa-square-poll-horizontal"></i>
                                         </span>
                                         <span id="edu-result">
-                                        ${resultDivision ? resultDivision : `${resultGrade}/${resultGradeScale}`}
+                                        ${resultDivision ? `${resultDivision} ${resultType}` : `${resultGrade}/${resultGradeScale}`}
                                         </span>
                                     </p>
                             </div>
