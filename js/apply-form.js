@@ -72,8 +72,62 @@ dateOfBirth.addEventListener(
 const today = new Date().toISOString().split("T")[0];
 dateOfBirth.setAttribute("max", today);
 
-// same as permanent address
+const candidateName = document.querySelector("#candidate-name");
+const candidateFathersName = document.querySelector("#candidate-Father-name");
+const candidateMothersName = document.querySelector("#candidate-mother-name");
+const contactNumber = document.querySelector("#candidate-contact-number");
+const nidNumber = document.querySelector("#candidate-nid-number");
 
+// 🔹 Name validation (only letters and spaces)
+const validNameField = (element) => {
+  const value = element.value;
+
+  const isValid = /^[A-Za-z\s]+$/.test(value);
+
+  if (!isValid) {
+    element.style.borderColor = "#e63946";
+  } else {
+    element.style.borderColor = "#d1d5db";
+  }
+};
+
+candidateName.addEventListener("input", () => validNameField(candidateName));
+candidateFathersName.addEventListener("input", () =>
+  validNameField(candidateFathersName),
+);
+candidateMothersName.addEventListener("input", () =>
+  validNameField(candidateMothersName),
+);
+
+// 🔹 Phone validation (exactly 11 digits)
+contactNumber.addEventListener("input", () => {
+  // Remove non-numeric characters
+  contactNumber.value = contactNumber.value.replace(/\D/g, "");
+
+  const isValid = /^\d{11}$/.test(contactNumber.value);
+
+  if (!isValid) {
+    contactNumber.style.borderColor = "#e63946";
+  } else {
+    contactNumber.style.borderColor = "#d0d5dd";
+  }
+});
+
+// 🔹 NID validation (10 or 17 digits)
+nidNumber.addEventListener("input", () => {
+  // Remove non-numeric characters
+  nidNumber.value = nidNumber.value.replace(/\D/g, "");
+
+  const isValid = /^(\d{10}|\d{17})$/.test(nidNumber.value);
+
+  if (!isValid) {
+    nidNumber.style.borderColor = "#e63946";
+  } else {
+    nidNumber.style.borderColor = "#d0d5dd";
+  }
+});
+
+// same as permanent address
 sameAsCheckbox.addEventListener("change", () => {
   if (sameAsCheckbox.checked) {
     hideElement(presentAddressInputContainer);
