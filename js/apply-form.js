@@ -1,3 +1,40 @@
+// personal information
+const profileImage = document.querySelector("#profile-image");
+const userProfileImage = document.querySelector(".user-profile-image");
+const userProfileImgTag = document.querySelector(".user-profile-img");
+const userProfileImageIcon = document.querySelector(".user-profile-image-icon");
+const fieldSuggest = document.querySelector(".field-suggest");
+const dateOfBirth = document.querySelector("#candidate-birth-date");
+
+// profile picture size limit
+profileImage.addEventListener("change", () => {
+  const maxSize = 3 * 1024 * 1024;
+  if (profileImage.files[0].size > maxSize) {
+    fieldSuggest.style.color = "#ff0000";
+    userProfileImage.style.border = "1px solid #ff0000";
+    userProfileImageIcon.classList.remove("hidden-field");
+    userProfileImgTag.classList.add("hidden-field");
+    profileImage.value = "";
+  } else {
+    fieldSuggest.style.color = "#707074";
+    userProfileImage.style.border = "1px solid hsla(145, 35%, 80%, 0.6)";
+    userProfileImageIcon.classList.add("hidden-field");
+    userProfileImgTag.classList.remove("hidden-field");
+    // userProfileImgTag.src = profileImage.files[0].name;
+  }
+});
+
+// show calender on filed click
+dateOfBirth.addEventListener(
+  "click",
+  () => dateOfBirth.showPicker && dateOfBirth.showPicker(),
+);
+
+// max date is today no future date
+const today = new Date().toISOString().split("T")[0];
+dateOfBirth.setAttribute("max", today);
+
+// educational information
 // get element
 const addEducationButton = document.querySelector(".add-education-button");
 const educationFormModal = document.querySelector(".education-form-modal");
@@ -168,6 +205,10 @@ function resetInputField(inputField) {
 const personalInformationContainer = document.querySelector(
   "#personal-information-container",
 );
+
+const applicationPersonalForm = document.querySelector(
+  "#application-personal-form",
+);
 const educationalInformationContainer = document.querySelector(
   "#educational-information-container",
 );
@@ -175,12 +216,10 @@ const applyNextPageButton = document.querySelector(
   "button[name='apply-next-page-btn']",
 );
 
-applyNextPageButton.addEventListener("click", () => {
-  // hide
+applicationPersonalForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
   personalInformationContainer.classList.add("hidden-field");
-
-  //   show
-
   educationalInformationContainer.classList.remove("hidden-field");
 });
 
@@ -188,6 +227,11 @@ applyNextPageButton.addEventListener("click", () => {
 const submitApplyButton = document.querySelector(
   "button[name='submit-apply-btn']",
 );
-submitApplyButton.addEventListener("click", () => {
+
+const applicationEducationForm = document.querySelector(
+  "#application-education-form",
+);
+applicationEducationForm.addEventListener("submit", (e) => {
+  e.preventDefault();
   window.location.href = "../index.php";
 });

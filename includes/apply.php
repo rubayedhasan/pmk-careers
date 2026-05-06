@@ -29,7 +29,7 @@
 
             <!-- application form personal information  -->
             <div id="personal-information-container" class="">
-                <form action="" method="" enctype="multipart/form-data" id="application-personal-form">
+                <form action="" method="post" enctype="multipart/form-data" id="application-personal-form">
                     <!-- personal information container  -->
                     <div class="personal-information">
                         <h4 class="form-info-title">Personal Information</h4>
@@ -38,22 +38,23 @@
                         <div class="form-info-group">
                             <div class="field-image">
                                 <label for="profile-image" class="field-label">
-                                    Profile Picture
+                                    Profile Picture (.png/.jpeg/.jpg only)
                                     <span class="field-label-required">*</span>
                                 </label>
                                 <input type="file" name="profile_picture" id="profile-image" class="hidden-field" accept=".png,.jpg,.jpeg" required>
                                 <label for="profile-image">
                                     <div class="user-profile-image">
+                                        <img src="" alt="" class="user-profile-img hidden-field">
                                         <svg class="user-profile-image-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" height="16" width="16">
                                             <path d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z" fill="#6FBF9E" />
                                         </svg>
 
-                                        <svg class="user-profile-add-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                                        <svg class="user-profile-add-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                             <path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z" fill="#00946a" />
                                         </svg>
                                     </div>
                                 </label>
-                                <span class="field-suggest">Max image size 5MB</span>
+                                <span class="field-suggest">Max Image Size 3MB</span>
                             </div>
                         </div>
 
