@@ -68,6 +68,10 @@ body {
   display: none;
 }
 
+.error {
+  border: 1px solid #e63946 !important;
+}
+
 .field-label {
   display: block;
   margin-bottom: 6px;

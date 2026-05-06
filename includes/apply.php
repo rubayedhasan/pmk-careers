@@ -173,7 +173,7 @@
                                     NID Number
                                     <span class="field-label-required">*</span>
                                 </label>
-                                <input type="text" name="candidate_nid_number" id="candidate-nid-number" class="input-field" placeholder="Enter NID Number" required>
+                                <input type="text" name="candidate_nid_number" id="candidate-nid-number" class="input-field" placeholder="NID MUST 10 or 17 Digit" required>
                             </div>
 
                             <!-- phone field  -->
@@ -182,7 +182,7 @@
                                     Contact Number
                                     <span class="field-label-required">*</span>
                                 </label>
-                                <input type="text" name="candidate_contact_number" id="candidate-contact-number" class="input-field" placeholder="Enter Contact Number" required>
+                                <input type="text" name="candidate_contact_number" id="candidate-contact-number" class="input-field" placeholder="phone: 01XXXXXXXXX" required>
                             </div>
                         </div>
 
@@ -194,7 +194,7 @@
                                     Email Address
                                     <span class="field-label-required">*</span>
                                 </label>
-                                <input type="text" name="candidate_email" id="candidate-email" class="input-field" placeholder="Enter Email" required>
+                                <input type="text" name="candidate_email" id="candidate-email" class="input-field" placeholder="email: user@gamil.com" required>
                             </div>
 
                             <!-- passport field  -->
