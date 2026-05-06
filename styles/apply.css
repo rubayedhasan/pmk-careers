@@ -2,6 +2,23 @@ body {
   background-color: rgb(128 128 128 / 8%);
 }
 
+.from-close-btn-container {
+  position: absolute;
+  top: 15px;
+  right: 70px;
+  background-color: transparent;
+}
+
+.from-close-btn {
+  color: var(--pmk-green-dark-sublet);
+  font-size: 1.45rem;
+  transition: all 0.3s ease;
+}
+
+.from-close-btn:hover {
+  color: var(--pmk-green-dark);
+}
+
 #job-application {
   width: 100%;
   max-width: 75%;
@@ -406,6 +423,15 @@ body {
   font-size: 0.95rem;
 }
 
+.edu-modal-close-btn {
+  color: var(--pmk-green-dark);
+  font-size: 1.2rem;
+  transition: all 0.5s ease;
+}
+.edu-modal-close-btn:hover {
+  color: var(--pmk-green-dark-sublet);
+}
+
 #education-summery-container {
   margin-top: 30px;
 }
@@ -486,6 +512,16 @@ body {
 
 /* responsive styles:: small devices  */
 @media (max-width: 767.98px) {
+  .from-close-btn-container {
+    top: 10px;
+    right: 20px;
+  }
+
+  .from-close-btn {
+    color: var(--pmk-green-dark-sublet);
+    font-size: 1.25rem;
+  }
+
   #job-application {
     max-width: 95%;
     margin: 0px auto 30px;
@@ -544,6 +580,16 @@ body {
 
 /* responsive styles:: medium devices  */
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .from-close-btn-container {
+    top: 10px;
+    right: 20px;
+  }
+
+  .from-close-btn {
+    color: var(--pmk-green-dark-sublet);
+    font-size: 1.25rem;
+  }
+
   #job-application {
     max-width: 85%;
     margin: 30px auto;

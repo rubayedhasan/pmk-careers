@@ -15,6 +15,14 @@
 
 <body>
     <main>
+        <!-- close form container  -->
+        <div class="from-close-btn-container">
+            <button onclick="window.location.href='../index.php'" type="button" class="from-close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- section:: job application form  -->
         <section id="job-application">
             <div class="application-header">
                 <figure class="org-logo">

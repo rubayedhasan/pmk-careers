@@ -141,23 +141,23 @@ profileImage.addEventListener("change", () => {
   const maxSize = 3 * 1024 * 1024;
   const fileExtension = file.name.split(".").pop().toLowerCase();
 
-  // validate image formate
-  if (
-    fileExtension !== ".png" ||
-    fileExtension !== "jpg" ||
-    fileExtension !== ".jpeg"
-  ) {
-    setError(userProfileImage);
-    profileImage.value = "";
-    return;
-  }
-
   // validate image size
   if (!file || file.size > maxSize) {
     fieldSuggest.style.color = "#ff0000";
     setError(userProfileImage);
     showElement(userProfileImageIcon);
     hideElement(userProfileImgTag);
+    profileImage.value = "";
+    return;
+  }
+
+  // validate image formate
+  if (
+    fileExtension !== "png" &&
+    fileExtension !== "jpg" &&
+    fileExtension !== "jpeg"
+  ) {
+    setError(userProfileImage);
     profileImage.value = "";
     return;
   }
@@ -360,8 +360,8 @@ applicationPersonalForm.addEventListener("submit", (e) => {
     validateName(candidateName) &&
     validateName(candidateFathersName) &&
     validateName(candidateMothersName) &&
-    validatePhone(contactNumber) &&
-    validateNID(nidNumber);
+    validatePhoneNumber(contactNumber) &&
+    validateNidNumber(nidNumber);
 
   if (!isValid) {
     alert("Invalid Input Values");
