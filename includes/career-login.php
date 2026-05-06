@@ -44,7 +44,7 @@ if ($userEmailValid) {
         <div class="action-form">
             <div class="form-container">
                 <h3 class="form-title">Login to your account</h3>
-                <form class="user-form" action="../server/requests.php" method="post">
+                <form class="user-form" action="../server/login.php" method="post">
                     <div class="user-field">
                         <label for="user-mobile-number">
                             <span>

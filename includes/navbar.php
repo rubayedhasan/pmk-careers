@@ -60,7 +60,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="./server/requests.php?logout=true">
+                            <a class="nav-link" href="./server/logout.php?logout=true">
                                 <span class="nav-icon">
                                     <img src="./assets/icons/arrow-right-from-bracket-solid-full.svg" alt="icon">
                                 </span>

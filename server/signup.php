@@ -1,0 +1,92 @@
+<?php
+
+session_start();
+
+// connect database 
+require_once("../db/dbconnect.php");
+$dbConnection = $conn;
+
+// signup functionality 
+if (isset($_POST["userEmailAddress"])) {
+    $setUserFullName = $_POST["userFullName"];
+    $setUserAddress = $_POST["userAddress"];
+    $setPhoneNumber = $_POST["userContactNumber"];
+    $setUserEmailAddress = $_POST["userEmailAddress"];
+    $userAgreeTerms = $_POST["termsCheck"];
+
+
+    // validation:: phone number right pattern
+    if (!preg_match('/^01[0-9]{9}$/', $setPhoneNumber)) {
+        echo "
+        <script>
+            alert('Invalid Phone Number');
+            window.location.href = '../includes/career-signup.php';
+        </script>
+    ";
+        exit();
+    }
+
+    // validation:: email right syntax
+    if (!filter_var($setUserEmailAddress, FILTER_VALIDATE_EMAIL)) {
+        echo "
+            <script>
+                alert('Invalid Email Address');
+                window.location.href = '../includes/career-signup.php';
+            </script>
+        ";
+        exit();
+    }
+
+    // validation:: unique phone number check
+    $checkContactQuery = "SELECT * FROM signup_user WHERE phone_number = '$setPhoneNumber'";
+    $checkContact = $dbConnection->query($checkContactQuery);
+
+    if ($checkContact->num_rows > 0) {
+        echo "
+            <script>
+                alert('This Phone Number Has Registered Before');
+                window.location.href = '../includes/career-signup.php';
+            </script>
+        ";
+        exit();
+    }
+
+    // validation:: unique email address check 
+    $checkEmailQuery = "SELECT * FROM signup_user WHERE email = '$setUserEmailAddress'";
+    $checkEmail = $dbConnection->query($checkEmailQuery);
+    if ($checkEmail->num_rows > 0) {
+        echo "
+            <script>
+                alert('This Email Has Registered Before');
+                window.location.href = '../includes/career-signup.php';
+            </script>
+        ";
+        exit();
+    }
+
+
+    $userDetails = $dbConnection->prepare("INSERT INTO signup_user
+    (name,address,phone_number,email,agree_terms)
+
+    VALUES(?,?,?,?,?)
+    ");
+
+    $connectionOutcome = $userDetails->execute([$setUserFullName, $setUserAddress, $setPhoneNumber, $setUserEmailAddress,  $userAgreeTerms]);
+
+    if ($connectionOutcome) {
+        $_SESSION["user"] = ["userEmail" => $setUserEmailAddress, "userPhoneNumber" => $setPhoneNumber];
+        echo "
+        <script>
+            alert('You have Signup Successfully');
+            window.location.href='../index.php';
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+            alert('You have Failed to Signup');
+            window.location.href='../includes/career-signup.php';
+        </script>
+        ";
+    }
+}

@@ -212,7 +212,7 @@
             </div>
 
             <!-- apply button  -->
-            <form class="apply-btn-container" action="../server/requests.php" method="post">
+            <form class="apply-btn-container" action="../server/job-apply.php" method="post">
                 <button type="submit" class="apply-btn" name="applyBtn">Apply Now</button>
             </form>
         </section>
