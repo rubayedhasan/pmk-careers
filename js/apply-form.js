@@ -1,3 +1,21 @@
+// common functions
+function showElement(element) {
+  element.classList.remove("hidden-field");
+}
+function hideElement(element) {
+  element.classList.add("hidden-field");
+}
+
+function validateInputField(inputField, inputValue) {
+  if (!inputValue) {
+    inputField.style.border = "1px solid red";
+    return;
+  }
+}
+function resetInputField(inputField) {
+  inputField.value = "";
+}
+
 // personal information
 const profileImage = document.querySelector("#profile-image");
 const userProfileImage = document.querySelector(".user-profile-image");
@@ -5,6 +23,26 @@ const userProfileImgTag = document.querySelector(".user-profile-img");
 const userProfileImageIcon = document.querySelector(".user-profile-image-icon");
 const fieldSuggest = document.querySelector(".field-suggest");
 const dateOfBirth = document.querySelector("#candidate-birth-date");
+const permanentAddress = document.querySelector("#candidate-permanent-address");
+const permanentDivision = document.querySelector(
+  "#candidate-permanent-division",
+);
+const permanentDistrict = document.querySelector(
+  "#candidate-permanent-district",
+);
+const permanentThana = document.querySelector("#candidate-permanent-thana");
+const permanentPostcode = document.querySelector(
+  "#candidate-permanent-postCode",
+);
+const presentAddress = document.querySelector("#candidate-present-address");
+const presentDivision = document.querySelector("#candidate-present-division");
+const presentDistrict = document.querySelector("#candidate-present-district");
+const presentThana = document.querySelector("#candidate-present-thana");
+const presentPostcode = document.querySelector("#candidate-present-postCode");
+const presentAddressInputContainer = document.querySelector(
+  ".present-address-input-container",
+);
+const sameAsCheckbox = document.querySelector("#same-as-checkmark");
 
 // profile picture size limit
 profileImage.addEventListener("change", () => {
@@ -12,14 +50,14 @@ profileImage.addEventListener("change", () => {
   if (profileImage.files[0].size > maxSize) {
     fieldSuggest.style.color = "#ff0000";
     userProfileImage.style.border = "1px solid #ff0000";
-    userProfileImageIcon.classList.remove("hidden-field");
-    userProfileImgTag.classList.add("hidden-field");
+    showElement(userProfileImageIcon);
+    hideElement(userProfileImgTag);
     profileImage.value = "";
   } else {
     fieldSuggest.style.color = "#707074";
     userProfileImage.style.border = "1px solid hsla(145, 35%, 80%, 0.6)";
-    userProfileImageIcon.classList.add("hidden-field");
-    userProfileImgTag.classList.remove("hidden-field");
+    showElement(userProfileImgTag);
+    hideElement(userProfileImageIcon);
     // userProfileImgTag.src = profileImage.files[0].name;
   }
 });
@@ -33,6 +71,26 @@ dateOfBirth.addEventListener(
 // max date is today no future date
 const today = new Date().toISOString().split("T")[0];
 dateOfBirth.setAttribute("max", today);
+
+// same as permanent address
+
+sameAsCheckbox.addEventListener("change", () => {
+  if (sameAsCheckbox.checked) {
+    hideElement(presentAddressInputContainer);
+    presentAddress.value = permanentAddress.value;
+    presentDivision.value = permanentDivision.value;
+    presentDistrict.value = permanentDistrict.value;
+    presentThana.value = permanentThana.value;
+    presentPostcode.value = permanentPostcode.value;
+  } else {
+    showElement(presentAddressInputContainer);
+    presentAddress.value = "";
+    presentDivision.value = "";
+    presentDistrict.value = "";
+    presentThana.value = "";
+    presentPostcode.value = "";
+  }
+});
 
 // educational information
 // get element
@@ -63,19 +121,19 @@ const candidateInstitute = document.querySelector("#candidate-institute");
 
 // show modal
 addEducationButton.addEventListener("click", () => {
-  educationFormModal.classList.remove("hidden-field");
+  showElement(educationFormModal);
 });
 
 // hide modal
 eduModalCloseBtn.addEventListener("click", () => {
-  educationFormModal.classList.add("hidden-field");
+  hideElement(educationFormModal);
 });
 
 // show and hide summer notice
 if (educationSummeryLists.children.length === 0) {
-  summeryNotice.classList.remove("hidden-field");
+  showElement(summeryNotice);
 } else {
-  summeryNotice.classList.add("hidden-field");
+  hideElement(summeryNotice);
 }
 
 // show and display grade selection and typing
@@ -83,14 +141,14 @@ candidateResultType.addEventListener("change", () => {
   if (
     candidateResultType.querySelector("option[value='grade']").selected === true
   ) {
-    candidateResultGrade.parentElement.classList.remove("hidden-field");
-    candidateResultGradeScale.parentElement.classList.remove("hidden-field");
-    candidateResultDivision.parentElement.classList.add("hidden-field");
+    showElement(candidateResultGrade);
+    showElement(candidateResultGradeScale);
+    hideElement(candidateResultDivision);
     candidateResultDivision.value = "";
   } else {
-    candidateResultGrade.parentElement.classList.add("hidden-field");
-    candidateResultGradeScale.parentElement.classList.add("hidden-field");
-    candidateResultDivision.parentElement.classList.remove("hidden-field");
+    hideElement(candidateResultGrade);
+    hideElement(candidateResultGradeScale);
+    showElement(candidateResultDivision);
   }
 });
 
@@ -186,20 +244,8 @@ modalUploadButton.addEventListener("click", function () {
   resetInputField(candidateInstitute);
 
   //   hide the modal form
-  educationFormModal.classList.add("hidden-field");
+  hideElement(educationFormModal);
 });
-
-// function validate the input field
-function validateInputField(inputField, inputValue) {
-  if (!inputValue) {
-    inputField.style.border = "1px solid red";
-    return;
-  }
-}
-
-function resetInputField(inputField) {
-  inputField.value = "";
-}
 
 // after submit personal data then show the educational form
 const personalInformationContainer = document.querySelector(
@@ -219,8 +265,8 @@ const applyNextPageButton = document.querySelector(
 applicationPersonalForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  personalInformationContainer.classList.add("hidden-field");
-  educationalInformationContainer.classList.remove("hidden-field");
+  hideElement(personalInformationContainer);
+  showElement(educationalInformationContainer);
 });
 
 // after submit the form re-located to index

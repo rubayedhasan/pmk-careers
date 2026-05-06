@@ -284,7 +284,7 @@
                                         Postal Code
                                         <span class="field-label-required">*</span>
                                     </label>
-                                    <input type="text" name="candidate_permanent_postCode" id="candidate-permanent-postCode" class="input-field" placeholder="Enter Your Postal Code" required>
+                                    <input type="number" name="candidate_permanent_postCode" id="candidate-permanent-postCode" class="input-field" placeholder="Enter Your Postal Code" required>
                                 </div>
                             </div>
                         </div>
@@ -293,57 +293,65 @@
                         <div class="present-address">
                             <h4 class="form-info-title">Present Address</h4>
 
-                            <!-- 1st: profile picture field  -->
                             <div class="form-info-group">
-                                <!-- name field  -->
-                                <div class="input-field-group textarea-field">
-                                    <label for="candidate-present-address" class="field-label">
-                                        Address
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <textarea name="candidate_present_address" id="candidate-present-address" class="input-field" placeholder="Village, Post Office, House" required cols="10" rows="5"></textarea>
-                                </div>
+                                <label for="same-as-checkmark">
+                                    <input type="checkbox" name="same_as_checkmark" id="same-as-checkmark"> Same As Permanent Address
+                                </label>
                             </div>
 
-                            <!-- 2nd: form info group  -->
-                            <div class="form-info-group">
-                                <!-- division field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-present-division" class="field-label">
-                                        Division
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <input type="text" name="candidate_present_division" id="candidate-present-division" class="input-field" placeholder="Enter Your Division" required>
+                            <div class="present-address-input-container">
+                                <!-- 1st: profile picture field  -->
+                                <div class="form-info-group">
+                                    <!-- name field  -->
+                                    <div class="input-field-group textarea-field">
+                                        <label for="candidate-present-address" class="field-label">
+                                            Address
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <textarea name="candidate_present_address" id="candidate-present-address" class="input-field" placeholder="Village, Post Office, House" required cols="10" rows="5"></textarea>
+                                    </div>
                                 </div>
 
-                                <!-- district field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-present-district" class="field-label">
-                                        District
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <input type="text" name="candidate_present_district" id="candidate-present-district" class="input-field" placeholder="Enter Your District" required>
-                                </div>
-                            </div>
+                                <!-- 2nd: form info group  -->
+                                <div class="form-info-group">
+                                    <!-- division field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-present-division" class="field-label">
+                                            Division
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <input type="text" name="candidate_present_division" id="candidate-present-division" class="input-field" placeholder="Enter Your Division" required>
+                                    </div>
 
-                            <!-- 3rd: form info group  -->
-                            <div class="form-info-group">
-                                <!-- division field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-present-thana" class="field-label">
-                                        Thana/ Upazila
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <input type="text" name="candidate_present_thana" id="candidate-present-thana" class="input-field" placeholder="Enter Your Thana/ Upazila" required>
+                                    <!-- district field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-present-district" class="field-label">
+                                            District
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <input type="text" name="candidate_present_district" id="candidate-present-district" class="input-field" placeholder="Enter Your District" required>
+                                    </div>
                                 </div>
 
-                                <!-- district field  -->
-                                <div class="input-field-group">
-                                    <label for="candidate-present-postCode" class="field-label">
-                                        Postal Code
-                                        <span class="field-label-required">*</span>
-                                    </label>
-                                    <input type="text" name="candidate_present_postCode" id="candidate-present-postCode" class="input-field" placeholder="Enter Your Postal Code" required>
+                                <!-- 3rd: form info group  -->
+                                <div class="form-info-group">
+                                    <!-- division field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-present-thana" class="field-label">
+                                            Thana/ Upazila
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <input type="text" name="candidate_present_thana" id="candidate-present-thana" class="input-field" placeholder="Enter Your Thana/ Upazila" required>
+                                    </div>
+
+                                    <!-- district field  -->
+                                    <div class="input-field-group">
+                                        <label for="candidate-present-postCode" class="field-label">
+                                            Postal Code
+                                            <span class="field-label-required">*</span>
+                                        </label>
+                                        <input type="number" name="candidate_present_postCode" id="candidate-present-postCode" class="input-field" placeholder="Enter Your Postal Code" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
