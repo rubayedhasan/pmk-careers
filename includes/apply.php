@@ -36,7 +36,7 @@
             </div>
 
             <!-- application form personal information  -->
-            <div id="personal-information-container" class="hidden-field">
+            <div id="personal-information-container" class="">
                 <form action="" method="post" enctype="multipart/form-data" id="application-personal-form">
                     <!-- personal information container  -->
                     <div class="personal-information">
@@ -388,7 +388,7 @@
             </div>
 
             <!-- application form educational information  -->
-            <div id="educational-information-container" class="">
+            <div id="educational-information-container" class="hidden-field">
                 <!-- education container  -->
                 <div class="education-container">
                     <div class="education-header-container">

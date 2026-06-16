@@ -29,6 +29,9 @@
             <div class="job-list-container">
                 <div class="jobs" id="jobLists">
 
+                    <!-- random  -->
+                    <?php include_once("./includes/random.php") ?>
+
                     <!-- 1st:: job card  -->
                     <div class="job-card">
 

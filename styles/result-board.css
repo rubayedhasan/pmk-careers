@@ -39,6 +39,10 @@
   border-color: #dcdcdc;
 }
 
+.result-img {
+  display: none;
+}
+
 .result-card-title {
   color: var(--pmk-blue-dark);
   font-size: 1rem;

@@ -20,9 +20,10 @@
                     <div class="results" id="resultList">
                         <!-- 1st: result card  -->
                         <div class="result-card">
+                            <img src="./assets/results/co_exam_13.06.2026.jpeg" alt="" class="result-img">
                             <div class="result-info">
-                                <h4 class="result-card-title">Result Title</h4>
-                                <p class="result-publish-date">Publish Date</p>
+                                <h4 class="result-card-title">Credit Officer Selection Result</h4>
+                                <p class="result-publish-date">16.06.2026</p>
                             </div>
 
                             <button class="result-view-btn" type="button">
@@ -32,9 +33,11 @@
 
                         <!-- 2nd: result card  -->
                         <div class="result-card">
+                            <img src="./assets/results/co_exam_09.05.2026.png" alt=""
+                                class="result-img">
                             <div class="result-info">
-                                <h4 class="result-card-title">Result Title</h4>
-                                <p class="result-publish-date">Publish Date</p>
+                                <h4 class="result-card-title">Credit Officer Selection Result</h4>
+                                <p class="result-publish-date">12.06.2026</p>
                             </div>
 
                             <button class="result-view-btn" type="button">
@@ -44,33 +47,10 @@
 
                         <!-- 3rd: result card  -->
                         <div class="result-card">
+                            <img src="./assets/results/co_exam_06.06.2026.png" alt="" class="result-img">
                             <div class="result-info">
-                                <h4 class="result-card-title">Result Title</h4>
-                                <p class="result-publish-date">Publish Date</p>
-                            </div>
-
-                            <button class="result-view-btn" type="button">
-                                View Result
-                            </button>
-                        </div>
-
-                        <!-- 4th: result card  -->
-                        <div class="result-card">
-                            <div class="result-info">
-                                <h4 class="result-card-title">Result Title</h4>
-                                <p class="result-publish-date">Publish Date</p>
-                            </div>
-
-                            <button class="result-view-btn" type="button">
-                                View Result
-                            </button>
-                        </div>
-
-                        <!-- 5th: result card  -->
-                        <div class="result-card">
-                            <div class="result-info">
-                                <h4 class="result-card-title">Result Title</h4>
-                                <p class="result-publish-date">Publish Date</p>
+                                <h4 class="result-card-title">Credit Officer Selection Result</h4>
+                                <p class="result-publish-date">09.06.2026</p>
                             </div>
 
                             <button class="result-view-btn" type="button">
@@ -89,7 +69,7 @@
                         </div>
 
                         <figure class="modal-result-image">
-                            <img src="./assets/vacancy-images/account officer 50.png" alt="image" loading="lazy">
+                            <img src="" alt="image" loading="lazy">
                         </figure>
                     </div>
                 </div>
