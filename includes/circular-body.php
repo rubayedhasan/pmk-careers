@@ -83,4 +83,19 @@
     </section>
 </body>
 
+<!-- custom script  -->
+<script>
+    document.querySelectorAll("#job-deadline-time").forEach(datelineElement => {
+        const [day, month, year] = datelineElement.textContent.trim().split("/");
+        const deadline = new Date(year, month - 1, day);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (deadline < today) {
+            datelineElement.classList.add("dateover");
+            datelineElement.textContent += " (Date Over)";
+        }
+    })
+</script>
+
 </html>
