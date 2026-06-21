@@ -91,9 +91,9 @@
             bottom: -2px;
             height: 180px;
             background-color: var(--pmk-green-light);
-            clip-path: path("M0,90 C180,170 320,10 520,70 C720,130 860,190 1060,110 C1240,40 1380,30 1600,95 L1600,220 L0,220 Z"
-                );
+            clip-path: path("M0,90C216,170 384,10 624,70C864,130 1032,190 1272,110C1488,40 1656,30 1920,95L1920,220L0,220Z");
         }
+
 
 
 
@@ -210,7 +210,7 @@
 
     <main style="display: flex; justify-content: center;">
         <iframe
-            src="../assets/vacancy-docs/Florence_Nightingale_Nursing_Admission_Coaching.pdf"
+            src="../assets/vacancy-docs/credit_officer.pdf"
             width="50%"
             height="1000px" style="margin: 30px 0px;">
         </iframe>

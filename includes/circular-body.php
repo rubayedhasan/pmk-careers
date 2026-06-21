@@ -30,10 +30,15 @@
                 <div class="jobs" id="jobLists">
 
                     <!-- random  -->
-                    <?php include_once("./includes/random.php") ?>
+                    <?php
+                    include_once("./includes/vacancy-3.php");
+                    include_once("./includes/vacancy-2.php");
+                    include_once("./includes/vacancy-1.php");
+
+                    ?>
 
                     <!-- 1st:: job card  -->
-                    <div class="job-card">
+                    <!-- <div class="job-card">
 
                         <div class="job-info">
                             <h4 class="job-title">Job Title 1</h4>
@@ -61,131 +66,7 @@
                             </span>
                         </div>
 
-                    </div>
-
-                    <!-- 2nd:: job card  -->
-                    <div class="job-card">
-
-                        <div class="job-info">
-                            <h4 class="job-title">Job Title 1</h4>
-
-                            <div class="job-meta">
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </span>
-                                    <span id="job-location">Location</span>
-                                </div>
-
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-business-time"></i>
-                                    </span>
-                                    <span id="job-deadline-time">Deadline</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="job-actions">
-                            <span class="stack-icon view">
-                                View More
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <!-- 3rd:: job card  -->
-                    <div class="job-card">
-
-                        <div class="job-info">
-                            <h4 class="job-title">Job Title 1</h4>
-
-                            <div class="job-meta">
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </span>
-                                    <span id="job-location">Location</span>
-                                </div>
-
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-business-time"></i>
-                                    </span>
-                                    <span id="job-deadline-time">Deadline</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="job-actions">
-                            <span class="stack-icon view">
-                                View More
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <!-- 4th:: job card  -->
-                    <div class="job-card">
-
-                        <div class="job-info">
-                            <h4 class="job-title">Job Title 1</h4>
-
-                            <div class="job-meta">
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </span>
-                                    <span id="job-location">Location</span>
-                                </div>
-
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-business-time"></i>
-                                    </span>
-                                    <span id="job-deadline-time">Deadline</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="job-actions">
-                            <span class="stack-icon view">
-                                View More
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <!-- 5th:: job card  -->
-                    <div class="job-card">
-
-                        <div class="job-info">
-                            <h4 class="job-title">Job Title 1</h4>
-
-                            <div class="job-meta">
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </span>
-                                    <span id="job-location">Location</span>
-                                </div>
-
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-business-time"></i>
-                                    </span>
-                                    <span id="job-deadline-time">Deadline</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="job-actions">
-                            <span class="stack-icon view">
-                                View More
-                            </span>
-                        </div>
-
-                    </div>
+                    </div> -->
 
                 </div>
 

@@ -133,6 +133,10 @@
   gap: 6px;
 }
 
+.dateover {
+  color: red !important;
+}
+
 .job-actions {
   display: flex;
   gap: 10px;
