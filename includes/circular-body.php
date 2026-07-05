@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PMK | Career</title>
     <!-- Linked custom stylesheet  -->
-    <link rel="stylesheet" href="./styles/circular-body.css">
+    <link rel="stylesheet" href="../styles/circular-body.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
                 </hgroup>
 
                 <figure class="hiring-feature-image">
-                    <img src="./assets/images/Resume-bro.png" alt="">
+                    <img src="../assets/images/Resume-bro.png" alt="">
                 </figure>
             </div>
 
@@ -31,14 +31,15 @@
 
                     <!-- random  -->
                     <?php
-                    include_once("./includes/vacancy-3.php");
-                    include_once("./includes/vacancy-2.php");
-                    include_once("./includes/vacancy-1.php");
+                    include_once("../includes/vacancy-4.php");
+                    include_once("../includes/vacancy-3.php");
+                    include_once("../includes/vacancy-2.php");
+                    include_once("../includes/vacancy-1.php");
 
                     ?>
 
                     <!-- 1st:: job card  -->
-                    <!-- <div class="job-card">
+                    <div class="job-card">
 
                         <div class="job-info">
                             <h4 class="job-title">Job Title 1</h4>
@@ -66,7 +67,7 @@
                             </span>
                         </div>
 
-                    </div> -->
+                    </div>
 
                 </div>
 

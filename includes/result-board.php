@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pmk Notice Board</title>
+
     <!-- Linked custom stylesheet  -->
-    <link rel="stylesheet" href="./styles/result-board.css">
+    <link rel="stylesheet" href="../styles/result-board.css">
 </head>
 
 <body>
@@ -20,7 +21,20 @@
                     <div class="results" id="resultList">
                         <!-- 1st: result card  -->
                         <div class="result-card">
-                            <img src="./assets/results/co_exam_13.06.2026.jpeg" alt="" class="result-img">
+                            <img src="../assets/results/co_exam_27.06.2026.jpeg" alt="" class="result-img">
+                            <div class="result-info">
+                                <h4 class="result-card-title">Credit Officer Selection Result</h4>
+                                <p class="result-publish-date">29.06.2026</p>
+                            </div>
+
+                            <button class="result-view-btn" type="button">
+                                View Result
+                            </button>
+                        </div>
+
+                        <!-- 2nd: result card  -->
+                        <div class="result-card">
+                            <img src="../assets/results/co_exam_13.06.2026.jpeg" alt="" class="result-img">
                             <div class="result-info">
                                 <h4 class="result-card-title">Credit Officer Selection Result</h4>
                                 <p class="result-publish-date">16.06.2026</p>
@@ -31,9 +45,9 @@
                             </button>
                         </div>
 
-                        <!-- 2nd: result card  -->
+                        <!-- 3rd: result card  -->
                         <div class="result-card">
-                            <img src="./assets/results/co_exam_09.05.2026.png" alt=""
+                            <img src="../assets/results/co_exam_09.05.2026.png" alt=""
                                 class="result-img">
                             <div class="result-info">
                                 <h4 class="result-card-title">Credit Officer Selection Result</h4>
@@ -45,9 +59,9 @@
                             </button>
                         </div>
 
-                        <!-- 3rd: result card  -->
+                        <!-- 4th: result card  -->
                         <div class="result-card">
-                            <img src="./assets/results/co_exam_06.06.2026.png" alt="" class="result-img">
+                            <img src="../assets/results/co_exam_06.06.2026.png" alt="" class="result-img">
                             <div class="result-info">
                                 <h4 class="result-card-title">Credit Officer Selection Result</h4>
                                 <p class="result-publish-date">09.06.2026</p>
@@ -78,7 +92,7 @@
     </main>
 
     <!-- Linked custom script  -->
-    <script src="./js/result-board.js"></script>
+    <script src="../js/result-board.js"></script>
 </body>
 
 </html>

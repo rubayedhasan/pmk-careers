@@ -14,7 +14,7 @@ let timer = setInterval(() => {
 
 // circular body page view vacancy details page functionality
 const viewVacancyDetails = () =>
-  (window.location.href = "./includes/vacancyDetails.php");
+  (window.location.href = "../includes/vacancyDetails.php");
 
 const views = document.querySelectorAll(".view");
 views.forEach((view) => {

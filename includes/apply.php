@@ -7,6 +7,10 @@
     <title>PMK | Application Form</title>
     <!-- Linked favicon  -->
     <link rel="shortcut icon" href="../assets/logo/main-logo.png" type="image/x-icon">
+
+    <!-- Linked font awesome stylesheet   -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- linked custom css  -->
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/button.css">
@@ -583,8 +587,7 @@
     </main>
 
 
-    <!-- Linked font awesome script  -->
-    <script src="https://kit.fontawesome.com/ff87b718c4.js" crossorigin="anonymous"></script>
+
     <!-- Linked custom script  -->
     <script src="../js/apply-form.js"></script>
 </body>

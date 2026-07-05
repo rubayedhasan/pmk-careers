@@ -2,7 +2,7 @@
  <div class="job-card">
 
      <div class="job-info">
-         <h4 class="job-title">শাখা ব্যাবস্থাপক</h4>
+         <h4 class="job-title" onclick="window.location.href='../includes/vacancy-2_Details.php'">শাখা ব্যাবস্থাপক</h4>
 
          <div class="job-meta">
              <div class="job-meta-group">
@@ -21,7 +21,7 @@
          </div>
      </div>
 
-     <div class="job-actions" onclick="window.location.href='./includes/vacancy-2_Details.php'">
+     <div class="job-actions" onclick="window.location.href='../includes/vacancy-2_Details.php'">
          <span class="stack-icon">
              View More
          </span>

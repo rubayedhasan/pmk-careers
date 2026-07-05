@@ -7,7 +7,7 @@
     <title>PMK | Circular</title>
 
     <!-- Linked custom stylesheet  -->
-    <link rel="stylesheet" href="./styles/circular-head.css">
+    <link rel="stylesheet" href="../styles/circular-head.css">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
             <div class="search-btn-container button-container">
                 <a href="#pmk-circular-body" class="visit-btn button-effect">
                     <span><i class="fa-brands fa-algolia"></i></span>
-                    <span>Search Jobs</span>
+                    <span>Current Openings</span>
                 </a>
             </div>
         </div>
@@ -59,7 +59,7 @@
                 <!-- 1st:: benefit card  -->
                 <div class="benefit-card">
                     <figure class="benefit-image">
-                        <img src="./assets/icons/management.png" alt="icons">
+                        <img src="../assets/icons/management.png" alt="icons">
                     </figure>
                     <div class="benefit-content">
                         <h5 class="benefit-title">Team work</h5>
@@ -72,7 +72,7 @@
                 <!-- 2nd:: benefit card  -->
                 <div class="benefit-card">
                     <figure class="benefit-image">
-                        <img src="./assets/icons/working-hours.png" alt="icons">
+                        <img src="../assets/icons/working-hours.png" alt="icons">
                     </figure>
                     <div class="benefit-content">
                         <h5 class="benefit-title">Flexible</h5>
@@ -85,7 +85,7 @@
                 <!-- 3rd:: benefit card  -->
                 <div class="benefit-card">
                     <figure class="benefit-image">
-                        <img src="./assets/icons/empowerment.png" alt="icons">
+                        <img src="../assets/icons/empowerment.png" alt="icons">
                     </figure>
                     <div class="benefit-content">
                         <h5 class="benefit-title">Grow</h5>

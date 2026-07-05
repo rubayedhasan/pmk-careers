@@ -7,7 +7,7 @@
     <title>PMK | Navbar</title>
 
     <!-- Linked my custom stylesheet  -->
-    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
 
 </head>
 
@@ -17,7 +17,7 @@
         <div class="container-fluid container-width">
             <!-- brand name  -->
             <a class="brand-name" href="https://pmk.org.bd/">
-                <img class="logo-img" loading="lazy" decoding="async" fetchpriority="high" src="./assets/logo/PMK_Logo_For_Web.png" alt="pmk logo">
+                <img class="logo-img" loading="lazy" decoding="async" fetchpriority="high" src="../assets/logo/PMK_Logo_For_Web.png" alt="pmk logo">
             </a>
 
             <!-- toggler button and menu  -->
@@ -29,9 +29,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./index.php">
+                        <a class="nav-link" aria-current="page" href="../index.php">
                             <span class="nav-icon">
-                                <img src="./assets/icons/user-tie-solid-full.svg" alt=" icon">
+                                <img src="../assets/icons/user-tie-solid-full.svg" alt=" icon">
                             </span>
                             <span>Career</span>
                         </a>
@@ -39,7 +39,7 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="?result=true">
                             <span class="nav-icon">
-                                <img src="./assets/icons/square-poll-vertical-solid-full.svg" alt=" icon">
+                                <img src="../assets/icons/square-poll-vertical-solid-full.svg" alt=" icon">
                             </span>
                             <span>Result</span>
                         </a>
@@ -51,20 +51,20 @@
                     if ($userEmailValid) {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="./includes/">
+                            <a class="nav-link" href="../includes/">
                                 <span class="nav-icon">
-                                    <img src="./assets/icons/circle-user-solid-full.svg" alt="icon">
+                                    <img src="../assets/icons/circle-user-solid-full.svg" alt="icon">
                                 </span>
                                 <span>Profile</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="./server/logout.php?logout=true">
+                            <a class="nav-link" href="../server/logout.php?logout=true">
                                 <span class="nav-icon">
-                                    <img src="./assets/icons/arrow-right-from-bracket-solid-full.svg" alt="icon">
+                                    <img src="../assets/icons/arrow-right-from-bracket-solid-full.svg" alt="icon">
                                 </span>
-                                <span>Logout</span>
+                                <span>Logout(<?php echo $_SESSION["user"]["userPhoneNumber"]; ?>)</span>
                             </a>
                         </li>
 
@@ -72,15 +72,15 @@
                     } else {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="./includes/career-signup.php?signup=true">
-                                <span class="nav-icon"><img src="./assets/icons/user-plus-solid-full.svg" alt="icon"></span>
+                            <a class="nav-link" href="../includes/career-signup.php?signup=true">
+                                <span class="nav-icon"><img src="../assets/icons/user-plus-solid-full.svg" alt="icon"></span>
                                 <span>Signup</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="./includes/career-login.php?login=true">
-                                <span class="nav-icon"><img src="./assets/icons/right-to-bracket-solid-full.svg" alt="icon"></span>
+                            <a class="nav-link" href="../includes/career-login.php?login=true">
+                                <span class="nav-icon"><img src="../assets/icons/right-to-bracket-solid-full.svg" alt="icon"></span>
                                 <span>Login</span>
                             </a>
                         </li>
@@ -94,7 +94,7 @@
 
 
     <!-- Linked my custom script  -->
-    <script src="./js/navbar.js"></script>
+    <script src="../js/navbar.js"></script>
 </body>
 
 </html>
