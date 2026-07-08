@@ -31,6 +31,7 @@
 
                     <!-- random  -->
                     <?php
+                    include_once("../includes/vacancy-5.php");
                     include_once("../includes/vacancy-4.php");
                     include_once("../includes/vacancy-3.php");
                     include_once("../includes/vacancy-2.php");

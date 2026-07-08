@@ -56,17 +56,7 @@ if ($userEmailValid) {
                             </span>
                             <span>Name</span>
                         </label>
-                        <input type="text" name="userFullName" id="user-full-name" placeholder="Enter Your Name" required>
-                    </div>
-
-                    <div class="user-field">
-                        <label for="user-address">
-                            <span>
-                                <i class="fa-solid fa-address-book"></i>
-                            </span>
-                            <span>Address</span>
-                        </label>
-                        <input type="text" name="userAddress" id="user-address" placeholder="Enter Your Address">
+                        <input type="text" name="userFullName" id="user-full-name" placeholder="Enter Your Full Name" required>
                     </div>
                     <div class="user-field">
                         <label for="user-contact-number">

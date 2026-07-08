@@ -20,10 +20,13 @@ if (isset($_POST["login-button"])) {
             window.location.href = '../includes/career-login.php';
         </script>
     ";
+
+        // close the database connection 
+        exit();
     }
 
     // database query 
-    $userQuery = "SELECT *FROM signup_user WHERE phone_number ='$userPhoneNumber'";
+    $userQuery = "SELECT * FROM signup_user WHERE phone_number ='$userPhoneNumber'";
 
     // query result
     $userData = $dbConnection->query($userQuery);
@@ -31,8 +34,9 @@ if (isset($_POST["login-button"])) {
     if ($userData->num_rows === 1) {
         foreach ($userData as $data) {
             $userEmail = $data["email"];
+            $userId = $data["user_id"];
         }
-        $_SESSION["user"] = ["userEmail" => $userEmail, "userPhoneNumber" => $userPhoneNumber];
+        $_SESSION["user"] = ["userEmail" => $userEmail, "userPhoneNumber" => $userPhoneNumber, "userId" => $userId];
 
         echo "
         <script>
@@ -40,6 +44,9 @@ if (isset($_POST["login-button"])) {
             window.location.href='../index.php';
         </script>
         ";
+
+        // close the database connection 
+        exit();
     } else {
         echo "
         <script>
@@ -47,5 +54,8 @@ if (isset($_POST["login-button"])) {
             window.location.href='../includes/career-login.php';
         </script>
         ";
+
+        // close the database connection 
+        exit();
     }
 }

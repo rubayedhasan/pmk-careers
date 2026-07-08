@@ -136,9 +136,9 @@ selects.forEach((select) =>
 
 // personal
 // profile picture size limit
-profileImage.addEventListener("change", () => {
+profileImage.addEventListener("change", (e) => {
   const file = profileImage.files[0];
-  const maxSize = 3 * 1024 * 1024;
+  const maxSize = 2 * 1024 * 1024;
   const fileExtension = file.name.split(".").pop().toLowerCase();
 
   // validate image size
@@ -166,7 +166,11 @@ profileImage.addEventListener("change", () => {
   clearError(userProfileImage);
   showElement(userProfileImgTag);
   hideElement(userProfileImageIcon);
-  // userProfileImgTag.src = profileImage.files[0].name;
+
+  // show uploaded picture on the image
+  if (file) {
+    userProfileImgTag.src = URL.createObjectURL(file);
+  }
 });
 
 // show calender on filed click
@@ -246,13 +250,6 @@ candidateResultType.addEventListener("change", () => {
   if (
     candidateResultType.querySelector("option[value='grade']").selected === true
   ) {
-    console.log("a");
-    console.log(
-      candidateResultGrade,
-      candidateResultGradeScale,
-      candidateResultDivision,
-    );
-
     showElement(candidateResultGrade.parentElement);
     showElement(candidateResultGradeScale.parentElement);
     hideElement(candidateResultDivision.parentElement);
@@ -358,6 +355,7 @@ modalUploadButton.addEventListener("click", function () {
 
   //   hide the modal form
   hideElement(educationFormModal);
+  hideElement(summeryNotice);
 });
 
 // after submit personal data then show the educational form

@@ -9,7 +9,6 @@ $dbConnection = $conn;
 // signup functionality 
 if (isset($_POST["userEmailAddress"])) {
     $setUserFullName = $_POST["userFullName"];
-    $setUserAddress = $_POST["userAddress"];
     $setPhoneNumber = $_POST["userContactNumber"];
     $setUserEmailAddress = $_POST["userEmailAddress"];
     $userAgreeTerms = $_POST["termsCheck"];
@@ -23,6 +22,7 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href = '../includes/career-signup.php';
         </script>
     ";
+        // close the database connection 
         exit();
     }
 
@@ -34,6 +34,7 @@ if (isset($_POST["userEmailAddress"])) {
                 window.location.href = '../includes/career-signup.php';
             </script>
         ";
+        // close the database connection 
         exit();
     }
 
@@ -48,6 +49,7 @@ if (isset($_POST["userEmailAddress"])) {
                 window.location.href = '../includes/career-signup.php';
             </script>
         ";
+        // close the database connection 
         exit();
     }
 
@@ -61,26 +63,34 @@ if (isset($_POST["userEmailAddress"])) {
                 window.location.href = '../includes/career-signup.php';
             </script>
         ";
+
+        // close the database connection 
         exit();
     }
 
+    // set custom user id for signup user 
+    $customUserId = "PMKU-" . $setPhoneNumber;
+
 
     $userDetails = $dbConnection->prepare("INSERT INTO signup_user
-    (name,address,phone_number,email,agree_terms)
+    (user_id,user_name,phone_number,email,agree_terms)
 
     VALUES(?,?,?,?,?)
     ");
 
-    $connectionOutcome = $userDetails->execute([$setUserFullName, $setUserAddress, $setPhoneNumber, $setUserEmailAddress,  $userAgreeTerms]);
+    $connectionOutcome = $userDetails->execute([$customUserId, $setUserFullName, $setPhoneNumber, $setUserEmailAddress,  $userAgreeTerms]);
 
     if ($connectionOutcome) {
-        $_SESSION["user"] = ["userEmail" => $setUserEmailAddress, "userPhoneNumber" => $setPhoneNumber];
+        $_SESSION["user"] = ["userEmail" => $setUserEmailAddress, "userPhoneNumber" => $setPhoneNumber, "userId" => $customUserId];
         echo "
         <script>
             alert('You have Signup Successfully');
             window.location.href='../index.php';
         </script>
         ";
+
+        // close the database connection 
+        exit();
     } else {
         echo "
         <script>
@@ -88,5 +98,8 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href='../includes/career-signup.php';
         </script>
         ";
+
+        // close the database connection 
+        exit();
     }
 }

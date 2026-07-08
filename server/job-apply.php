@@ -9,8 +9,14 @@ $dbConnection = $conn;
 // apply functionality 
 if (isset($_POST["applyBtn"])) {
     if ($_SESSION["user"]["userPhoneNumber"]) {
-        header("location:../includes/apply.php");
+        header("location:../includes/job_application.php");
+
+        // close the database connection 
+        exit();
     } else {
         header("location:../includes/career-login.php");
+
+        // close the database connection 
+        exit();
     }
 }

@@ -81,6 +81,7 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href='../index.php';
         </script>
         ";
+        exit();
     } else {
         echo "
         <script>
@@ -88,6 +89,7 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href='../includes/career-signup.php';
         </script>
         ";
+        exit();
     }
 } elseif (isset($_POST["login-button"])) {
 
@@ -102,6 +104,7 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href = '../includes/career-login.php';
         </script>
     ";
+        exit();
     }
 
     // database query 
@@ -122,6 +125,7 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href='../index.php';
         </script>
         ";
+        exit();
     } else {
         echo "
         <script>
@@ -129,6 +133,7 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href='../includes/career-login.php';
         </script>
         ";
+        exit();
     }
 } elseif ($_GET["logout"]) {
     session_unset();
@@ -138,11 +143,14 @@ if (isset($_POST["userEmailAddress"])) {
             window.location.href='../index.php';
         </script>
         ";
+    exit();
 } else if (isset($_POST["applyBtn"])) {
     if ($_SESSION["user"]["userPhoneNumber"]) {
         header("location:../includes/apply.php");
+        exit();
     } else {
         header("location:../includes/career-login.php");
+        exit();
     }
 } else {
     // nothing 

@@ -15,4 +15,7 @@ if ($_GET["logout"]) {
             window.location.href='../index.php';
         </script>
         ";
+
+    // close the database connection 
+    exit();
 }

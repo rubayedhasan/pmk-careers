@@ -66,7 +66,7 @@
                                         </svg>
                                     </div>
                                 </label>
-                                <span class="field-suggest">Max Image Size 3MB</span>
+                                <span class="field-suggest">Max Image Size 2MB</span>
                             </div>
                         </div>
 
@@ -411,7 +411,7 @@
                         <div id="education-summery-lists"></div>
                     </div>
 
-                    <!-- form modal  -->
+                    <!-- education form modal  -->
                     <form action="" method="post" id="application-education-form">
                         <div class="education-form-modal hidden-field">
                             <!-- modal header  -->
