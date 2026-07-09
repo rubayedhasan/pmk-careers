@@ -9,7 +9,7 @@ body {
 
 /* circular info container  */
 .circular-info-container {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 12px;
@@ -167,6 +167,11 @@ textarea {
   /* circular action input container  */
   .circular-action-input-container {
     padding: 16px 24px 24px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .input-field-full {
+    grid-column: span 1;
   }
 
   .circular-input-container {
@@ -181,6 +186,10 @@ textarea {
   .circular-input-field {
     font-size: 0.85rem;
     padding: 8px 12px;
+  }
+
+  textarea {
+    height: 120px;
   }
 
   .field-suggest-text {

@@ -31,7 +31,7 @@ include_once("../includes/sharedLinks.php");
             </div>
         </div>
         <div class="publish-action-buttons">
-            <button type="button" class="publish-action-button ppab-light">
+            <button type="button" class="publish-action-button ppab-light" onclick="handleCancel()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-progress-x">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M10 20.777a8.942 8.942 0 0 1 -2.48 -.969" />
@@ -44,7 +44,7 @@ include_once("../includes/sharedLinks.php");
                 </svg>
                 <span>Cancel</span>
             </button>
-            <button type="button" class="publish-action-button ppab-green">
+            <button type="button" class="publish-action-button ppab-green publish-button" onclick="handlePublishCircular()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
@@ -148,11 +148,11 @@ include_once("../includes/sharedLinks.php");
 
                     <!-- circular deadline date  -->
                     <div class="circular-input-container">
-                        <label for="circular-publish-date" class="circular-input-label">
+                        <label for="circular-application-deadline" class="circular-input-label">
                             Circular Deadline Date
                             <span style="color:red; pointer-events: none;  user-select: none;">*</span>
                         </label>
-                        <input onfocus="this.showPicker()" type="date" name="circular_publish_date" id="circular-publish-date" class="circular-input-field">
+                        <input onfocus="this.showPicker()" type="date" name="circular_application_deadline" id="circular-application-deadline" class="circular-input-field">
                     </div>
                 </div>
             </div>
@@ -175,23 +175,23 @@ include_once("../includes/sharedLinks.php");
 
                 <!-- input field container  -->
                 <div class="circular-action-input-container">
-                    <!--  consolidated Monthly Salary -->
+                    <!--  probation period Salary -->
                     <div class="circular-input-container">
-                        <label for="circular-salary" class="circular-input-label">
+                        <label for="circular-probation-salary" class="circular-input-label">
                             Probation Period Salary
                             <span style="color:red; pointer-events: none;  user-select: none;">*</span>
                         </label>
-                        <input type="text" name="circular_salary" placeholder="e.g. 58200 per month" id="circular-salary" class="circular-input-field">
+                        <input type="text" name="circular_probation_salary" placeholder="e.g. 58200 per month" id="circular-probation-salary" class="circular-input-field">
                         <p class="field-suggest-text">Enter the probation period salary.</p>
                     </div>
 
                     <!-- gross salary  -->
                     <div class="circular-input-container">
-                        <label for="circular-salary" class="circular-input-label">
+                        <label for="circular-gross-salary" class="circular-input-label">
                             Gross Salary
                             <span style="color:red; pointer-events: none;  user-select: none;">*</span>
                         </label>
-                        <input type="text" name="circular_salary" placeholder="e.g. 58200 per month" id="circular-salary" class="circular-input-field">
+                        <input type="text" name="circular_gross_salary" placeholder="e.g. 58200 per month" id="circular-gross-salary" class="circular-input-field">
                         <p class="field-suggest-text">Specify the gross salary after confirmation (including PF)</p>
                     </div>
 
@@ -302,6 +302,10 @@ include_once("../includes/sharedLinks.php");
             </div>
         </section>
     </main>
+
+
+    <!-- Linked custom script  -->
+    <script src="../js/publish_circular.js"></script>
 </body>
 
 </html>
