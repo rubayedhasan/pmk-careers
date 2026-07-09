@@ -60,6 +60,15 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="">
+                                <span class="nav-icon">
+                                    <img src="../assets/icons/briefcase-solid-full.svg" alt="icon">
+                                </span>
+                                <span>Applied Jobs</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="../server/logout.php?logout=true">
                                 <span class="nav-icon">
                                     <img src="../assets/icons/arrow-right-from-bracket-solid-full.svg" alt="icon">

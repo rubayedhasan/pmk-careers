@@ -17,7 +17,7 @@ $candidatePhoneNumber = $_SESSION["user"]["userPhoneNumber"] ?? null;
     <!-- Linked bootstrap stylesheet  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <!-- bootstrap icon link  -->
+    <!-- Linked Bootstrap Icon Link  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
@@ -512,9 +512,6 @@ $candidatePhoneNumber = $_SESSION["user"]["userPhoneNumber"] ?? null;
         </div>
     </div>
 
-
-    <!-- LInked font awesome script-->
-    <!-- <script src="https://kit.fontawesome.com/1196ea4395.js" crossorigin="anonymous"></script> -->
 
     <!-- Linked Bootstrap script  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

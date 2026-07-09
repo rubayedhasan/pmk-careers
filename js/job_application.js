@@ -206,7 +206,7 @@ async function handleSave() {
 
     if (result.success) {
       alert("Success" + result.message);
-      history.back();
+      window.location.href = "../index.php";
     } else {
       alert("Error: " + result.message);
       if (btn) {
