@@ -290,13 +290,13 @@ include_once("../includes/sharedLinks.php");
 
                 <!-- input field container  -->
                 <div class="circular-action-input-container">
-                    <!-- Educational qualification  -->
+                    <!-- training condition  -->
                     <div class="circular-input-container input-field-full">
-                        <label for="circular-application-instructions" class="circular-input-label">
-                            Application Instructions
+                        <label for="circular-training-rules" class="circular-input-label">
+                            Training Rules
                             <span style="color:red; pointer-events: none;  user-select: none;">*</span>
                         </label>
-                        <textarea name="circular_application_instructions" placeholder="write the application guidelines, required documents, and deadline" id="circular-application-instructions" class="circular-input-field"></textarea>
+                        <textarea name="circular_training_rules" placeholder="write the training conditions and rules" id="circular-training-rules" class="circular-input-field"></textarea>
                     </div>
                 </div>
             </div>

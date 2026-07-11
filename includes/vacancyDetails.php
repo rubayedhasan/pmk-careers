@@ -1,3 +1,62 @@
+<?php
+session_start();
+
+// connect database 
+require_once("../db/dbconnect.php");
+$dbConnection = $conn;
+
+if (isset($_GET["circular_id"])) {
+    // id 
+    $circular_id = $_GET["circular_id"];
+
+    //query:: get all data
+    $circularDataQuery = "SELECT * FROM `publish_circular` WHERE circular_id = '$circular_id'";
+
+    // query result 
+    $rawCircularData = $dbConnection->query($circularDataQuery);
+    $circularData = $rawCircularData->fetch_all(MYSQLI_ASSOC);
+
+    // extract the all data a part 
+    $designation_name = $circularData[0]["circular_title"];
+    $designation_category = $circularData[0]["designation_category"];
+    $available_position = $circularData[0]["available_vacancy"];
+    $probation_salary = $circularData[0]["probation_salary"];
+    $gross_salary = $circularData[0]["gross_salary"];
+    $min_age = $circularData[0]["min_age"];
+    $max_age = $circularData[0]["max_age"];
+    $age_deadline = $circularData[0]["age_deadline"];
+    $qualification = $circularData[0]["qualification"];
+    $experience = $circularData[0]["experience"];
+    $additional_requirement = $circularData[0]["additional_requirement"];
+    $training_rules = $circularData[0]["training_rules"];
+    $circular_publish_date = $circularData[0]["circular_publish_date"];
+    $application_deadline = $circularData[0]["application_deadline"];
+    $circular_status = (int)  $circularData[0]["circular_status"];
+}
+
+// apply functionality 
+if (isset($_POST["applyBtn"])) {
+    if ($_SESSION["user"]["userPhoneNumber"]) {
+        header("location:../includes/job_application.php?circular_id=$circular_id&designation_name=$designation_name");
+
+        // close the database connection 
+        exit();
+    } else {
+        header("location:../includes/career-login.php");
+
+        // close the database connection 
+        exit();
+    }
+}
+
+
+// close the database connection 
+mysqli_close($dbConnection);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +89,14 @@
             <div class="career-header-container">
                 <hgroup class="header-content">
                     <h2 class="header-title">
-                        <span>Current</span>
-                        Opening
+                        <?php
+                        if ($circular_status) {
+                            echo "<span style='color: var(--pmk-green);'>Current</span> Opening";
+                        } else {
+                            echo "Opening <span style='color:#ff4f4f;'>Closed</span>";
+                        }
+
+                        ?>
                     </h2>
                     <p class="header-text">
                         Explore the details of this position and see if it’s the right fit for you.
@@ -55,7 +120,7 @@
                 <div class="vacancy-title-container">
                     <!-- title  -->
                     <h3 class="vacancy-title">
-                        Job Title
+                        <?php echo "$designation_name ($designation_category)" ?>
                     </h3>
 
                     <!-- user action button  -->
@@ -71,114 +136,103 @@
                         </span>
                     </div>
                 </div>
-                <p class="vacancy-location">Location:</p>
-                <p class="vacancy-count">Total Vacancy:</p>
-                <p class="vacancy-post-date">Post Date:</p>
-                <p class="vacancy-last-date">Last Date of Application:</p>
+                <p class="vacancy-post-date">
+                    Post: <?php echo $circular_publish_date; ?>
+                </p>
+                <p class="vacancy-location">Location: Anywhere in Bangladesh</p>
             </hgroup>
 
             <!-- organization overview  -->
             <div class="org-overview">
-                <p>PMK is a purpose-driven organisation committed to creating positive change in communities facing inequality and hardship. We work closely with individuals and families to build sustainable opportunities that empower people to improve their lives and reach their full potential.</p>
+                <p>
+                    Palli Mangal Karmasuchi (PMK) is a nationally recognized and well-established non-governmental organization (NGO) in Bangladesh, licensed by the Microcredit Regulatory Authority (MRA) under Certificate No. 00862-00387-00312.
+                </p>
 
-                <p>Working at PMK is more than just a job—it’s a chance to make a meaningful impact. Here, your ideas, passion, and dedication can help transform lives and shape a better future. We don’t just talk about change, we actively create it. Join us and be part of something that truly matters.
+                <p>
+                    Established in 1988, PMK has grown into one of the country's leading microfinance institutions, currently operating through 376 branches across 36 districts, with its operations continuing to expand. As of May 2026, the organization serves more than 400,000 active members and has cumulatively disbursed approximately BDT 270 billion (over BDT 27,000 crore) in microcredit loans. Among 678 registered NGOs/MFIs operating in Bangladesh, PMK ranks 12th in the microfinance sector.
+                </p>
+
+                <p>
+                    Beyond its microfinance operations, PMK is actively engaged in a wide range of socio-economic development initiatives, including education, community-based healthcare, cultural and sports development, and various social welfare programs. The organization has also established the PMK Nursing College and the 50-bed PMK Hospital & Diagnostic Centre, both of which have earned a strong reputation for excellence in healthcare education and medical services.
+                </p>
+
+                <p>
+                    Applications are invited from qualified and motivated candidates for the following position.
                 </p>
             </div>
 
-            <!-- job purpose  -->
+            <!-- vacancy info table::Position & Salary Overview -->
+            <div class="vacancy-info-table">
+                <h4 class="vacancy-info-title">
+                    Position & Salary Overview
+                </h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Available Position</th>
+                            <th>Probation Salary</th>
+                            <th>Gross Salary</th>
+                            <th>Application Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Available Position">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                </svg>
+                                <?php echo $available_position; ?>
+                            </td>
+                            <td data-label="Probation Salary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-coin-taka">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M8 8l.553 -.276a1 1 0 0 1 1.447 .894v6.382a2 2 0 0 0 2 2h.5a2.5 2.5 0 0 0 2.5 -2.5v-.5h-1" />
+                                    <path d="M8 11h7" />
+                                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                                </svg>
+                                <?php echo "$probation_salary/="; ?>
+                            </td>
+                            <td data-label="Gross Salary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-coin-taka">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M8 8l.553 -.276a1 1 0 0 1 1.447 .894v6.382a2 2 0 0 0 2 2h.5a2.5 2.5 0 0 0 2.5 -2.5v-.5h-1" />
+                                    <path d="M8 11h7" />
+                                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                                </svg>
+                                <?php echo "$gross_salary/="; ?>
+                            </td>
+                            <td data-label="Application Deadline">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-week">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12" />
+                                    <path d="M16 3v4" />
+                                    <path d="M8 3v4" />
+                                    <path d="M4 11h16" />
+                                    <path d="M7 14h.013" />
+                                    <path d="M10.01 14h.005" />
+                                    <path d="M13.01 14h.005" />
+                                    <path d="M16.015 14h.005" />
+                                    <path d="M13.015 17h.005" />
+                                    <path d="M7.01 17h.005" />
+                                    <path d="M10.01 17h.005" />
+                                </svg>
+                                <?php echo $application_deadline; ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Age Requirement -->
             <div class="vacancy-info">
                 <h4 class="vacancy-info-title">
-                    Job Purpose
+                    Age Requirement
                 </h4>
                 <p class="vacancy-info-description">
-                    We are looking for a dynamic and forward-thinking professional to join PMK as a Policy Specialist within our Advocacy for Social Change team. This role focuses on strengthening PMK’s policy and advocacy efforts by fostering meaningful collaboration with both internal teams and external partners, in line with our mission and strategic priorities. The Policy Specialist will contribute to developing insightful policy briefs, offering informed recommendations, and supporting key advocacy initiatives. This position plays an important role in shaping evidence-based policy positions and enhancing PMK’s voice in national and global discussions. Through strategic analysis and partnership-building, the role will help drive impactful advocacy outcomes and reinforce PMK’s commitment to sustainable social change.
+                    <?php echo "$min_age – $max_age years (as of $age_deadline)";  ?>
                 </p>
-            </div>
-
-            <!-- Key Responsibilities -->
-            <div class="vacancy-info">
-                <h4 class="vacancy-info-title">
-                    Key Responsibilities
-                </h4>
-                <ul class="vacancy-info-list">
-                    <li>Provide guidance and mentorship to Policy Analysts by setting clear goals, reviewing outputs, and offering ongoing feedback to ensure high-quality and timely delivery of advocacy work while promoting professional growth and accountability.</li>
-
-                    <li>Lead and support policy initiatives on emerging social and development issues by working closely with internal teams, ensuring alignment with PMK’s advocacy priorities and long-term strategic objectives.</li>
-
-                    <li>Conduct comprehensive research and analysis by gathering and interpreting data, evidence, and global best practices to produce well-structured policy briefs, reports, and knowledge resources that inform decision-making and organizational strategies.</li>
-
-                    <li>Enhance the quality and impact of advocacy outputs by generating actionable insights and collaborating with internal knowledge and communications teams to ensure content is evidence-based, relevant, and aligned with PMK’s mission.</li>
-
-                    <li>Establish and strengthen partnerships with government institutions, policymakers, development organizations, research bodies, and academic stakeholders, while planning and coordinating advocacy events and engagements at both national and international levels to effectively advance PMK’s agenda.</li>
-                </ul>
-            </div>
-
-            <!-- Additional Responsibilities -->
-            <div class="vacancy-info">
-                <h4 class="vacancy-info-title">
-                    Additional Responsibilities
-                </h4>
-                <ul class="vacancy-info-list">
-                    <li>Ensure compliance with PMK’s policies, procedures, and ethical standards in all aspects of work, maintaining transparency and accountability.</li>
-
-                    <li>Support cross-functional teams by contributing to collaborative initiatives, sharing knowledge, and promoting a culture of teamwork and continuous learning.</li>
-
-                    <li>Assist in monitoring and evaluating program activities to track progress, identify challenges, and recommend improvements for greater impact.</li>
-
-                    <li>Prepare clear and concise reports, documentation, and presentations to communicate key insights, progress, and outcomes to internal and external stakeholders.</li>
-
-                    <li>Stay updated on relevant policy trends, social issues, and development practices to enhance the quality and relevance of PMK’s work.</li>
-
-                    <li>Uphold safeguarding principles by ensuring a safe, respectful, and inclusive environment for all stakeholders, and promptly reporting any concerns.</li>
-
-                    <li>Represent PMK in meetings, workshops, and external forums when required, contributing to positive organizational visibility and engagement.</li>
-
-                    <li>Perform any other duties assigned by management that support PMK’s mission and organizational objectives.</li>
-                </ul>
-            </div>
-
-            <!-- Additional Job Requirements -->
-            <div class="vacancy-info">
-                <h4 class="vacancy-info-title">
-                    Additional Job Requirements
-                </h4>
-                <ul class="vacancy-info-list">
-                    <li>Prior experience working on a range of social or development issues, with the ability to collaborate effectively across teams and partner organizations, will be considered an advantage.</li>
-
-                    <li>Exposure to communications, stakeholder engagement, or external relations roles will be viewed as a strong asset.</li>
-
-                    <li>Familiarity with international development frameworks, multilateral institutions, or global policy environments will be beneficial.</li>
-
-                    <li>Strong written and verbal communication skills, including the ability to prepare policy content, deliver presentations, and engage diverse audiences effectively.</li>
-
-                    <li>Proficiency in English, both written and spoken, with the ability to communicate ideas clearly and professionally.</li>
-
-                    <li>Demonstrated analytical thinking and problem-solving skills, with attention to detail and a commitment to quality work.</li>
-
-                    <li>Ability to manage multiple tasks, meet deadlines, and adapt in a dynamic work environment.</li>
-                </ul>
-            </div>
-
-            <!-- Knowledge & Skills -->
-            <div class="vacancy-info">
-                <h4 class="vacancy-info-title">
-                    Knowledge & Skills
-                </h4>
-                <ul class="vacancy-info-list">
-                    <li>Understanding of international development systems, policy environments, and institutional processes; familiarity with multilateral frameworks will be considered an advantage.</li>
-
-                    <li>Strong written and verbal communication skills, with the ability to develop policy content, deliver presentations, and engage effectively with diverse audiences.</li>
-
-                    <li>Proficiency in English, both written and spoken, with clarity in articulating ideas and preparing professional documents.</li>
-
-                    <li>Basic knowledge or experience in communications, stakeholder engagement, or external relations will be considered a valuable asset.</li>
-
-                    <li>Ability to analyze information, synthesize insights, and translate complex ideas into clear and actionable recommendations.</li>
-
-                    <li>Good interpersonal skills with the capacity to build relationships and collaborate with internal teams and external partners.</li>
-
-                    <li>Strong organizational and time management skills, with the ability to handle multiple priorities efficiently.</li>
-                </ul>
             </div>
 
             <!-- Educational Requirements -->
@@ -187,7 +241,7 @@
                     Educational Requirements
                 </h4>
                 <p class="vacancy-info-description">
-                    A Bachelor’s or Master’s degree in Social Sciences or a related field from a recognized institution is required. Candidates with academic backgrounds in Development Studies, Public Administration, Public Policy, Economics, or other relevant disciplines are encouraged to apply. A strong educational foundation in areas related to governance, development, or social research will be considered an added advantage.
+                    <?php echo $qualification; ?>
                 </p>
             </div>
 
@@ -197,22 +251,126 @@
                     Experience Requirements
                 </h4>
                 <p class="vacancy-info-description">
-                    A minimum of 5 years of professional experience in policy advocacy, legislative processes, or development-related work is required. Experience gained in national or international organizations, including multi-agency or cross-border environments, will be highly valued. Candidates should demonstrate a strong track record in contributing to policy development, advocacy initiatives, or programmatic work within the development sector.
+                    <?php echo $experience; ?>
                 </p>
+            </div>
+
+            <!-- Skill Required -->
+            <div class="vacancy-info">
+                <h4 class="vacancy-info-title">
+                    Skill Required
+                </h4>
+                <p class="vacancy-info-description">
+                    <?php echo $additional_requirement; ?>
+                </p>
+            </div>
+
+            <!-- Training -->
+            <div class="vacancy-info">
+                <h4 class="vacancy-info-title">
+                    Training
+                </h4>
+                <p class="vacancy-info-description">
+                    <?php echo $training_rules; ?>
+                </p>
+            </div>
+
+            <!-- Minimum Service Commitment -->
+            <div class="vacancy-info">
+                <h4 class="vacancy-info-title">
+                    Minimum Service Commitment
+                </h4>
+                <p class="vacancy-info-description">
+                    Candidates selected for appointment must commit to serving the organization for a minimum period of six (6) months.
+                </p>
+            </div>
+
+            <!-- Registration Fee -->
+            <div class="vacancy-info">
+                <h4 class="vacancy-info-title">
+                    Registration Fee
+                </h4>
+                <p class="vacancy-info-description">
+                    Applicants are required to pay a non-refundable registration fee of BDT 200 to participate in the recruitment examination.
+                </p>
+            </div>
+
+            <!-- Security Deposit -->
+            <div class="vacancy-info">
+                <h4 class="vacancy-info-title">
+                    Security Deposit
+                </h4>
+                <p class="vacancy-info-description">
+                    At the time of joining, candidates must deposit an amount equivalent to one month's gross salary (payable after confirmation of employment) as a security deposit. This amount will be refundable, together with the applicable profit/interest, upon separation from the organization in accordance with its policies.
+                </p>
+            </div>
+
+            <!-- Other Conditions -->
+            <div class="vacancy-info">
+                <h4 class="vacancy-info-title">
+                    Other Conditions
+                </h4>
+                <ul class="vacancy-info-list">
+                    <li>
+                        No Travel Allowance (TA) or Daily Allowance (DA) will be provided for attending the recruitment examination.
+                    </li>
+                    <li>
+                        Applicants must be physically fit, hardworking, courageous, willing to take on challenges, honest, and of good moral character. They must also be willing to work in any operational area of the organization across the country.
+                    </li>
+                    <li>
+                        Any form of recommendation or undue influence regarding recruitment or posting will result in the candidate's disqualification.
+                    </li>
+                    <li>
+                        The organization is committed to providing equal employment opportunities to qualified male and female candidates.
+                    </li>
+                    <li>
+                        Smokers are discouraged from applying.
+                    </li>
+                </ul>
             </div>
 
             <!-- Benefits -->
             <div class="vacancy-info">
                 <h4 class="vacancy-info-title">
-                    Benefits
+                    Probation and Benefit
                 </h4>
+
                 <p class="vacancy-info-description">
-                    PMK offers a comprehensive range of benefits designed to support the well-being and professional growth of its employees. These include festival bonuses, contributory provident fund, gratuity, health and life insurance coverage, as well as maternity and paternity leave. Employees also have access to wellness centre facilities and day care support, along with other benefits in accordance with organizational policies.
+                    Upon appointment, the selected candidate will undergo a six (6)-month probationary period. Subject to satisfactory performance during the probation, the candidate will be confirmed as a permanent employee and will be entitled to the organization's regular salary structure and benefits, including:
                 </p>
+
+                <ul class="vacancy-info-list">
+                    <li>Provident Fund (PF)</li>
+                    <li>Gratuity</li>
+                    <li>Two festival bonuses per year</li>
+                    <li>Boishakhi Allowance equivalent to 50% of the basic salary</li>
+                    <li>Encashment of eligible unutilized leave at the end of each year, in accordance with organizational policy</li>
+                    <li>An annual salary increment of 10%, subject to the organization's rules and regulations</li>
+                </ul>
+            </div>
+
+            <!--additional Benefits -->
+            <div class="vacancy-info">
+                <h4 class="vacancy-info-title">
+                    Additional Benefits
+                </h4>
+
+                <p class="vacancy-info-description">
+                    The organization also provides the following benefits in accordance with its policies:
+                </p>
+
+                <ul class="vacancy-info-list">
+                    <li>Motorcycle fuel and maintenance allowance for eligible employees</li>
+                    <li>Gratuity</li>
+                    <li>Free single accommodation for male employees at their assigned duty stations</li>
+                    <li>Housing allowance for female employees</li>
+                    <li>Two weekly holidays (Friday and Saturday)</li>
+                    <li>Other benefits as per the organization's rules and policies</li>
+                </ul>
             </div>
 
             <!-- apply button  -->
-            <form class="apply-btn-container" action="../server/job-apply.php" method="post">
+            <form class="apply-btn-container" action="" method="post">
                 <button type="submit" class="apply-btn" name="applyBtn">Apply Now</button>
             </form>
         </section>

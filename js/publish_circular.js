@@ -1,5 +1,9 @@
 // get submit button element
 const circularPublishButton = document.querySelector(".publish-button");
+const circularId = document.getElementById("circular-id");
+const designationCategory = document.getElementById(
+  "circular-designation-category",
+);
 
 // function:: to handle the circular publish cancel process
 function handleCancel() {
@@ -25,11 +29,18 @@ async function handlePublishCircular() {
   );
   circularFormData.append(
     "circular_designation_category",
-    document.getElementById("circular-designation-category").value,
+    document
+      .getElementById("circular-designation-category")
+      .value.trim()
+      .toUpperCase(),
   );
   circularFormData.append(
     "circular_available_position",
     document.getElementById("circular-available-position").value,
+  );
+  circularFormData.append(
+    "circular_id",
+    document.getElementById("circular-id").value,
   );
 
   // step-2:: publish date
@@ -80,8 +91,8 @@ async function handlePublishCircular() {
 
   // step-5:: application instructions
   circularFormData.append(
-    "circular_application_instructions",
-    document.getElementById("circular-application-instructions").value,
+    "circular_training_rules",
+    document.getElementById("circular-training-rules").value,
   );
 
   // send data to back end:: circular_published.php
@@ -108,6 +119,10 @@ async function handlePublishCircular() {
     // fetching the data
     const circularPublishResponse = await fetch(
       "../server/circular_published.php",
+      {
+        method: "POST",
+        body: circularFormData,
+      },
     );
 
     const responseResult = await circularPublishResponse.json();
@@ -147,3 +162,26 @@ async function handlePublishCircular() {
     }
   }
 }
+
+// generate the circular id
+designationCategory.addEventListener("keyup", function () {
+  var category = this.value.trim().toUpperCase();
+
+  if (category == "") {
+    circularId.value = "";
+    return;
+  }
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.open("POST", "../server/generate_circular_id.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      circularId.value = xhr.responseText;
+    }
+  };
+
+  xhr.send("category=" + encodeURIComponent(category));
+});

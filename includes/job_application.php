@@ -3,6 +3,11 @@ session_start();
 $candidateEmail = $_SESSION["user"]["userEmail"] ?? null;
 $candidatePhoneNumber = $_SESSION["user"]["userPhoneNumber"] ?? null;
 
+if (isset($_GET["circular_id"])) {
+    $circular_id = $_GET["circular_id"];
+    $designation_name = $_GET["designation_name"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -84,11 +89,11 @@ $candidatePhoneNumber = $_SESSION["user"]["userPhoneNumber"] ?? null;
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Designation Name</label>
-                                <input type="text" name="circular-designation_name" class="form-control" placeholder="Designation Name" style="opacity: 0.6; background: #f8f9fa;" disabled />
+                                <input type="text" name="circular-designation_name" class="form-control" value="<?php echo $designation_name; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Designation Code</label>
-                                <input type="text" name="circular_designation_id" class="form-control" placeholder="Designation Code" style="opacity: 0.6; background: #f8f9fa;" disabled />
+                                <label class="form-label">Circular ID</label>
+                                <input type="text" name="circular_designation_id" class="form-control" value="<?php echo $circular_id; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label">
