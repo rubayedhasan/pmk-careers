@@ -44,10 +44,15 @@ $dbConnection = $conn;
                     include_once("../includes/vacancy-2.php");
                     include_once("../includes/vacancy-1.php");
 
+                    // update the circular status active to inactive after over the deadline
+                    $statusUpdateQuery = $dbConnection->prepare("UPDATE publish_circular SET circular_status = 0 WHERE  application_deadline < CURDATE()");
+                    $statusUpdateQuery->execute();
+
                     // circular access from database 
                     $allCircularQuery = "SELECT circular_id, circular_title,application_deadline FROM publish_circular WHERE circular_status = 1 ORDER BY circular_publish_date DESC";
                     $allCircular = $dbConnection->query($allCircularQuery);
 
+                    // data array 
                     $circularArray = $allCircular->fetch_all(MYSQLI_ASSOC);
                     foreach ($circularArray as $circular) {
                         echo "

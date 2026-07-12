@@ -264,10 +264,11 @@ function showFile(input, labelId) {
 
 // date of birth validation with age limit
 const inputDateOfBirth = document.querySelector("[name='date_of_birth']");
-const minAge = 18;
-const maxAge = 42;
-const ageDeadline = "2026-06-30";
+// const minAge = 18;
+// const maxAge = 42;
+// const ageDeadline = "2026-06-30";
 
+// the ages are coming from database in includes/job_application.php file
 function calculateAgeDateRange(minAge, maxAge, ageDeadline) {
   const ageDeadlineDate = new Date(ageDeadline);
 

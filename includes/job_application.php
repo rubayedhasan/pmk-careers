@@ -31,6 +31,25 @@ if ($queryResult->num_rows > 0) {
 $applicant_custom_id = $candidate_id_prefix . str_pad($nextSerial, 5, "0", STR_PAD_LEFT);
 
 
+// set the date functionality
+$queryGetAgeLimit = "SELECT min_age, max_age, age_deadline FROM publish_circular WHERE circular_id = '$circular_id'";
+
+$ageLimit = $dbConnection->query($queryGetAgeLimit);
+if ($ageLimit->num_rows === 1) {
+    $row = $ageLimit->fetch_all(MYSQLI_ASSOC);
+    $circular_min_age = (int) $row[0]["min_age"];
+    $circular_max_age = (int) $row[0]["max_age"];
+    $circular_age_deadline = (string) $row[0]["age_deadline"];
+
+    // set the age to js variable
+    echo "
+    <script>
+        const minAge = $circular_min_age;
+        const maxAge = $circular_max_age;
+        const ageDeadline = '$circular_age_deadline';
+    </script>
+    ";
+}
 ?>
 
 <!DOCTYPE html>
