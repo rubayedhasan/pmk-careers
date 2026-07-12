@@ -159,6 +159,16 @@
   font-weight: 500;
 }
 
+.no-vacancy {
+  color: var(--pmk-blue-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  max-width: 920px;
+  line-height: normal;
+  text-align: center;
+  margin: 24px auto 0;
+}
+
 /* responsive styles:: small devices  */
 @media (max-width: 767.98px) {
   .hero {
@@ -216,8 +226,48 @@
     object-position: center;
   }
 
+  .jobs {
+    gap: 24px;
+  }
+
   .job-card {
     width: 100%;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .job-info {
+    gap: 6px;
+  }
+
+  .job-title {
+    text-align: center;
+  }
+
+  .job-meta {
+    font-size: 12px;
+  }
+
+  .job-meta .job-meta-group {
+    gap: 6px;
+  }
+
+  .job-actions {
+    display: block;
+    text-align: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  .stack-icon {
+    display: block;
+  }
+
+  .no-vacancy {
+    font-size: 0.95rem;
+    max-width: unset;
+    text-align: justify;
+    line-height: 1.5;
   }
 }
 

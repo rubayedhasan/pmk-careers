@@ -39,10 +39,7 @@ $dbConnection = $conn;
                     <!-- random  -->
                     <?php
                     include_once("../includes/vacancy-5.php");
-                    include_once("../includes/vacancy-4.php");
                     include_once("../includes/vacancy-3.php");
-                    include_once("../includes/vacancy-2.php");
-                    include_once("../includes/vacancy-1.php");
 
                     // update the circular status active to inactive after over the deadline
                     $statusUpdateQuery = $dbConnection->prepare("UPDATE publish_circular SET circular_status = 0 WHERE  application_deadline < CURDATE()");
@@ -54,8 +51,10 @@ $dbConnection = $conn;
 
                     // data array 
                     $circularArray = $allCircular->fetch_all(MYSQLI_ASSOC);
-                    foreach ($circularArray as $circular) {
-                        echo "
+
+                    if (count($circularArray) > 0) {
+                        foreach ($circularArray as $circular) {
+                            echo "
                         
                         <div class='job-card'>
 
@@ -93,41 +92,18 @@ $dbConnection = $conn;
 
                     </div>
                         ";
+                        }
+                    } else {
+                        echo "
+                         <div>
+                    <p class='no-vacanc'>
+                        No active job circulars are available at this time. Please check back later for upcoming recruitment opportunities at Palli Mongal Karmosuchi (PMK).
+                    </p>
+                </div>
+                        ";
                     }
 
                     ?>
-
-                    <!-- 1st:: job card  -->
-                    <!-- <div class="job-card">
-
-                        <div class="job-info">
-                            <h4 class="job-title">Job Title 1</h4>
-
-                            <div class="job-meta">
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </span>
-                                    <span id="job-location">Location</span>
-                                </div>
-
-                                <div class="job-meta-group">
-                                    <span>
-                                        <i class="fa-solid fa-business-time"></i>
-                                    </span>
-                                    <span id="job-deadline-time">Deadline</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="job-actions">
-                            <span class="stack-icon view">
-                                View More
-                            </span>
-                        </div>
-
-                    </div> -->
-
                 </div>
 
                 <!-- view all button  -->
