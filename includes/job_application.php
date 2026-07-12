@@ -1,5 +1,10 @@
 <?php
 session_start();
+// connect database 
+require_once("../db/dbconnect.php");
+$dbConnection = $conn;
+
+// session user data 
 $candidateEmail = $_SESSION["user"]["userEmail"] ?? null;
 $candidatePhoneNumber = $_SESSION["user"]["userPhoneNumber"] ?? null;
 
@@ -7,6 +12,24 @@ if (isset($_GET["circular_id"])) {
     $circular_id = $_GET["circular_id"];
     $designation_name = $_GET["designation_name"];
 }
+
+$currentYear = date("Y");
+$candidate_id_prefix = "PMKA";
+
+$queryGetCandidateId = "SELECT application_id FROM candidate_general_information WHERE application_id LIKE '$candidate_id_prefix%' ORDER BY application_id DESC LIMIT 1";
+$queryResult = $dbConnection->query($queryGetCandidateId);
+
+
+if ($queryResult->num_rows > 0) {
+    $row = $queryResult->fetch_all(MYSQLI_ASSOC);
+    $lastSerial = (int) substr($row[0]["application_id"], -5);
+    $nextSerial = $lastSerial + 1;
+} else {
+    $nextSerial = 1;
+}
+
+$applicant_custom_id = $candidate_id_prefix . str_pad($nextSerial, 5, "0", STR_PAD_LEFT);
+
 
 ?>
 
@@ -85,15 +108,15 @@ if (isset($_GET["circular_id"])) {
                         <div class="row g-3">
                             <div class="col-md-4">
                                 <label class="form-label">Application ID</label>
-                                <input type="text" name="application_id" class="form-control" placeholder="Application ID" style="opacity: 0.6; background: #f8f9fa;" disabled />
+                                <input type="text" name="application_id" class="form-control" value="<?php echo $applicant_custom_id; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4">3.
                                 <label class="form-label">Designation Name</label>
                                 <input type="text" name="circular-designation_name" class="form-control" value="<?php echo $designation_name; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Circular ID</label>
-                                <input type="text" name="circular_designation_id" class="form-control" value="<?php echo $circular_id; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
+                                <input type="text" name="circular_id" class="form-control" value="<?php echo $circular_id; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label">

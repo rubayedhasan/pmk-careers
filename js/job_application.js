@@ -65,6 +65,14 @@ async function handleSave() {
   //   appending the form data
   // ── Step 1 ──
   formData.append(
+    "application_id",
+    document.querySelector('[name="application_id"]').value,
+  );
+  formData.append(
+    "circular_id",
+    document.querySelector('[name="circular_id"]').value,
+  );
+  formData.append(
     "candidate_name",
     document.querySelector('[name="candidate_name"]').value,
   );
@@ -513,3 +521,47 @@ function validateNidPassport(input) {
     input.classList.remove("is-valid");
   }
 }
+
+// input validation: nid, phone number
+const setError = (element) => element.classList.add("error");
+const clearError = (element) => element.classList.remove("error");
+const validateName = (element) => {
+  const valid = /^[A-Za-z\s]+$/.test(element.value.trim());
+  valid ? clearError(element) : setError(element);
+  return valid;
+};
+
+const validatePhoneNumber = (element) => {
+  element.value = element.value.replace(/\D/g, "");
+  const valid = /^\d{11}$/.test(element.value);
+  valid ? clearError(element) : setError(element);
+  return valid;
+};
+
+const validateNidNumber = (element) => {
+  element.value = element.value.replace(/\D/g, "");
+  const valid = /^(\d{10}|\d{17})$/.test(element.value);
+  valid ? clearError(element) : setError(element);
+  return valid;
+};
+
+// validate names
+[
+  document.querySelector('[name="candidate_name"]'),
+  document.querySelector('[name="fathers_name"]'),
+  document.querySelector('[name="mothers_name"]'),
+].forEach((perName) =>
+  perName.addEventListener("input", () => validateName(perName)),
+);
+
+// validate phone and nid number
+document
+  .querySelector('[name="mobile_no"]')
+  .addEventListener("input", () =>
+    validatePhoneNumber(document.querySelector('[name="mobile_no"]')),
+  );
+document
+  .querySelector('[name="national_id"]')
+  .addEventListener("input", () =>
+    validateNidNumber(document.querySelector('[name="national_id"]')),
+  );

@@ -96,6 +96,10 @@ mysqli_begin_transaction($dbConnection);
 
 try {
 
+    // circular related 
+    $application_id = clean($dbConnection, $_POST['application_id'] ?? '');
+    $circular_id = clean($dbConnection, $_POST['circular_id'] ?? '');
+
     // step - 1:: personal
     $candidate_name = clean($dbConnection, $_POST['candidate_name'] ?? '');
     $fathers_name = clean($dbConnection, $_POST['fathers_name'] ?? '');
@@ -105,10 +109,10 @@ try {
     $merital_status = clean($dbConnection, $_POST['merital_status'] ?? '');
     $blood_group = clean($dbConnection, $_POST['blood_group'] ?? '');
 
-    $candidate_general_query = $dbConnection->prepare("INSERT INTO 	candidate_general_information (user_id,candidate_name,fathers_name,mothers_name,religion,gender,marital_status,blood_group,profile_picture) VALUES(?,?,?,?,?,?,?,?,?)");
+    $candidate_general_query = $dbConnection->prepare("INSERT INTO 	candidate_general_information (user_id,candidate_name,fathers_name,mothers_name,religion,gender,marital_status,blood_group,profile_picture,circular_id,application_id) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
 
     $candidate_general_query->bind_param(
-        "sssssssss",
+        "sssssssssss",
         $userId,
         $candidate_name,
         $fathers_name,
@@ -117,7 +121,9 @@ try {
         $gender,
         $merital_status,
         $blood_group,
-        $candidate_picture
+        $candidate_picture,
+        $circular_id,
+        $application_id
     );
 
     $outComeOfCandidateGeneralQuery = $candidate_general_query->execute();
@@ -137,11 +143,21 @@ try {
     $nationality = clean($dbConnection, $_POST['nationality'] ?? '');
     $date_of_birth = clean($dbConnection, $_POST['date_of_birth'] ?? '');
 
-    $candidateIdentityQuery = $dbConnection->prepare("INSERT INTO candidate_identity (user_id,national_id,birth_id,passport_no,driving_license,tin_no,mobile_no,email_id,nationality,date_of_birth) VALUES (?,?,?,?,?,?,?,?,?,?)
+    // validate the NID 
+    if (strlen($national_id) !== 10 && strlen($national_id) !== 17) {
+        throw new Exception('NID Must 10 or 17 digit');
+    }
+
+    // validate the birth id 
+    if (strlen($birth_id) !== 17) {
+        throw new Exception('Birth Registration Number Must 17 digit');
+    }
+
+    $candidateIdentityQuery = $dbConnection->prepare("INSERT INTO candidate_identity (user_id,national_id,birth_id,passport_no,driving_license,tin_no,mobile_no,email_id,nationality,date_of_birth,circular_id,application_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $candidateIdentityQuery->bind_param(
-        "ssssssssss",
+        "ssssssssssss",
         $userId,
         $national_id,
         $birth_id,
@@ -151,7 +167,9 @@ try {
         $mobile_no,
         $email_id,
         $nationality,
-        $date_of_birth
+        $date_of_birth,
+        $circular_id,
+        $application_id
     );
 
     $outComeCandidateIdentityQuery = $candidateIdentityQuery->execute();
@@ -174,10 +192,10 @@ try {
     $pre_post_code = clean($dbConnection, $_POST['pre_post_code'] ?? '');
 
 
-    $candidateAddressQuery = $dbConnection->prepare("INSERT INTO candidate_address (user_id,per_house,per_division,per_district,per_upazilla,per_post,per_post_code,pre_house,pre_division,pre_district,pre_upazilla,pre_post,pre_post_code) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $candidateAddressQuery = $dbConnection->prepare("INSERT INTO candidate_address (user_id,per_house,per_division,per_district,per_upazilla,per_post,per_post_code,pre_house,pre_division,pre_district,pre_upazilla,pre_post,pre_post_code,circular_id,application_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
     $candidateAddressQuery->bind_param(
-        "sssssssssssss",
+        "sssssssssssssss",
         $userId,
         $per_house,
         $per_division,
@@ -190,7 +208,9 @@ try {
         $pre_district,
         $pre_upazilla,
         $pre_post,
-        $pre_post_code
+        $pre_post_code,
+        $circular_id,
+        $application_id
     );
 
     $outComeCandidateAddressQuery = $candidateAddressQuery->execute();
@@ -210,17 +230,19 @@ try {
             $candidate_edu_academic_year = clean($dbConnection, $edu["academic_year"] ?? "");
             $candidate_edu_result = clean($dbConnection, $edu["result"] ?? "");
 
-            $candidateEducationQuery = $dbConnection->prepare("INSERT INTO candidate_education (user_id,edu_examination,edu_institution,edu_msubject,board_university,academic_year,result) VALUES (?,?,?,?,?,?,?)");
+            $candidateEducationQuery = $dbConnection->prepare("INSERT INTO candidate_education (user_id,edu_examination,edu_institution,edu_msubject,board_university,academic_year,result,circular_id,application_id) VALUES (?,?,?,?,?,?,?,?,?)");
 
             $candidateEducationQuery->bind_param(
-                "sssssss",
+                "sssssssss",
                 $userId,
                 $candidate_edu_exam,
                 $candidate_edu_institute,
                 $candidate_edu_subject,
                 $candidate_edu_university,
                 $candidate_edu_academic_year,
-                $candidate_edu_result
+                $candidate_edu_result,
+                $circular_id,
+                $application_id
             );
 
             $outComeCandidateEducationQuery = $candidateEducationQuery->execute();
@@ -242,10 +264,10 @@ try {
             $candidate_institution_address = clean($dbConnection, $training["institution_address"] ?? "");
             $candidate_course_result = clean($dbConnection, $training["result"] ?? "");
 
-            $candidateTrainingQuery = $dbConnection->prepare("INSERT INTO candidate_training (user_id,course_name,course_stard_date,course_end_date,course_duration,institution_name,institution_address,result)  VALUES (?,?,?,?,?,?,?,?)");
+            $candidateTrainingQuery = $dbConnection->prepare("INSERT INTO candidate_training (user_id,course_name,course_stard_date,course_end_date,course_duration,institution_name,institution_address,result,circular_id,application_id)  VALUES (?,?,?,?,?,?,?,?,?,?)");
 
             $candidateTrainingQuery->bind_param(
-                "ssssssss",
+                "ssssssssss",
                 $userId,
                 $candidate_course_name,
                 $candidate_course_start_date,
@@ -253,7 +275,9 @@ try {
                 $candidate_course_duration,
                 $candidate_institution_name,
                 $candidate_institution_address,
-                $candidate_course_result
+                $candidate_course_result,
+                $circular_id,
+                $application_id
 
             );
 
@@ -276,17 +300,19 @@ try {
             $candidate_org_to_date = clean($dbConnection, $jobExp["to_date"] ?? "");
             $candidate_org_responsibility = clean($dbConnection, $jobExp["job_respons"] ?? "");
 
-            $candidateJobExpQuery = $dbConnection->prepare("INSERT INTO candidate_job_experience (user_id,org_name,project_name,company_location,from_date,to_date,job_respons) VALUES (?,?,?,?,?,?,?)");
+            $candidateJobExpQuery = $dbConnection->prepare("INSERT INTO candidate_job_experience (user_id,org_name,project_name,company_location,from_date,to_date,job_respons,circular_id,application_id) VALUES (?,?,?,?,?,?,?,?,?)");
 
             $candidateJobExpQuery->bind_param(
-                "sssssss",
+                "sssssssss",
                 $userId,
                 $candidate_org_name,
                 $candidate_prev_designation,
                 $candidate_company_location,
                 $candidate_org_form_date,
                 $candidate_org_to_date,
-                $candidate_org_responsibility
+                $candidate_org_responsibility,
+                $circular_id,
+                $application_id
             );
 
             $outComeCandidateJobExpQuery = $candidateJobExpQuery->execute();

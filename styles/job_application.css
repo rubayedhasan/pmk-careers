@@ -11,6 +11,10 @@ body {
   min-height: 100vh;
 }
 
+.error {
+  border: 1px solid #e63946 !important;
+}
+
 /* ── Header ── */
 .form-header {
   background: #fff;

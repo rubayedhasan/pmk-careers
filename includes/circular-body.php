@@ -1,3 +1,10 @@
+<!-- connect the database  -->
+<?php
+// connect database 
+require_once("../db/dbconnect.php");
+$dbConnection = $conn;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,11 +44,8 @@
                     include_once("../includes/vacancy-2.php");
                     include_once("../includes/vacancy-1.php");
 
-                    // connect database 
-                    require_once("../db/dbconnect.php");
-                    $dbConnection = $conn;
-
-                    $allCircularQuery = "SELECT circular_id, circular_title,application_deadline FROM publish_circular WHERE circular_status = 1";
+                    // circular access from database 
+                    $allCircularQuery = "SELECT circular_id, circular_title,application_deadline FROM publish_circular WHERE circular_status = 1 ORDER BY circular_publish_date DESC";
                     $allCircular = $dbConnection->query($allCircularQuery);
 
                     $circularArray = $allCircular->fetch_all(MYSQLI_ASSOC);
@@ -85,8 +89,6 @@
                     </div>
                         ";
                     }
-
-
 
                     ?>
 
