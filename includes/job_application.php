@@ -222,18 +222,36 @@ if ($ageLimit->num_rows === 1) {
                                     Upload Picture
                                     <span style="color: red;">*</span>
                                 </label>
-                                <figure class="upload-picture-container">
+                                <figure id="upload-picture-container">
                                     <img src="../assets/images/happy-moment.png" alt="candidate upload picture" id="candidate-upload-picture">
                                 </figure>
                                 <div class="upload-box" onclick="document.getElementById('picUpload').click()">
                                     <i class="bi bi-cloud-arrow-up"></i>
-                                    <div class="up-label">Click to upload employee photo</div>
+                                    <div class="up-label">Click to upload photo</div>
                                     <div class="up-hint">JPG, PNG — max 2 MB</div>
                                     <div class="up-hint">Maximum allowed image size: 300 × 300 pixels.</div>
                                 </div>
                                 <input name="empl_picture" type="file" id="picUpload" accept="image/*" style="display:none"
-                                    onchange="showFile(this,'picChosen')" required />
+                                    onchange="showFile(this,'picChosen','upload-picture-container', 'candidate-upload-picture', true)" required />
                                 <div class="file-chosen" id="picChosen"></div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">
+                                    Upload Signature
+                                    <span style="color: red;">*</span>
+                                </label>
+                                <figure id="upload-signature-container">
+                                    <img src="../assets/images/happy-moment.png" alt="candidate upload signature" id="candidate-upload-signature">
+                                </figure>
+                                <div class="upload-box" onclick="document.getElementById('signUpload').click()">
+                                    <i class="bi bi-cloud-arrow-up"></i>
+                                    <div class="up-label">Click to upload Signature</div>
+                                    <div class="up-hint">JPG, PNG — max 1 MB</div>
+                                    <div class="up-hint">Maximum allowed image size: 80 × 80 pixels.</div>
+                                </div>
+                                <input name="empl_signature" type="file" id="signUpload" accept="image/*" style="display:none"
+                                    onchange="showFile(this,'signChosen','upload-signature-container', 'candidate-upload-signature', false)" required />
+                                <div class="file-chosen" id="signChosen"></div>
                             </div>
                         </div>
                     </div>

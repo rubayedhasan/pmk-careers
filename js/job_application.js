@@ -101,9 +101,13 @@ async function handleSave() {
     document.querySelector('[name="blood_group"]').value,
   );
 
-  // // Employee picture
+  // Employee picture
   const pic = document.getElementById("picUpload").files[0];
   if (pic) formData.append("empl_picture", pic);
+
+  // // Employee signature
+  const sign = document.getElementById("signUpload").files[0];
+  if (sign) formData.append("empl_signature", sign);
 
   // ── Step 2 ──
   formData.append(
@@ -234,18 +238,26 @@ async function handleSave() {
 }
 
 /* ── File upload ── */
-const UploadPictureContainer = document.querySelector(
-  ".upload-picture-container",
-);
-const seeUploadPicture = document.querySelector("#candidate-upload-picture");
-
-function showFile(input, labelId) {
+function showFile(input, labelId, seeFigId, seeFigImgId, isPic) {
   const label = document.getElementById(labelId);
+  const UploadPictureContainer = document.getElementById(seeFigId);
+  const seeUploadPicture = document.getElementById(seeFigImgId);
+
+  // size
+  let requiredMB;
+  const isProfile = isPic;
+
+  if (isProfile) {
+    requiredMB = 2;
+  } else {
+    requiredMB = 1;
+  }
 
   // validation:: file size 2MB
-  const fileSize = 2 * 1024 * 1024;
+  const fileSize = requiredMB * 1024 * 1024;
+
   if (!input.files[0] || input.files[0].size > fileSize) {
-    label.textContent = "✗ Maximum file size is 2 MB.";
+    label.textContent = `✗ Maximum file size is ${requiredMB} MB.`;
     label.style.display = "block";
     label.style.color = "#ff0000";
     return;

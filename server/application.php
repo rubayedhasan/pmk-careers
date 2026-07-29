@@ -82,18 +82,18 @@ if (isset($_FILES["empl_picture"]) && $_FILES['empl_picture']['error'] === UPLOA
     }
 
     // validate picture's MIME type 
-    $allowedMimeType = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/webp"];
-    $pictureMimeType = mime_content_type($_FILES["empl_picture"]["tmp_name"]);
-    if (!in_array($pictureMimeType, $allowedMimeType, true)) {
-        echo json_encode(
-            [
-                "success" => false,
-                "message" => 'Unsupported Image Type'
-            ]
-        );
+    // $allowedMimeType = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/webp"];
+    // $pictureMimeType = mime_content_type($_FILES["empl_picture"]["tmp_name"]);
+    // if (!in_array($pictureMimeType, $allowedMimeType, true)) {
+    //     echo json_encode(
+    //         [
+    //             "success" => false,
+    //             "message" => 'Unsupported Image Type'
+    //         ]
+    //     );
 
-        exit();
-    }
+    //     exit();
+    // }
 
     // validate the image size  300 * 300
     $pictureInfo = getimagesize($_FILES["empl_picture"]["tmp_name"]);
@@ -115,7 +115,7 @@ if (isset($_FILES["empl_picture"]) && $_FILES['empl_picture']['error'] === UPLOA
         echo json_encode(
             [
                 "success" => false,
-                "message" => 'Image must be exactly 300 × 300 pixels.'
+                "message" => 'The Photo must be 300 × 300 pixels or smaller.'
             ]
         );
         exit();
@@ -128,6 +128,67 @@ if (isset($_FILES["empl_picture"]) && $_FILES['empl_picture']['error'] === UPLOA
     // upload file 
     if (move_uploaded_file($_FILES["empl_picture"]["tmp_name"], $fileDestination)) {
         $candidate_picture = $fileName;
+    }
+}
+
+// handle signature upload 
+$candidate_signature = "";
+if (isset($_FILES["empl_signature"]) && $_FILES['empl_signature']['error'] === UPLOAD_ERR_OK) {
+
+    // upload directory create and validation 
+    $pictureUploadDir = "../assets/candidate_signature/";
+    if (!is_dir($pictureUploadDir)) {
+        mkdir($pictureUploadDir, 0755, true);
+    }
+
+    // validate the file extension 
+    $pictureExe = strtolower(pathinfo($_FILES["empl_signature"]["name"], PATHINFO_EXTENSION));
+    $allowedExe = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+
+    if (!in_array($pictureExe, $allowedExe)) {
+        echo json_encode(
+            [
+                "success" => false,
+                "message" => 'Invalid sign picture format. Allowed: JPG, PNG, GIF, WEBP.'
+            ]
+        );
+
+        exit();
+    }
+
+    // validate the image size  80 * 80
+    $signPicInfo = getimagesize($_FILES["empl_signature"]["tmp_name"]);
+
+    if (!$signPicInfo) {
+        echo json_encode(
+            [
+                "success" => false,
+                "message" => 'Invalid picture.'
+            ]
+        );
+        exit();
+    }
+
+    $signPicWidth = $signPicInfo[0];
+    $signPicHeight = $signPicInfo[1];
+
+    if ($signPicHeight > 80 || $signPicWidth > 80) {
+        echo json_encode(
+            [
+                "success" => false,
+                "message" => 'The signature image must be 80 × 80 pixels or smaller.'
+            ]
+        );
+        exit();
+    }
+
+    // create file name 
+    $fileName = 'candidate_signature_' . $userPhoneNumber . '.' . $pictureExe;
+    $fileDestination = $pictureUploadDir . $fileName;
+
+    // upload file 
+    if (move_uploaded_file($_FILES["empl_signature"]["tmp_name"], $fileDestination)) {
+        $candidate_signature = $fileName;
     }
 }
 
@@ -168,7 +229,7 @@ try {
     if (empty($religion)) {
         throw new Exception('Religion is Required');
     }
-    // Candidate Name 
+    // Candidate gender 
     if (empty($gender)) {
         throw new Exception('Gender is Required');
     }
@@ -181,15 +242,20 @@ try {
         throw new Exception('Blood Group is Required');
     }
 
-    // blood group 
+    // candidate picture  
     if (empty($candidate_picture)) {
         throw new Exception('Candidate Picture is Required');
     }
 
-    $candidate_general_query = $dbConnection->prepare("INSERT INTO 	candidate_general_information (user_id,candidate_name,fathers_name,mothers_name,religion,gender,marital_status,blood_group,profile_picture,circular_id,application_id) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+    // candidate signature  
+    if (empty($candidate_signature)) {
+        throw new Exception('Candidate signature is Required');
+    }
+
+    $candidate_general_query = $dbConnection->prepare("INSERT INTO 	candidate_general_information (user_id,candidate_name,fathers_name,mothers_name,religion,gender,marital_status,blood_group,profile_picture,circular_id,application_id,signature) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
 
     $candidate_general_query->bind_param(
-        "sssssssssss",
+        "ssssssssssss",
         $userId,
         $candidate_name,
         $fathers_name,
@@ -200,7 +266,8 @@ try {
         $blood_group,
         $candidate_picture,
         $circular_id,
-        $application_id
+        $application_id,
+        $candidate_signature
     );
 
     $outComeOfCandidateGeneralQuery = $candidate_general_query->execute();
