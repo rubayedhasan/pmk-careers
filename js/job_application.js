@@ -65,10 +65,6 @@ async function handleSave() {
   //   appending the form data
   // ── Step 1 ──
   formData.append(
-    "application_id",
-    document.querySelector('[name="application_id"]').value,
-  );
-  formData.append(
     "circular_id",
     document.querySelector('[name="circular_id"]').value,
   );

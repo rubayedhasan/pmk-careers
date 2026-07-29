@@ -13,23 +13,6 @@ if (isset($_GET["circular_id"])) {
     $designation_name = $_GET["designation_name"];
 }
 
-$currentYear = date("Y");
-$candidate_id_prefix = "PMKA";
-
-$queryGetCandidateId = "SELECT application_id FROM candidate_general_information WHERE application_id LIKE '$candidate_id_prefix%' ORDER BY application_id DESC LIMIT 1";
-$queryResult = $dbConnection->query($queryGetCandidateId);
-
-
-if ($queryResult->num_rows > 0) {
-    $row = $queryResult->fetch_all(MYSQLI_ASSOC);
-    $lastSerial = (int) substr($row[0]["application_id"], -5);
-    $nextSerial = $lastSerial + 1;
-} else {
-    $nextSerial = 1;
-}
-
-$applicant_custom_id = $candidate_id_prefix . str_pad($nextSerial, 5, "0", STR_PAD_LEFT);
-
 
 // set the date functionality
 $queryGetAgeLimit = "SELECT min_age, max_age, age_deadline FROM publish_circular WHERE circular_id = '$circular_id'";
@@ -125,15 +108,11 @@ if ($ageLimit->num_rows === 1) {
                     <div class="step-panel active" id="step-1">
                         <p class="section-label"><i class="bi bi-person me-2"></i>Step 1 — Personal Information</p>
                         <div class="row g-3">
-                            <div class="col-md-4">
-                                <label class="form-label">Application ID</label>
-                                <input type="text" name="application_id" class="form-control" value="<?php echo $applicant_custom_id; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
-                            </div>
-                            <div class="col-md-4">3.
+                            <div class="col-md-6">
                                 <label class="form-label">Designation Name</label>
                                 <input type="text" name="circular-designation_name" class="form-control" value="<?php echo $designation_name; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="form-label">Circular ID</label>
                                 <input type="text" name="circular_id" class="form-control" value="<?php echo $circular_id; ?>" style="opacity: 0.6; background: #f8f9fa;" disabled />
                             </div>

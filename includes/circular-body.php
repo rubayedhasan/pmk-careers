@@ -33,7 +33,7 @@ $dbConnection = $conn;
             </div>
 
             <!-- job lists  -->
-            <div class="job-list-container">
+            <div class="job-list-container" style="margin-bottom: 40px;">
                 <div class="jobs" id="jobLists">
 
                     <!-- random  -->
@@ -107,7 +107,7 @@ $dbConnection = $conn;
                 </div>
 
                 <!-- view all button  -->
-                <div class="view-all-jobs-btn-container button-container">
+                <div class="view-all-jobs-btn-container button-container" style="margin-top: 16px;">
                     <a href="#pmk-circular-body" class="visit-btn button-effect" id="view-all-jobs-btn">
                         <span>
                             <i class="fa-solid fa-briefcase"></i>
