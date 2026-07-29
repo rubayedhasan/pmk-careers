@@ -66,6 +66,7 @@ if (isset($_FILES["empl_picture"]) && $_FILES['empl_picture']['error'] === UPLOA
         mkdir($pictureUploadDir, 0755, true);
     }
 
+    // validate the file extension 
     $pictureExe = strtolower(pathinfo($_FILES["empl_picture"]["name"], PATHINFO_EXTENSION));
     $allowedExe = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 
@@ -77,6 +78,46 @@ if (isset($_FILES["empl_picture"]) && $_FILES['empl_picture']['error'] === UPLOA
             ]
         );
 
+        exit();
+    }
+
+    // validate picture's MIME type 
+    $allowedMimeType = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/webp"];
+    $pictureMimeType = mime_content_type($_FILES["empl_picture"]["tmp_name"]);
+    if (!in_array($pictureMimeType, $allowedMimeType, true)) {
+        echo json_encode(
+            [
+                "success" => false,
+                "message" => 'Unsupported Image Type'
+            ]
+        );
+
+        exit();
+    }
+
+    // validate the image size  300 * 300
+    $pictureInfo = getimagesize($_FILES["empl_picture"]["tmp_name"]);
+
+    if (!$pictureInfo) {
+        echo json_encode(
+            [
+                "success" => false,
+                "message" => 'Invalid picture.'
+            ]
+        );
+        exit();
+    }
+
+    $pictureWidth = $pictureInfo[0];
+    $pictureHeight = $pictureInfo[1];
+
+    if ($pictureHeight > 300 || $pictureWidth > 300) {
+        echo json_encode(
+            [
+                "success" => false,
+                "message" => 'Image must be exactly 300 × 300 pixels.'
+            ]
+        );
         exit();
     }
 

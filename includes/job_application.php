@@ -229,6 +229,7 @@ if ($ageLimit->num_rows === 1) {
                                     <i class="bi bi-cloud-arrow-up"></i>
                                     <div class="up-label">Click to upload employee photo</div>
                                     <div class="up-hint">JPG, PNG — max 2 MB</div>
+                                    <div class="up-hint">Maximum allowed image size: 300 × 300 pixels.</div>
                                 </div>
                                 <input name="empl_picture" type="file" id="picUpload" accept="image/*" style="display:none"
                                     onchange="showFile(this,'picChosen')" required />
