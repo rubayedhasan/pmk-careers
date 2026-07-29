@@ -185,7 +185,6 @@ mysqli_begin_transaction($dbConnection);
 try {
 
     // circular related 
-    // $application_id = clean($dbConnection, $_POST['application_id'] ?? '');
     $circular_id = clean($dbConnection, $_POST['circular_id'] ?? '');
 
     // step - 1:: personal
@@ -403,7 +402,7 @@ try {
     $candidateAddressQuery = $dbConnection->prepare("INSERT INTO candidate_address (user_id,per_house,per_division,per_district,per_upazilla,per_post,per_post_code,pre_house,pre_division,pre_district,pre_upazilla,pre_post,pre_post_code,circular_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
     $candidateAddressQuery->bind_param(
-        "sssssssssssssss",
+        "ssssssssssssss",
         $userId,
         $per_house,
         $per_division,
@@ -461,7 +460,7 @@ try {
             $candidateEducationQuery = $dbConnection->prepare("INSERT INTO candidate_education (user_id,edu_examination,edu_institution,edu_msubject,board_university,academic_year,result,circular_id) VALUES (?,?,?,?,?,?,?,?)");
 
             $candidateEducationQuery->bind_param(
-                "sssssssss",
+                "ssssssss",
                 $userId,
                 $candidate_edu_exam,
                 $candidate_edu_institute,

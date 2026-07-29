@@ -64,12 +64,12 @@ const observedSections = new IntersectionObserver(
 );
 
 // pmk-circular-hero section's observed api
-const pmkCircularHero = document.querySelector("#pmk-circular-hero");
-observedSections.observe(pmkCircularHero);
+// const pmkCircularHero = document.querySelector("#pmk-circular-hero");
+// observedSections.observe(pmkCircularHero);
 
 // benefit-cards section's observed api
-const benefitCards = document.querySelector(".benefit-cards");
-observedSections.observe(benefitCards);
+// const benefitCards = document.querySelector(".benefit-cards");
+// observedSections.observe(benefitCards);
 
 // pmk circular body section's observer api
 const circularBodyHeading = document.querySelector(".circular-body-heading");

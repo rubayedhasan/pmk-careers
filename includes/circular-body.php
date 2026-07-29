@@ -84,11 +84,19 @@ $dbConnection = $conn;
                             </div>
                         </div>
 
+                        <div class='job-card-actions'>
+                        <a href ='../includes/job_application.php?circular_id=$circular[circular_id]&designation_name=$circular[circular_title]' class='job-actions'>
+                            <span class='stack-icon view'>
+                              Apply Now
+                            </span>
+                        </a>
+
                         <a href ='../includes/vacancyDetails.php?circular_id=$circular[circular_id]' class='job-actions'>
                             <span class='stack-icon view'>
                                 View More
                             </span>
                         </a>
+                        </div>
 
                     </div>
                         ";

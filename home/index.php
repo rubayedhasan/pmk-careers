@@ -26,7 +26,8 @@
             include_once("../includes/result-board.php");
         } else {
             // Linked section:: circular-head 
-            include_once("../includes/circular-head.php");
+            // include_once("../includes/circular-head.php");
+
             // Linked section:: circular-body 
             include_once("../includes/circular-body.php");
         }
