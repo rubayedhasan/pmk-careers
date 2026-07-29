@@ -16,7 +16,7 @@
     <nav id="navigation" class="navbar navbar-expand-lg">
         <div class="container-fluid container-width">
             <!-- brand name  -->
-            <a class="brand-name" href="https://pmk.org.bd/">
+            <a class="brand-name" href="https://pmk-bd.org/">
                 <img class="logo-img" loading="lazy" decoding="async" fetchpriority="high" src="../assets/logo/PMK_Logo_For_Web.png" alt="pmk logo">
             </a>
 

@@ -8,14 +8,14 @@
     <!-- Linked Fav Icon  -->
     <link
         rel="shortcut icon"
-        href="../assets/logo/logo.png"
+        href="./assets/logo/logo.png"
         type="image/x-icon" />
     <link rel="stylesheet" href="../styles/footer-alter.css" />
 </head>
 
 <body>
     <main>
-        <footer class="pmk-footer">
+        <footer>
             <!-- main footer container  -->
             <section class="footer-main">
                 <div class="container">
@@ -23,14 +23,12 @@
                         <!-- about PMK  -->
                         <div class="col">
                             <h3 class="widget-title">About PMK</h3>
-                            <figure>
-                                <a href="https://pmk.org.bd/">
-                                    <img
-                                        src="../assets/logo/main-logo.png"
-                                        alt="pmk-logo"
-                                        loading="lazy"
-                                        class="pmk-mini-logo" />
-                                </a>
+                            <figure onclick="window.location.href='https://pmk-bd.org'">
+                                <img
+                                    src="../assets/logo/main-logo.png"
+                                    alt="pmk-logo"
+                                    loading="lazy"
+                                    class="pmk-mini-logo" />
                             </figure>
                             <p class="widget-description">
                                 Established in 1988, PMK has over
@@ -74,27 +72,27 @@
 
                             <!-- footer nav  -->
                             <nav class="nav flex-column">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="https://pmk-bd.org/pages/pmk_mfi.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
                                     <span>Microfinance Program</span></a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="https://pmk-bd.org/pages/project.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
                                     <span>Our Projects</span></a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="https://pmk-bd.org/pages/page.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
                                     <span>PMK Community Health</span></a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="https://pmk-bd.org/pages/page.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
                                     <span>Technical Training</span></a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="https://pmk-bd.org/pages/page.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
@@ -108,27 +106,27 @@
 
                             <!-- footer nav  -->
                             <nav class="nav flex-column">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="https://pmk-bd.org/pages/our_story.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
                                     <span>About PMK</span></a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="http://localhost/pmk/pages/executive_committee.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
                                     <span>Leadership</span></a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="https://pmk-bd.org/pages/annual_report.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
                                     <span>Annual Reports</span></a>
-                                <a class="nav-link" href="https://careers.pmk.org.bd/">
+                                <a class="nav-link" href="https://careers.pmk-bd.org">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
                                     <span>Careers</span></a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="https://pmk-bd.org/pages/contact.php">
                                     <span>
                                         <i class="fa-solid fa-angles-right"></i>
                                     </span>
@@ -153,13 +151,14 @@
                             <!-- newsletter  -->
                             <div class="newsletter">
                                 <h5>Subscribe to Updates</h5>
-                                <form>
+                                <form action="../server/subscribe.php" method="post">
                                     <input
                                         type="email"
-                                        name="user-email"
+                                        name="subscription_user"
                                         id="input-email"
                                         placeholder="Your Email Address" />
                                     <button id="subscribe-btn" type="submit">Subscribe</button>
+                                </form>
                                 </form>
                             </div>
                         </div>
@@ -195,9 +194,6 @@
             </section>
         </footer>
     </main>
-
-    <!-- Linked custom script  -->
-    <script src="../js/newsletter.js"></script>
 </body>
 
 </html>

@@ -16,7 +16,7 @@
                  <span>
                      <i class="fa-solid fa-business-time"></i>
                  </span>
-                 <span id="job-deadline-time" class="">09/07/2026</span>
+                 <span id="job-deadline-time" class="">09/08/2026</span>
              </div>
          </div>
      </div>

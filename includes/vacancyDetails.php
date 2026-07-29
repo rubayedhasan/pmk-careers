@@ -67,7 +67,7 @@ mysqli_close($dbConnection);
     <!-- Linked Favicon  -->
     <link rel="shortcut icon" href="../assets/logo/main-logo.png" type="image/x-icon">
     <!-- Linked custom stylesheet  -->
-    <?php include_once("./otherPageSharedLinks.php") ?>
+    <?php include_once("../includes/sharedLinks.php") ?>
     <link rel="stylesheet" href="../styles/vacancyDetails.css">
 </head>
 
@@ -83,7 +83,7 @@ mysqli_close($dbConnection);
                 </figure>
 
                 <div>
-                    <a class="home-button" href="../index.php">Back To Home</a>
+                    <button class="home-button" onclick="window.history.back()">Back to Home</button>
                 </div>
             </div>
             <div class="career-header-container">
@@ -377,7 +377,7 @@ mysqli_close($dbConnection);
     </main>
 
     <!-- footer  -->
-    <?php include_once("./otherPageFooter.php") ?>
+    <?php include_once("../includes/footer.php") ?>
 
 
     <!-- Linked html2canvas and jsPdf script  -->

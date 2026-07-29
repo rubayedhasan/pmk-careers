@@ -131,6 +131,14 @@ body {
   margin-bottom: 4px;
 }
 
+.name-note {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  color: #49505799;
+  margin-top: 7px;
+}
+
 .form-control,
 .form-select {
   font-size: 13px;

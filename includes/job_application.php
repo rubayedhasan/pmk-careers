@@ -142,28 +142,31 @@ if ($ageLimit->num_rows === 1) {
                                     Candidate's Name
                                     <span style="color: red;">*</span>
                                 </label>
-                                <input type="text" name="candidate_name" class="form-control" placeholder="Candidate's full name" />
+                                <input type="text" name="candidate_name" class="form-control" placeholder="Candidate's full name" required />
+                                <span class="name-note">Only letters and spaces are allowed in the name.</span>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">
                                     Father's Name
                                     <span style="color: red;">*</span>
                                 </label>
-                                <input type="text" name="fathers_name" class="form-control" placeholder="Father's full name" />
+                                <input type="text" name="fathers_name" class="form-control" placeholder="Father's full name" required />
+                                <span class="name-note">Only letters and spaces are allowed in the name.</span>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">
                                     Mother's Name
                                     <span style="color: red;">*</span>
                                 </label>
-                                <input name="mothers_name" type="text" class="form-control" placeholder="Mother's full name" />
+                                <input name="mothers_name" type="text" class="form-control" placeholder="Mother's full name" required />
+                                <span class="name-note">Only letters and spaces are allowed in the name.</span>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">
                                     Religion
                                     <span style="color: red;">*</span>
                                 </label>
-                                <select name="religion" class="form-select">
+                                <select name="religion" class="form-select" required>
                                     <option value="">Select religion</option>
                                     <option value="islam">Islam</option>
                                     <option value="hinduism">Hinduism</option>
@@ -173,8 +176,11 @@ if ($ageLimit->num_rows === 1) {
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Gender</label>
-                                <select name="gender" class="form-select">
+                                <label class="form-label">
+                                    Gender
+                                    <span style="color: red;">*</span>
+                                </label>
+                                <select name="gender" class="form-select" required>
                                     <option value="">Select gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -182,8 +188,11 @@ if ($ageLimit->num_rows === 1) {
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Marital Status</label>
-                                <select name="merital_status" class="form-select">
+                                <label class="form-label">
+                                    Marital Status
+                                    <span style="color: red;">*</span>
+                                </label>
+                                <select name="merital_status" class="form-select" required>
                                     <option value="">Select status</option>
                                     <option value="unmarried">Unmarried</option>
                                     <option value="married">Married</option>
@@ -192,8 +201,11 @@ if ($ageLimit->num_rows === 1) {
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Blood Group</label>
-                                <select name="blood_group" class="form-select">
+                                <label class="form-label">
+                                    Blood Group
+                                    <span style="color: red;">*</span>
+                                </label>
+                                <select name="blood_group" class="form-select" required>
                                     <option value="">Select blood group</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
@@ -206,7 +218,10 @@ if ($ageLimit->num_rows === 1) {
                                 </select>
                             </div>
                             <div class="col-12">
-                                <label class="form-label">Upload Picture</label>
+                                <label class="form-label">
+                                    Upload Picture
+                                    <span style="color: red;">*</span>
+                                </label>
                                 <figure class="upload-picture-container">
                                     <img src="../assets/images/happy-moment.png" alt="candidate upload picture" id="candidate-upload-picture">
                                 </figure>
@@ -216,7 +231,7 @@ if ($ageLimit->num_rows === 1) {
                                     <div class="up-hint">JPG, PNG — max 2 MB</div>
                                 </div>
                                 <input name="empl_picture" type="file" id="picUpload" accept="image/*" style="display:none"
-                                    onchange="showFile(this,'picChosen')" />
+                                    onchange="showFile(this,'picChosen')" required />
                                 <div class="file-chosen" id="picChosen"></div>
                             </div>
                         </div>
@@ -231,12 +246,11 @@ if ($ageLimit->num_rows === 1) {
                                     National ID
                                     <span style="color: red;">*</span>
                                 </label>
-                                <input type="text" name="national_id" class="form-control" placeholder="NID number" />
+                                <input type="text" name="national_id" class="form-control" placeholder="NID number" required />
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">
                                     Birth Registration ID
-                                    <span style="color: red;">*</span>
                                 </label>
                                 <input type="text" name="birth_id" class="form-control" placeholder="Birth reg. number" />
                             </div>
@@ -271,11 +285,14 @@ if ($ageLimit->num_rows === 1) {
                                     Nationality
                                     <span style="color: red;">*</span>
                                 </label>
-                                <input type="text" name="nationality" class="form-control" placeholder="e.g. Bangladeshi" />
+                                <input type="text" name="nationality" class="form-control" placeholder="e.g. Bangladeshi" value="Bangladeshi" required />
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Date of Birth</label>
-                                <input type="date" onfocus="this.showPicker()" name="date_of_birth" class="form-control" />
+                                <label class="form-label">
+                                    Date of Birth
+                                    <span style="color: red;">*</span>
+                                </label>
+                                <input type="date" onfocus="this.showPicker()" name="date_of_birth" class="form-control" required />
                             </div>
                         </div>
                     </div>
@@ -292,13 +309,19 @@ if ($ageLimit->num_rows === 1) {
                             </div>
                             <div class="row g-3">
                                 <div class="col-12">
-                                    <label class="form-label">House / Road</label>
+                                    <label class="form-label">
+                                        House / Road
+                                        <span style="color: red;">*</span>
+                                    </label>
                                     <input type="text" class="form-control" name="per_house" id="perm-house"
-                                        placeholder="House no., Road, Village/Area" oninput="syncAddr()" />
+                                        placeholder="House no., Road, Village/Area" oninput="syncAddr()" required />
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Division</label>
-                                    <select name="per_division" class="form-select" id="perm-div" onchange="syncAddr()">
+                                    <label class="form-label">
+                                        Division
+                                        <span style="color: red;">*</span>
+                                    </label>
+                                    <select name="per_division" class="form-select" id="perm-div" onchange="syncAddr()" required>
                                         <option value="">Select division</option>
                                         <option>Dhaka</option>
                                         <option>Chittagong</option>
@@ -311,24 +334,102 @@ if ($ageLimit->num_rows === 1) {
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">District</label>
-                                    <input name="per_district" type="text" class="form-control" id="perm-dist" placeholder="District"
-                                        oninput="syncAddr()" />
+                                    <label class="form-label">
+                                        District
+                                        <span style="color: red;">*</span>
+                                    </label>
+                                    <!-- <input name="per_district" type="text" class="form-control" id="perm-dist" placeholder="District"
+                                        oninput="syncAddr()" required /> -->
+                                    <select name="per_district" class="form-select" id="perm-dist" onchange="syncAddr()">
+                                        <option value="">Select District</option>
+                                        <option value="Bagerhat">Bagerhat</option>
+                                        <option value="Bandarban">Bandarban</option>
+                                        <option value="Barguna">Barguna</option>
+                                        <option value="Barishal">Barishal</option>
+                                        <option value="Bhola">Bhola</option>
+                                        <option value="Bogura">Bogura</option>
+                                        <option value="Brahmanbaria">Brahmanbaria</option>
+                                        <option value="Chandpur">Chandpur</option>
+                                        <option value="Chattogram">Chattogram</option>
+                                        <option value="Chuadanga">Chuadanga</option>
+                                        <option value="Cox's Bazar">Cox's Bazar</option>
+                                        <option value="Cumilla">Cumilla</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Dinajpur">Dinajpur</option>
+                                        <option value="Faridpur">Faridpur</option>
+                                        <option value="Feni">Feni</option>
+                                        <option value="Gaibandha">Gaibandha</option>
+                                        <option value="Gazipur">Gazipur</option>
+                                        <option value="Gopalganj">Gopalganj</option>
+                                        <option value="Habiganj">Habiganj</option>
+                                        <option value="Jamalpur">Jamalpur</option>
+                                        <option value="Jashore">Jashore</option>
+                                        <option value="Jhalokathi">Jhalokathi</option>
+                                        <option value="Jhenaidah">Jhenaidah</option>
+                                        <option value="Joypurhat">Joypurhat</option>
+                                        <option value="Khagrachhari">Khagrachhari</option>
+                                        <option value="Khulna">Khulna</option>
+                                        <option value="Kishoreganj">Kishoreganj</option>
+                                        <option value="Kurigram">Kurigram</option>
+                                        <option value="Kushtia">Kushtia</option>
+                                        <option value="Lakshmipur">Lakshmipur</option>
+                                        <option value="Lalmonirhat">Lalmonirhat</option>
+                                        <option value="Madaripur">Madaripur</option>
+                                        <option value="Magura">Magura</option>
+                                        <option value="Manikganj">Manikganj</option>
+                                        <option value="Meherpur">Meherpur</option>
+                                        <option value="Moulvibazar">Moulvibazar</option>
+                                        <option value="Munshiganj">Munshiganj</option>
+                                        <option value="Mymensingh">Mymensingh</option>
+                                        <option value="Naogaon">Naogaon</option>
+                                        <option value="Narail">Narail</option>
+                                        <option value="Narayanganj">Narayanganj</option>
+                                        <option value="Narsingdi">Narsingdi</option>
+                                        <option value="Natore">Natore</option>
+                                        <option value="Netrokona">Netrokona</option>
+                                        <option value="Nilphamari">Nilphamari</option>
+                                        <option value="Noakhali">Noakhali</option>
+                                        <option value="Pabna">Pabna</option>
+                                        <option value="Panchagarh">Panchagarh</option>
+                                        <option value="Patuakhali">Patuakhali</option>
+                                        <option value="Pirojpur">Pirojpur</option>
+                                        <option value="Rajbari">Rajbari</option>
+                                        <option value="Rajshahi">Rajshahi</option>
+                                        <option value="Rangamati">Rangamati</option>
+                                        <option value="Rangpur">Rangpur</option>
+                                        <option value="Satkhira">Satkhira</option>
+                                        <option value="Shariatpur">Shariatpur</option>
+                                        <option value="Sherpur">Sherpur</option>
+                                        <option value="Sirajganj">Sirajganj</option>
+                                        <option value="Sunamganj">Sunamganj</option>
+                                        <option value="Sylhet">Sylhet</option>
+                                        <option value="Tangail">Tangail</option>
+                                        <option value="Thakurgaon">Thakurgaon</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Upazilla</label>
+                                    <label class="form-label">
+                                        Upazilla
+                                        <span style="color: red;">*</span>
+                                    </label>
                                     <input name="per_upazilla" type="text" class="form-control" id="perm-upa" placeholder="Upazilla"
-                                        oninput="syncAddr()" />
+                                        oninput="syncAddr()" required />
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Post-Office</label>
+                                    <label class="form-label">
+                                        Post-Office
+                                        <span style="color: red;">*</span>
+                                    </label>
                                     <input name="per_post" type="text" class="form-control" id="perm-post"
-                                        placeholder="Post Office Name With Post Code" oninput="syncAddr()" />
+                                        placeholder="Post Office Name With Post Code" oninput="syncAddr()" required />
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Post Code</label>
+                                    <label class="form-label">
+                                        Post Code
+                                        <span style="color: red;">*</span>
+                                    </label>
                                     <input name="per_post_code" type="text" class="form-control" id="perm-post-code"
-                                        placeholder="Post Office" oninput="syncAddr()" />
+                                        placeholder="Post Office" oninput="syncAddr()" required />
                                 </div>
                             </div>
                         </div>
@@ -347,13 +448,19 @@ if ($ageLimit->num_rows === 1) {
                             </div>
                             <div class="row g-3" id="presentAddrFields">
                                 <div class="col-12">
-                                    <label class="form-label">House / Road</label>
+                                    <label class="form-label">
+                                        House / Road
+                                        <span style="color: red;">*</span>
+                                    </label>
                                     <input type="text" name="pre_house" class="form-control" id="pres-house"
-                                        placeholder="House no., Road, Village/Area" />
+                                        placeholder="House no., Road, Village/Area" required />
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Division</label>
-                                    <select name="pre_division" class="form-select" id="pres-div">
+                                    <label class="form-label">
+                                        Division
+                                        <span style="color: red;">*</span>
+                                    </label>
+                                    <select name="pre_division" class="form-select" id="pres-div" required>
                                         <option value="">Select division</option>
                                         <option>Dhaka</option>
                                         <option>Chittagong</option>
@@ -366,22 +473,100 @@ if ($ageLimit->num_rows === 1) {
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">District</label>
-                                    <input name="pre_district" type="text" class="form-control" id="pres-dist" placeholder="District" />
+                                    <label class="form-label">
+                                        District
+                                        <span style="color: red;">*</span>
+                                    </label>
+                                    <!-- <input name="pre_district" type="text" class="form-control" id="pres-dist" placeholder="District" /> -->
+                                    <select name="pre_district" class="form-select" id="pres-dist" onchange="syncAddr()" required>
+                                        <option value="">Select District</option>
+                                        <option value="Bagerhat">Bagerhat</option>
+                                        <option value="Bandarban">Bandarban</option>
+                                        <option value="Barguna">Barguna</option>
+                                        <option value="Barishal">Barishal</option>
+                                        <option value="Bhola">Bhola</option>
+                                        <option value="Bogura">Bogura</option>
+                                        <option value="Brahmanbaria">Brahmanbaria</option>
+                                        <option value="Chandpur">Chandpur</option>
+                                        <option value="Chattogram">Chattogram</option>
+                                        <option value="Chuadanga">Chuadanga</option>
+                                        <option value="Cox's Bazar">Cox's Bazar</option>
+                                        <option value="Cumilla">Cumilla</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Dinajpur">Dinajpur</option>
+                                        <option value="Faridpur">Faridpur</option>
+                                        <option value="Feni">Feni</option>
+                                        <option value="Gaibandha">Gaibandha</option>
+                                        <option value="Gazipur">Gazipur</option>
+                                        <option value="Gopalganj">Gopalganj</option>
+                                        <option value="Habiganj">Habiganj</option>
+                                        <option value="Jamalpur">Jamalpur</option>
+                                        <option value="Jashore">Jashore</option>
+                                        <option value="Jhalokathi">Jhalokathi</option>
+                                        <option value="Jhenaidah">Jhenaidah</option>
+                                        <option value="Joypurhat">Joypurhat</option>
+                                        <option value="Khagrachhari">Khagrachhari</option>
+                                        <option value="Khulna">Khulna</option>
+                                        <option value="Kishoreganj">Kishoreganj</option>
+                                        <option value="Kurigram">Kurigram</option>
+                                        <option value="Kushtia">Kushtia</option>
+                                        <option value="Lakshmipur">Lakshmipur</option>
+                                        <option value="Lalmonirhat">Lalmonirhat</option>
+                                        <option value="Madaripur">Madaripur</option>
+                                        <option value="Magura">Magura</option>
+                                        <option value="Manikganj">Manikganj</option>
+                                        <option value="Meherpur">Meherpur</option>
+                                        <option value="Moulvibazar">Moulvibazar</option>
+                                        <option value="Munshiganj">Munshiganj</option>
+                                        <option value="Mymensingh">Mymensingh</option>
+                                        <option value="Naogaon">Naogaon</option>
+                                        <option value="Narail">Narail</option>
+                                        <option value="Narayanganj">Narayanganj</option>
+                                        <option value="Narsingdi">Narsingdi</option>
+                                        <option value="Natore">Natore</option>
+                                        <option value="Netrokona">Netrokona</option>
+                                        <option value="Nilphamari">Nilphamari</option>
+                                        <option value="Noakhali">Noakhali</option>
+                                        <option value="Pabna">Pabna</option>
+                                        <option value="Panchagarh">Panchagarh</option>
+                                        <option value="Patuakhali">Patuakhali</option>
+                                        <option value="Pirojpur">Pirojpur</option>
+                                        <option value="Rajbari">Rajbari</option>
+                                        <option value="Rajshahi">Rajshahi</option>
+                                        <option value="Rangamati">Rangamati</option>
+                                        <option value="Rangpur">Rangpur</option>
+                                        <option value="Satkhira">Satkhira</option>
+                                        <option value="Shariatpur">Shariatpur</option>
+                                        <option value="Sherpur">Sherpur</option>
+                                        <option value="Sirajganj">Sirajganj</option>
+                                        <option value="Sunamganj">Sunamganj</option>
+                                        <option value="Sylhet">Sylhet</option>
+                                        <option value="Tangail">Tangail</option>
+                                        <option value="Thakurgaon">Thakurgaon</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Upazilla</label>
-                                    <input name="pre_upazilla" type="text" class="form-control" id="pres-upa" placeholder="Upazilla" />
+                                    <label class="form-label">
+                                        Upazilla
+                                        <span style="color: red;">*</span>
+                                    </label>
+                                    <input name="pre_upazilla" type="text" class="form-control" id="pres-upa" placeholder="Upazilla" required />
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Post-Office</label>
+                                    <label class="form-label">
+                                        Post-Office
+                                        <span style="color: red;">*</span>
+                                    </label>
                                     <input name="pre_post" type="text" class="form-control" id="pres-post"
                                         placeholder="Post Office Name With Post Code" />
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Post Code</label>
+                                    <label class="form-label">
+                                        Post Code
+                                        <span style="color: red;">*</span>
+                                    </label>
                                     <input name="pre_post_code" type="text" class="form-control" id="pres-post-code"
-                                        placeholder="Post Code" />
+                                        placeholder="Post Code" required />
                                 </div>
                             </div>
                         </div>
@@ -436,6 +621,7 @@ if ($ageLimit->num_rows === 1) {
                                 <i class="bi bi-plus-circle me-1"></i> Add Row
                             </button>
                         </div>
+                        <span class="name-note mt-3">Note:: You must have completed your graduation (Bachelor's or Master's degree or higher).</span>
                     </div>
 
                     <!-- ───────── STEP 5: Training Experience ───────── -->

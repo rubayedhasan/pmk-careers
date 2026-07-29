@@ -21,6 +21,19 @@
                     <div class="results" id="resultList">
                         <!-- 1st: result card  -->
                         <div class="result-card">
+                            <img src="../assets/results/co_exam_foridpur.jpg" alt="" class="result-img">
+                            <div class="result-info">
+                                <h4 class="result-card-title">Credit Officer Selection Result (Faridpur)</h4>
+                                <p class="result-publish-date">29.06.2026</p>
+                            </div>
+
+                            <button class="result-view-btn" type="button">
+                                View Result
+                            </button>
+                        </div>
+
+                        <!-- 1st: result card  -->
+                        <div class="result-card">
                             <img src="../assets/results/co_exam_27.06.2026.jpeg" alt="" class="result-img">
                             <div class="result-info">
                                 <h4 class="result-card-title">Credit Officer Selection Result</h4>

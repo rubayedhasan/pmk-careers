@@ -109,6 +109,42 @@ try {
     $merital_status = clean($dbConnection, $_POST['merital_status'] ?? '');
     $blood_group = clean($dbConnection, $_POST['blood_group'] ?? '');
 
+
+    // Validate Required Field 
+    // Candidate Name 
+    if (empty($candidate_name)) {
+        throw new Exception('Candidate Name is Required');
+    }
+    // fathers Name 
+    if (empty($fathers_name)) {
+        throw new Exception('Fathers Name is Required');
+    }
+    // Mothers Name 
+    if (empty($mothers_name)) {
+        throw new Exception('Mothers Name is Required');
+    }
+    // religion 
+    if (empty($religion)) {
+        throw new Exception('Religion is Required');
+    }
+    // Candidate Name 
+    if (empty($gender)) {
+        throw new Exception('Gender is Required');
+    }
+    // merital_status 
+    if (empty($merital_status)) {
+        throw new Exception('Marital Status is Required');
+    }
+    // blood group 
+    if (empty($blood_group)) {
+        throw new Exception('Blood Group is Required');
+    }
+
+    // blood group 
+    if (empty($candidate_picture)) {
+        throw new Exception('Candidate Picture is Required');
+    }
+
     $candidate_general_query = $dbConnection->prepare("INSERT INTO 	candidate_general_information (user_id,candidate_name,fathers_name,mothers_name,religion,gender,marital_status,blood_group,profile_picture,circular_id,application_id) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
 
     $candidate_general_query->bind_param(
@@ -144,13 +180,32 @@ try {
     $date_of_birth = clean($dbConnection, $_POST['date_of_birth'] ?? '');
 
     // validate the NID 
+    if (empty($national_id)) {
+        throw new Exception('NID is Required');
+    }
+
     if (strlen($national_id) !== 10 && strlen($national_id) !== 17) {
         throw new Exception('NID Must 10 or 17 digit');
     }
 
-    // validate the birth id 
-    if (strlen($birth_id) !== 17) {
-        throw new Exception('Birth Registration Number Must 17 digit');
+    // mobile number
+    if (empty($mobile_no)) {
+        throw new Exception('Mobile Number is Required');
+    }
+
+    // email
+    if (empty($email_id)) {
+        throw new Exception('Email Address is Required');
+    }
+
+    //nationality
+    if (empty($nationality)) {
+        throw new Exception('Nationality is Required');
+    }
+
+    // birth date
+    if (empty($date_of_birth)) {
+        throw new Exception('Birth Date is Required');
     }
 
     $candidateIdentityQuery = $dbConnection->prepare("INSERT INTO candidate_identity (user_id,national_id,birth_id,passport_no,driving_license,tin_no,mobile_no,email_id,nationality,date_of_birth,circular_id,application_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
@@ -192,6 +247,67 @@ try {
     $pre_post_code = clean($dbConnection, $_POST['pre_post_code'] ?? '');
 
 
+    // permanent house
+    if (empty($per_house)) {
+        throw new Exception('Permanent House is Required');
+    }
+
+    // permanent Division
+    if (empty($per_division)) {
+        throw new Exception('Permanent Division is Required');
+    }
+
+    // permanent District
+    if (empty($per_district)) {
+        throw new Exception('Permanent District is Required');
+    }
+
+    // permanent upazila
+    if (empty($per_upazilla)) {
+        throw new Exception('Permanent Upazila is Required');
+    }
+
+    // permanent Post office
+    if (empty($per_post)) {
+        throw new Exception('Permanent Post Office is Required');
+    }
+
+    // permanent Post Office Code
+    if (empty($per_post_code)) {
+        throw new Exception('Permanent Post Office Code is Required');
+    }
+
+    // Present house
+    if (empty($pre_house)) {
+        throw new Exception('Present House is Required');
+    }
+
+    // Present Division
+    if (empty($pre_division)) {
+        throw new Exception('Present Division is Required');
+    }
+
+    // Present District
+    if (empty($pre_district)) {
+        throw new Exception('Present District is Required');
+    }
+
+    // Present upazila
+    if (empty($pre_upazilla)) {
+        throw new Exception('Present Upazila is Required');
+    }
+
+    // Present Post office
+    if (empty($pre_post)) {
+        throw new Exception('Present Post Office is Required');
+    }
+
+    // Present Post Office Code
+    if (empty($pre_post_code)) {
+        throw new Exception('Present Post Office Code is Required');
+    }
+
+
     $candidateAddressQuery = $dbConnection->prepare("INSERT INTO candidate_address (user_id,per_house,per_division,per_district,per_upazilla,per_post,per_post_code,pre_house,pre_division,pre_district,pre_upazilla,pre_post,pre_post_code,circular_id,application_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
     $candidateAddressQuery->bind_param(
@@ -219,9 +335,30 @@ try {
         throw new Exception("step-3(Address) Error:" . $candidateAddressQuery->error);
     }
 
-
+    // validation:: gratulation 
+    $isGraduated = false;
     //ste-4 education (multi rows )
     if (!empty($_POST["education"]) && is_array($_POST["education"])) {
+        // check is graduated or not 
+        foreach ($_POST["education"] as $edu) {
+            $candidate_gradu_edu_exam = clean($dbConnection, $edu["examination"] ?? "");
+
+            if (
+                strcasecmp($candidate_gradu_edu_exam, "Bachelors") === 0 ||
+                strcasecmp($candidate_gradu_edu_exam, "Masters") === 0 ||
+                strcasecmp($candidate_gradu_edu_exam, "PhD") === 0
+            ) {
+                $isGraduated = true;
+                break;
+            }
+        }
+
+        if (!$isGraduated) {
+            throw new Exception("You must have at least one Bachelor's or Master's or PhD degree.");
+        }
+
+
+        //    insert education data 
         foreach ($_POST["education"] as $edu) {
             $candidate_edu_exam = clean($dbConnection, $edu["examination"] ?? "");
             $candidate_edu_institute = clean($dbConnection, $edu["institution"] ?? "");
@@ -251,6 +388,8 @@ try {
                 throw new Exception(("Step-4(EDUCATION) Error:" . $candidateEducationQuery->error));
             }
         }
+    } else {
+        throw new Exception("Education information is required.");
     }
 
     // step-5 training (multi rows )
