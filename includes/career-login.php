@@ -44,6 +44,7 @@ if ($userEmailValid) {
         <div class="action-form">
             <div class="form-container">
                 <h3 class="form-title">Login to your account</h3>
+                <p class="form-short-text">Please log in to your account to continue. If you don't have an account yet, sign up first to get started.</p>
                 <form class="user-form" action="../server/login.php" method="post">
                     <div class="user-field">
                         <label for="user-mobile-number">
@@ -67,7 +68,7 @@ if ($userEmailValid) {
                 </form>
 
                 <p class="action-notice">
-                    Do not have any account? <a href="./career-signup.php">Signup</a>
+                    Do not have any account? <a href="./career-signup.php">Sign up</a>
                 </p>
             </div>
         </div>

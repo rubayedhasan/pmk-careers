@@ -4,13 +4,35 @@ session_start();
 require_once("../db/dbconnect.php");
 $dbConnection = $conn;
 
+// check user is login or not 
+if (!$_SESSION["user"]["userPhoneNumber"]) {
+    header("location:../includes/career-login.php");
+
+    // close the database connection 
+    exit();
+}
+
 // session user data 
+$userId = $_SESSION["user"]["userId"] ?? null;
 $candidateEmail = $_SESSION["user"]["userEmail"] ?? null;
 $candidatePhoneNumber = $_SESSION["user"]["userPhoneNumber"] ?? null;
 
 if (isset($_GET["circular_id"])) {
     $circular_id = $_GET["circular_id"];
     $designation_name = $_GET["designation_name"];
+}
+
+// VALIDATE::  user only apply once 
+$query_before_apply = "SELECT * FROM candidate_general_information WHERE user_id = '$userId' && circular_id = '$circular_id'";
+$user_apply_before = $dbConnection->query($query_before_apply);
+if ($user_apply_before->num_rows > 0) {
+    echo "
+        <script>
+                alert('You have already submitted an application for this job circular. Duplicate applications are not permitted.');
+                window.history.back();
+        </script>
+    ";
+    exit();
 }
 
 

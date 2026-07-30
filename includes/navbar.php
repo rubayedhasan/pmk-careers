@@ -83,7 +83,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../includes/career-signup.php?signup=true">
                                 <span class="nav-icon"><img src="../assets/icons/user-plus-solid-full.svg" alt="icon"></span>
-                                <span>Signup</span>
+                                <span>Sign up</span>
                             </a>
                         </li>
 

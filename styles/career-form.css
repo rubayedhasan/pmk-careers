@@ -67,7 +67,15 @@
   color: var(--pmk-blue-dark);
   font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 6px;
+}
+
+.form-short-text {
+  color: #1f2933c7;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 16px;
 }
 
 .user-field {
@@ -205,6 +213,10 @@
 
   #terms-and-condition {
     text-align: left;
+  }
+
+  .form-short-text {
+    font-size: 0.775rem;
   }
 }
 

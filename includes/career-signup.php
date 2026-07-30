@@ -84,7 +84,7 @@ if ($userEmailValid) {
                                 <button type="button" id="terms-and-condition">PMK Terms & Conditions</button></label>
                         </div>
                         <div>
-                            <button class="form-btn" id="signup-btn" type="submit" name="signup-button">Signup</button>
+                            <button class="form-btn" id="signup-btn" type="submit" name="signup-button">Sign up</button>
                         </div>
                     </div>
                 </form>
