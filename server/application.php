@@ -459,6 +459,36 @@ try {
 
             $candidateEducationQuery = $dbConnection->prepare("INSERT INTO candidate_education (user_id,edu_examination,edu_institution,edu_msubject,board_university,academic_year,result,circular_id) VALUES (?,?,?,?,?,?,?,?)");
 
+            //Examination
+            if (empty($candidate_edu_exam)) {
+                throw new Exception('Examination is Required');
+            }
+
+            //Institution
+            if (empty($candidate_edu_institute)) {
+                throw new Exception('Institution is Required');
+            }
+
+            //Major Subject
+            if (empty($candidate_edu_subject)) {
+                throw new Exception('Major Subject is Required');
+            }
+
+            //Board 
+            if (empty($candidate_edu_university)) {
+                throw new Exception('Board / University  is Required');
+            }
+
+            //Academic Year
+            if (empty($candidate_edu_academic_year)) {
+                throw new Exception('Academic Year is Required');
+            }
+
+            //Result
+            if (empty($candidate_edu_result)) {
+                throw new Exception('Result is Required');
+            }
+
             $candidateEducationQuery->bind_param(
                 "ssssssss",
                 $userId,

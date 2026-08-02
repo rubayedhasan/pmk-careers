@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="?result=true">
+                        <a class="nav-link" aria-current="page" href="../home/index.php?result=true">
                             <span class="nav-icon">
                                 <img src="../assets/icons/square-poll-vertical-solid-full.svg" alt=" icon">
                             </span>

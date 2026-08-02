@@ -611,7 +611,7 @@ if ($ageLimit->num_rows === 1) {
                                 <tbody id="eduBody">
                                     <tr>
                                         <td>
-                                            <select name="edu_examination">
+                                            <select name="edu_examination" required>
                                                 <option value="">Select</option>
                                                 <option value="ssc">SSC</option>
                                                 <option value="hsc">HSC</option>
@@ -622,11 +622,11 @@ if ($ageLimit->num_rows === 1) {
                                                 <option value="other">Other</option>
                                             </select>
                                         </td>
-                                        <td><input name="edu_institution" type="text" placeholder="Institution" /></td>
-                                        <td><input name="edu_msubject" type="text" placeholder="Subject" /></td>
-                                        <td><input name="board_university" type="text" placeholder="Board / University" /></td>
-                                        <td><input name="academic_year" type="text" placeholder="e.g. 2018–2019" /></td>
-                                        <td><input name="result" type="text" placeholder="GPA / Grade" /></td>
+                                        <td><input name="edu_institution" type="text" placeholder="Institution" required /></td>
+                                        <td><input name="edu_msubject" type="text" placeholder="Subject" required /></td>
+                                        <td><input name="board_university" type="text" placeholder="Board / University" required /></td>
+                                        <td><input name="academic_year" type="text" placeholder="e.g. 2018–2019" required /></td>
+                                        <td><input name="result" type="text" placeholder="GPA / Grade" required /></td>
                                         <td>
                                             <button class="del-row-btn" onclick="deleteRow(this)" title="Remove row">
                                                 <i class="bi bi-trash3"></i>

@@ -15,7 +15,7 @@
   justify-items: center;
   gap: 16px;
   margin-top: 20px;
-  padding: 16px 0;
+  padding: 16px 0 40px;
 }
 
 .result-card {
@@ -54,6 +54,30 @@
   font-size: 0.9rem;
   font-weight: 400;
   margin-top: 3px;
+}
+
+.publish-date {
+  color: grey;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: 6px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.date-item svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  margin-bottom: 2px;
 }
 
 .result-view-btn {
