@@ -14,24 +14,23 @@ if (isset($_GET["circular_id"])) {
 
     // query result 
     $rawCircularData = $dbConnection->query($circularDataQuery);
-    $circularData = $rawCircularData->fetch_all(MYSQLI_ASSOC);
+    $circularData = $rawCircularData->fetch_assoc();
 
     // extract the all data a part 
-    $designation_name = $circularData[0]["circular_title"];
-    $designation_category = $circularData[0]["designation_category"];
-    $available_position = $circularData[0]["available_vacancy"];
-    $probation_salary = $circularData[0]["probation_salary"];
-    $gross_salary = $circularData[0]["gross_salary"];
-    $min_age = $circularData[0]["min_age"];
-    $max_age = $circularData[0]["max_age"];
-    $age_deadline = $circularData[0]["age_deadline"];
-    $qualification = $circularData[0]["qualification"];
-    $experience = $circularData[0]["experience"];
-    $additional_requirement = $circularData[0]["additional_requirement"];
-    $training_rules = $circularData[0]["training_rules"];
-    $circular_publish_date = $circularData[0]["circular_publish_date"];
-    $application_deadline = $circularData[0]["application_deadline"];
-    $circular_status = (int)  $circularData[0]["circular_status"];
+    $designation_name = $circularData["circular_title"];
+    $designation_category = $circularData["designation_category"];
+    $available_position = $circularData["available_vacancy"];
+    $probation_salary = $circularData["probation_salary"];
+    $gross_salary = $circularData["gross_salary"];
+    $min_age = $circularData["min_age"];
+    $max_age = $circularData["max_age"];
+    $age_deadline = $circularData["age_deadline"];
+    $circular_description = $circularData["circular_description"];
+    $job_location = $circularData["job_location"];
+    $circular_publish_date = $circularData["circular_publish_date"];
+    $application_deadline = $circularData["application_deadline"];
+    $circular_status = (int)  $circularData["circular_status"];
+    $employment_type = $circularData["employment_type"];
 }
 
 // apply functionality 
@@ -139,7 +138,7 @@ mysqli_close($dbConnection);
                 <p class="vacancy-post-date">
                     Post: <?php echo $circular_publish_date; ?>
                 </p>
-                <p class="vacancy-location">Location: Anywhere in Bangladesh</p>
+                <p class="vacancy-location">Location: <?php echo $job_location; ?></p>
             </hgroup>
 
             <!-- organization overview  -->
@@ -170,8 +169,15 @@ mysqli_close($dbConnection);
                     <thead>
                         <tr>
                             <th>Available Position</th>
-                            <th>Probation Salary</th>
-                            <th>Gross Salary</th>
+                            <?php
+                            if ($probation_salary <= 0 && $gross_salary <= 0) { ?>
+                                <th colspan="2">Salary</th>
+                            <?php } else { ?>
+                                <th>Probation Salary</th>
+                                <th>Gross Salary</th>
+                            <?php   }
+                            ?>
+                            <th>Employment Type</th>
                             <th>Application Deadline</th>
                         </tr>
                     </thead>
@@ -185,23 +191,58 @@ mysqli_close($dbConnection);
                                 </svg>
                                 <?php echo $available_position; ?>
                             </td>
-                            <td data-label="Probation Salary">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-coin-taka">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M8 8l.553 -.276a1 1 0 0 1 1.447 .894v6.382a2 2 0 0 0 2 2h.5a2.5 2.5 0 0 0 2.5 -2.5v-.5h-1" />
-                                    <path d="M8 11h7" />
-                                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                                </svg>
-                                <?php echo "$probation_salary/="; ?>
-                            </td>
-                            <td data-label="Gross Salary">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-coin-taka">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M8 8l.553 -.276a1 1 0 0 1 1.447 .894v6.382a2 2 0 0 0 2 2h.5a2.5 2.5 0 0 0 2.5 -2.5v-.5h-1" />
-                                    <path d="M8 11h7" />
-                                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                                </svg>
-                                <?php echo "$gross_salary/="; ?>
+                            <?php
+                            if ($probation_salary <= 0 && $gross_salary <= 0) { ?>
+                                <td data-label="Salary" colspan="2">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-coin-taka">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M8 8l.553 -.276a1 1 0 0 1 1.447 .894v6.382a2 2 0 0 0 2 2h.5a2.5 2.5 0 0 0 2.5 -2.5v-.5h-1" />
+                                        <path d="M8 11h7" />
+                                        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                                    </svg>
+                                    Salary Negotiable
+                                </td>
+                            <?php } else { ?>
+                                <td data-label="Probation Salary">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-coin-taka">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M8 8l.553 -.276a1 1 0 0 1 1.447 .894v6.382a2 2 0 0 0 2 2h.5a2.5 2.5 0 0 0 2.5 -2.5v-.5h-1" />
+                                        <path d="M8 11h7" />
+                                        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                                    </svg>
+                                    <?php echo "$probation_salary/="; ?>
+                                </td>
+                                <td data-label="Gross Salary">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-coin-taka">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M8 8l.553 -.276a1 1 0 0 1 1.447 .894v6.382a2 2 0 0 0 2 2h.5a2.5 2.5 0 0 0 2.5 -2.5v-.5h-1" />
+                                        <path d="M8 11h7" />
+                                        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                                    </svg>
+                                    <?php echo "$gross_salary/="; ?>
+                                </td>
+                            <?php  }
+                            ?>
+                            <td data-type="Employment Type">
+                                <?php
+
+                                if ((int) $employment_type === 1) {
+                                    echo "Regular";
+                                }
+
+                                if ((int) $employment_type === 2) {
+                                    echo "Contractual";
+                                }
+
+                                if ((int) $employment_type === 3) {
+                                    echo "Intern";
+                                }
+
+                                if ((int) $employment_type === 4) {
+                                    echo "Part-Time";
+                                }
+
+                                ?>
                             </td>
                             <td data-label="Application Deadline">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-week">
@@ -235,44 +276,11 @@ mysqli_close($dbConnection);
                 </p>
             </div>
 
-            <!-- Educational Requirements -->
+            <!-- Circular Description -->
             <div class="vacancy-info">
-                <h4 class="vacancy-info-title">
-                    Educational Requirements
-                </h4>
-                <p class="vacancy-info-description">
-                    <?php echo $qualification; ?>
-                </p>
-            </div>
-
-            <!-- Experience Requirements -->
-            <div class="vacancy-info">
-                <h4 class="vacancy-info-title">
-                    Experience Requirements
-                </h4>
-                <p class="vacancy-info-description">
-                    <?php echo $experience; ?>
-                </p>
-            </div>
-
-            <!-- Skill Required -->
-            <div class="vacancy-info">
-                <h4 class="vacancy-info-title">
-                    Skill Required
-                </h4>
-                <p class="vacancy-info-description">
-                    <?php echo $additional_requirement; ?>
-                </p>
-            </div>
-
-            <!-- Training -->
-            <div class="vacancy-info">
-                <h4 class="vacancy-info-title">
-                    Training
-                </h4>
-                <p class="vacancy-info-description">
-                    <?php echo $training_rules; ?>
-                </p>
+                <?php
+                echo $circular_description;
+                ?>
             </div>
 
             <!-- Minimum Service Commitment -->
@@ -368,6 +376,15 @@ mysqli_close($dbConnection);
                     <li>Other benefits as per the organization's rules and policies</li>
                 </ul>
             </div>
+
+
+            <!-- NOTE:  -->
+            <div class="vacancy-info">
+                <p class="vacancy-info-description">
+                    <strong>Note</strong>: You can submit your CV or resume at <strong>careers.pmk-bd.org</strong>. We encourage all qualified candidates to apply.
+                </p>
+            </div>
+
 
             <!-- apply button  -->
             <form class="apply-btn-container" action="" method="post">

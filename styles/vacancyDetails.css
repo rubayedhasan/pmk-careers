@@ -169,13 +169,18 @@
 
 .vacancy-info-title {
   font-size: 1.25rem;
-  margin-bottom: 12px;
+  margin: 16px 0 12px;
+}
+
+.vacancy-info-list {
+  list-style: disc;
 }
 
 .vacancy-info-list li {
-  list-style: disc;
   list-style-position: inside;
   margin-left: 25px;
+  margin-top: 4px;
+  list-style: disc;
 }
 
 /* vacancy info table  */

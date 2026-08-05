@@ -35,96 +35,86 @@ $dbConnection = $conn;
             <!-- job lists  -->
             <div class="job-list-container" style="margin-bottom: 40px;">
                 <div class="jobs" id="jobLists">
-
-                    <!-- random  -->
                     <?php
                     // update the circular status active to inactive after over the deadline
                     $statusUpdateQuery = $dbConnection->prepare("UPDATE publish_circular SET circular_status = 0 WHERE  application_deadline < CURDATE()");
                     $statusUpdateQuery->execute();
 
                     // circular access from database 
-                    $allCircularQuery = "SELECT circular_id, circular_title,application_deadline FROM publish_circular WHERE circular_status = 1 ORDER BY circular_publish_date DESC";
+                    $allCircularQuery = "SELECT * FROM publish_circular WHERE circular_status = 1 ORDER BY circular_publish_date DESC";
                     $allCircular = $dbConnection->query($allCircularQuery);
 
                     // data array 
                     $circularArray = $allCircular->fetch_all(MYSQLI_ASSOC);
 
                     if (count($circularArray) > 0) {
-                        foreach ($circularArray as $circular) {
-                            echo "
-                        
-                        <div class='job-card'>
+                        foreach ($circularArray as $circular) { ?>
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <a href="../includes/vacancyDetails2.php?circular_id=$circular[circular_id]">
+                                        <h4 class="job-title" style="color:var(--pmk-blue-dark)">
+                                            <?php echo $circular['circular_title']; ?>
+                                        </h4>
+                                    </a>
 
-                        <div class='job-info'>
-                             <a href ='../includes/vacancyDetails.php?circular_id=$circular[circular_id]'>
-                                <h4 class='job-title' style='color:var(--pmk-blue-dark)'>
-                                    $circular[circular_title]
-                                </h4>
-                            </a>
+                                    <div class="job-meta">
+                                        <div class="job-meta-group">
+                                            <span>
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </span>
+                                            <span id="job-location">
+                                                <?php echo $circular['job_location']; ?>
+                                            </span>
+                                        </div>
 
-                            <div class='job-meta'>
-                                <div class='job-meta-group'>
-                                    <span>
-                                        <i class='fa-solid fa-location-dot'></i>
-                                    </span>
-                                    <span id='job-location'>Anywhere in Bangladesh</span>
+                                        <div class="job-meta-group">
+                                            <span>
+                                                <i class="fa-solid fa-business-time"></i>
+                                            </span>
+                                            <span id="job-deadline-time">
+                                                <?php echo $circular['application_deadline']; ?>
+                                            </span>
+                                            <span style='color:red'>
+                                                (Age Limit : Mini- <?php echo $circular['min_age']; ?>
+                                                Max- <?php echo $circular['max_age']; ?>
+                                                Up to <?php echo $circular['age_deadline']; ?>
+                                                )</span>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class='job-meta-group'>
-                                    <span>
-                                        <i class='fa-solid fa-business-time'></i>
-                                    </span>
-                                    <span id='job-deadline-time'>
-                                    $circular[application_deadline]
-                                    </span>
+                                <div class="job-card-actions">
+                                    <a href="../includes/job_application.php?circular_id=<?php echo $circular['circular_id']; ?>&designation_name=<?php echo $circular['circular_title']; ?>" class="job-actions">
+                                        <span class="stack-icon view">
+                                            Apply Now
+                                        </span>
+                                    </a>
+
+                                    <a href="../includes/vacancyDetails.php?circular_id=<?php echo $circular['circular_id']; ?>" class="job-actions">
+                                        <span class="stack-icon view">
+                                            View More
+                                        </span>
+                                    </a>
                                 </div>
+
                             </div>
-                        </div>
-
-                        <div class='job-card-actions'>
-                        <a href ='../includes/job_application.php?circular_id=$circular[circular_id]&designation_name=$circular[circular_title]' class='job-actions'>
-                            <span class='stack-icon view'>
-                              Apply Now
-                            </span>
-                        </a>
-
-                        <a href ='../includes/vacancyDetails.php?circular_id=$circular[circular_id]' class='job-actions'>
-                            <span class='stack-icon view'>
-                                View More
-                            </span>
-                        </a>
-                        </div>
-
-                    </div>
-                        ";
+                        <?php
                         }
-                    } else {
-                        echo "
-                         <div>
-                    <p class='no-vacanc'>
-                        No active job circulars are available at this time. Please check back later for upcoming recruitment opportunities at Palli Mongal Karmosuchi (PMK).
-                    </p>
-                </div>
-                        ";
+                    } else { ?>
+                        <div>
+                            <p class="no-vacanc">
+                                No active job circulars are available at this time. Please check back later for upcoming recruitment opportunities at Palli Mongal Karmosuchi (PMK).
+                            </p>
+                        </div>
+                    <?php
                     }
-
-
 
                     include_once("../includes/vacancy-4.php");
                     include_once("../includes/vacancy-3.php");
 
+
                     ?>
                 </div>
-
-                <!-- view all button  -->
-                <!-- <div class="view-all-jobs-btn-container button-container" style="margin-top: 16px;">
-                    <a href="#pmk-circular-body" class="visit-btn button-effect" id="view-all-jobs-btn">
-                        <span>
-                            <i class="fa-solid fa-briefcase"></i>
-                        </span>
-                        <span>VIEW ALL JOBS</span>
-                    </a>
-                </div> -->
             </div>
     </section>
 </body>
