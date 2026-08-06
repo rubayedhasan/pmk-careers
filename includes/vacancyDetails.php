@@ -54,8 +54,6 @@ mysqli_close($dbConnection);
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -385,11 +383,15 @@ mysqli_close($dbConnection);
                 </p>
             </div>
 
-
             <!-- apply button  -->
-            <form class="apply-btn-container" action="" method="post">
-                <button type="submit" class="apply-btn" name="applyBtn">Apply Now</button>
-            </form>
+            <?php
+            if (!isset($_GET['applied_view'])) { ?>
+                <!-- apply button  -->
+                <form class="apply-btn-container" action="" method="post">
+                    <button type="submit" class="apply-btn" name="applyBtn">Apply Now</button>
+                </form>
+
+            <?php } ?>
         </section>
     </main>
 

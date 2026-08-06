@@ -33,6 +33,45 @@ $result_phase_circular = $dbConnection->query($get_circular_query)->fetch_all(MY
                     <div class="results" id="resultList">
                         <!-- 1st: result card  -->
                         <div class="result-card">
+                            <img src="../assets/results/bm_exam_26.07.2026.jpg" alt="" class="result-img">
+                            <div class="result-info">
+                                <h4 class="result-card-title">Branch Manager Selection Result</h4>
+                                <p class="result-publish-date">28.07.2026</p>
+                            </div>
+
+                            <button class="result-view-btn" type="button">
+                                View Result
+                            </button>
+                        </div>
+
+                        <!-- 1st: result card  -->
+                        <div class="result-card">
+                            <img src="../assets/results/co_exam_18.07.2026.jpg" alt="" class="result-img">
+                            <div class="result-info">
+                                <h4 class="result-card-title">Credit Officer Selection Result</h4>
+                                <p class="result-publish-date">21.07.2026</p>
+                            </div>
+
+                            <button class="result-view-btn" type="button">
+                                View Result
+                            </button>
+                        </div>
+
+                        <!-- 1st: result card  -->
+                        <div class="result-card">
+                            <img src="../assets/results/bm_exam10.07.2026.jpg" alt="" class="result-img">
+                            <div class="result-info">
+                                <h4 class="result-card-title">Branch Manger Selection Result</h4>
+                                <p class="result-publish-date">12.07.2026</p>
+                            </div>
+
+                            <button class="result-view-btn" type="button">
+                                View Result
+                            </button>
+                        </div>
+
+                        <!-- 1st: result card  -->
+                        <div class="result-card">
                             <img src="../assets/results/co_exam_foridpur.jpg" alt="" class="result-img">
                             <div class="result-info">
                                 <h4 class="result-card-title">Credit Officer Selection Result (Faridpur)</h4>
@@ -92,11 +131,11 @@ $result_phase_circular = $dbConnection->query($get_circular_query)->fetch_all(MY
                             <?php
                             }
                         } else { ?>
-                            <div class="result-card" style="text-align: center !important; display:block !important;">
+                            <!-- <div class="result-card" style="text-align: center !important; display:block !important;">
                                 <div class="result-info">
                                     <h4 class="result-card-title">No circular results have been published yet</h4>
                                 </div>
-                            </div>
+                            </div> -->
                         <?php   }
                         ?>
                     </div>

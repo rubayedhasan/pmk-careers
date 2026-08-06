@@ -24,10 +24,10 @@
         if (isset($_GET["result"])) {
             // Linked section:: result-board 
             include_once("../includes/result-board.php");
+        } elseif (isset($_GET["applied"])) {
+            // Linked section:: applied job
+            include_once("../includes/applied_jobs.php");
         } else {
-            // Linked section:: circular-head 
-            // include_once("../includes/circular-head.php");
-
             // Linked section:: circular-body 
             include_once("../includes/circular-body.php");
         }

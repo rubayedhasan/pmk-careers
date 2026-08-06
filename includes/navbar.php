@@ -60,7 +60,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="?applied=true">
                                 <span class="nav-icon">
                                     <img src="../assets/icons/briefcase-solid-full.svg" alt="icon">
                                 </span>

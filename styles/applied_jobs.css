@@ -1,0 +1,277 @@
+/* applied list  */
+#applied-job-list {
+  min-height: 280px;
+  margin: 40px 0;
+}
+
+.applied-title {
+  color: var(--pmk-blue-dark);
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 1.3;
+}
+
+.applied-text {
+  color: var(--pmk-dark);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* job list  */
+.applied-jobs {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.applied-job {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: var(--pmk-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s ease;
+}
+
+.applied-job:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border-color: #dcdcdc;
+}
+
+.org-logo {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.org-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.job-description {
+  flex: 1;
+}
+
+.job-desc-title {
+  color: var(--pmk-blue-dark);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.job-desc-loc {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 4px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.job-desc-loc svg,
+.desc-info svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+}
+
+.job-desc-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desc-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #1f2933cc;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.view-job-info {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-job-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  cursor: pointer;
+  color: var(--pmk-white);
+  font-size: 0.8rem;
+  padding: 8px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  background: #2ecc71;
+}
+
+.view-job-details:hover {
+  font-weight: 500;
+}
+
+/* no applied  */
+.no-applied {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: var(--pmk-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s ease;
+}
+
+.no-applied:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border-color: #dcdcdc;
+}
+
+.no-text {
+  color: #1f2933cc;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: normal;
+}
+
+/* responsive styles:: small devices  */
+@media (max-width: 767.98px) {
+  #applied-job-list {
+    min-height: unset;
+    margin-top: 32px;
+  }
+
+  .applied-title {
+    font-size: 1.45rem;
+  }
+
+  .applied-text {
+    font-size: 0.875rem;
+  }
+
+  /* job list  */
+  .applied-jobs {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .applied-job {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .org-logo {
+    display: none;
+  }
+
+  .job-description {
+    flex: 1;
+  }
+
+  .job-desc-title {
+    font-size: 1.2rem;
+  }
+
+  .job-desc-loc {
+    font-size: 0.875rem;
+    margin-top: 6px;
+  }
+
+  .desc-info {
+    font-size: 0.85rem;
+  }
+
+  .view-job-info {
+    width: 100%;
+  }
+
+  .view-job-details {
+    width: 100%;
+    font-size: 0.775rem;
+  }
+
+  .view-job-details:hover {
+    font-weight: 500;
+  }
+
+  .no-text {
+    font-size: 0.825rem;
+    text-align: justify;
+  }
+}
+
+/* responsive styles:: medium devices  */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .applied-job {
+    width: 100%;
+  }
+
+  #applied-job-list {
+    min-height: unset;
+    margin-top: 32px;
+  }
+
+  .applied-title {
+    font-size: 1.45rem;
+  }
+
+  .applied-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* responsive styles:: large devices */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #applied-job-list {
+    min-height: 280px;
+  }
+}
+
+/* responsive styles:: extra large devices  */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  #applied-job-list {
+    min-height: 280px;
+  }
+}
+
+/* responsive styles:: extra extra large devices  */
+@media (min-width: 1400px) {
+}
