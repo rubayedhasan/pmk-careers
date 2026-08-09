@@ -51,7 +51,7 @@
                     if ($userEmailValid) {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="?profile=true">
                                 <span class="nav-icon">
                                     <img src="../assets/icons/circle-user-solid-full.svg" alt="icon">
                                 </span>

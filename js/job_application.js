@@ -96,6 +96,10 @@ async function handleSave() {
     "blood_group",
     document.querySelector('[name="blood_group"]').value,
   );
+  formData.append(
+    "additional_information",
+    document.querySelector('[name="additional_information"]').value,
+  );
 
   // Employee picture
   const pic = document.getElementById("picUpload").files[0];

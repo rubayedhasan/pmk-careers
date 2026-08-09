@@ -218,6 +218,14 @@ if ($ageLimit->num_rows === 1) {
                                     <option value="O-">O-</option>
                                 </select>
                             </div>
+
+                            <div class="col-12">
+                                <label for="additional=information" class="form-label">
+                                    Additional Information
+                                </label>
+                                <textarea name="additional_information" class="form-control" id="additional=information" placeholder="For development roles, GitHub and live project links are required. If none, enter “NA”."></textarea>
+                            </div>
+
                             <div class="col-12">
                                 <label class="form-label">
                                     Upload Picture

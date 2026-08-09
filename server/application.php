@@ -195,6 +195,7 @@ try {
     $gender = clean($dbConnection, $_POST['gender'] ?? '');
     $merital_status = clean($dbConnection, $_POST['merital_status'] ?? '');
     $blood_group = clean($dbConnection, $_POST['blood_group'] ?? '');
+    $additional_information = trim($_POST['additional_information']) ?? '';
 
 
     // Validate Required Field 
@@ -222,6 +223,7 @@ try {
     if (empty($merital_status)) {
         throw new Exception('Marital Status is Required');
     }
+
     // blood group 
     if (empty($blood_group)) {
         throw new Exception('Blood Group is Required');
@@ -237,10 +239,10 @@ try {
         throw new Exception('Candidate signature is Required');
     }
 
-    $candidate_general_query = $dbConnection->prepare("INSERT INTO 	candidate_general_information (user_id,candidate_name,fathers_name,mothers_name,religion,gender,marital_status,blood_group,profile_picture,circular_id,signature) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+    $candidate_general_query = $dbConnection->prepare("INSERT INTO 	candidate_general_information (user_id,candidate_name,fathers_name,mothers_name,religion,gender,marital_status,blood_group,profile_picture,circular_id,signature, additonal_information) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
 
     $candidate_general_query->bind_param(
-        "sssssssssss",
+        "ssssssssssss",
         $userId,
         $candidate_name,
         $fathers_name,
@@ -251,7 +253,8 @@ try {
         $blood_group,
         $candidate_picture,
         $circular_id,
-        $candidate_signature
+        $candidate_signature,
+        $additional_information
     );
 
     $outComeOfCandidateGeneralQuery = $candidate_general_query->execute();
