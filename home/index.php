@@ -26,7 +26,7 @@
             include_once("../includes/result-board.php");
         } elseif (isset($_GET["profile"])) {
             // Linked section:: Profile
-            include_once("../includes/profile.php");
+            include_once("../includes/user_profile.php");
             // include_once("../includes/user_profile.php");
         } elseif (isset($_GET["applied"])) {
             // Linked section:: applied job
